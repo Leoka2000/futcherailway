@@ -87,15 +87,13 @@
             {{-- Activates the menu item when a route matches the `link` property --}}
             <x-mary-menu activate-by-route>
                
-                <x-mary-menu-item title="Home" icon="o-home" link="###" />
-                <x-mary-menu-item title="Messages" icon="o-envelope" link="###" />
-                <x-mary-menu-item title="Profile" icon="o-envelope" link="user/profile" />
+                <x-mary-menu-item title="Início" icon="o-home" link="###" />
+                <x-mary-menu-item title="Perfil" icon="o-user" link="{{route('profile.show')}}"  />
+                <x-mary-menu-item title="Entre em contato" icon="o-chat-bubble-left-right" link="###" />
+                <x-mary-menu-item title="Termos de Serviço" icon="o-information-circle" link="###" />
+                <x-mary-menu-item title="Camisas" class="text-warning" icon="o-gift" link="###" />
 
-                <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
-                    <x-mary-menu-item title="Wifi" icon="o-wifi" link="####" />
-
-
-                </x-mary-menu-sub>
+            
 
 
 

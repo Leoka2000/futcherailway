@@ -7,7 +7,7 @@
         {{ __('Add additional security to your account using two factor authentication.') }}
     </x-slot>
 
-    <x-slot name="content">
+    <x-slot name="content" class="">
         <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             @if ($this->enabled)
                 @if ($showingConfirmation)
