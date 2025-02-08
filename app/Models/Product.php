@@ -16,6 +16,16 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function getImagesAttribute()
+    {
+        return explode(',', $this->image);
+    }
+
+    //              $product = Product::first();
+   //               $images = $product->images;  Returns an array of image URLs//
+
+
+
     public function scopeSearch($query, $value){
         $query->where('name','like',"%{$value}%")
         ->orWhere('description','like',"%{$value}%");
