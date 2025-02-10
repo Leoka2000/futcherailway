@@ -158,18 +158,21 @@ new class extends Component {
                     </p>
 
                 </x-slot:figure>
+                <div class="mb-1 gap-1">
+                    <p class="xl:text-xl font-semibold dark:text-red-600 text-red-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
+                </div>
                 <div class="flex items-center gap-1">
-                    <p class="text-xl font-semibold dark:text-red-600 text-red-500">R$ {{$product->price}}</p><p class="text-xs mt-1 dark:text-gray-600 text-gray-400 "> <del>R$ 159.99 <del></p>
+                    <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-red-600 text-red-500 font-semibold">R$ 15,24</span></p>
                 </div>
                 <x-slot:menu>
                     <x-mary-button icon="o-heart" class="btn-circle btn-sm shadow-md" />
 
                 </x-slot:menu>
 
-                <x-slot:actions class="w-full">
+                <div class="mt-5">
                     <x-mary-button label="Ver mais" icon="o-eye" class="btn-warning w-full shadow-md" />
 
-                </x-slot:actions>
+                    </div>
 
 
 
