@@ -1,4 +1,25 @@
 <x-guest-layout>
+    <style>
+         #password:focus,
+        #email:focus,
+        #remember_me:focus {
+            outline: 2px solid oklch(var(--wa)) !important;
+            outline-offset: 2px !important;
+            box-shadow: none !important;
+            /* Remove any default box-shadow */
+            border-color: transparent !important;
+            /* Ensure no border color is applied */
+        }
+
+       
+
+  
+
+
+        input[type="checkbox"]:checked {
+            background-color: oklch(var(--wa)) !important;
+        }
+    </style>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -39,7 +60,7 @@
                     </a>
                 @endif
 
-                <x-button class="ms-4">
+                <x-button class="ms-4 " style="background-color:oklch(var(--wa)); color: black!important">
                     {{ __('Log in') }}
                 </x-button>
             </div>

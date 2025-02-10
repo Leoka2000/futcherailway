@@ -26,10 +26,7 @@ class Product extends Model
 
 
 
-    public function scopeSearch($query, $value){
-        $query->where('name','like',"%{$value}%")
-        ->orWhere('description','like',"%{$value}%");
-    }
+  
 
     // Casting thhe image field to a array 
     protected $casts = [

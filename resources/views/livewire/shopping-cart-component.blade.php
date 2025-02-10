@@ -171,8 +171,7 @@ new class extends Component {
 
                 <div class="mt-5">
                     <x-mary-button label="Ver mais" icon="o-eye" class="btn-warning w-full shadow-md" />
-
-                    </div>
+                </div>
 
 
 
