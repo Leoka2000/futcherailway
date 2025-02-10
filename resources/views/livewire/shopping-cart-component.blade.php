@@ -135,12 +135,10 @@ new class extends Component {
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @forelse($products as $product)
             <x-mary-card title="{{ $product->name }}" class="dark:bg-gray-800 text-sm relative shadow-md">
-                <p class="top-2 left-2 px-2 py-1 absolute rounded-badge text-sm text-gray-900 bg-warning flex items-center justify-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+               
+                <span class="inline-flex items-start gap-1 top-2 left-2 absolute rounded-md bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-400 dark:ring-yellow-600 ring-inset"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-                    </svg>
-                    21%
-                </p>
+                    </svg> 21%</span>
 
                 <x-slot:figure class="relative">
                     @php
@@ -151,11 +149,8 @@ new class extends Component {
                     @endphp
 
                     <img src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" />
+                    <span class="inline-flex  bottom-2 right-2 absolute  items-start rounded-md text-start bg-green-100 px-2 py-1 text-xs gap-1 font-medium dark:text-green-500 text-green-600 ring-1 ring-green-600/20 ring-inset">  <x-mary-icon name="o-truck" /> <span class="mt-[3px]"> FRETE GRÁTIS</span></span>
 
-                    <p class="px-4 py-1 bottom-2 right-2 absolute  rounded-badge text-xs text-gray-100 bg-green-600 flex items-center justify-center gap-1">
-                        <x-mary-icon name="o-truck" />
-                        FRETE GRÁTIS
-                    </p>
 
                 </x-slot:figure>
                 <div class="mb-1 gap-1">

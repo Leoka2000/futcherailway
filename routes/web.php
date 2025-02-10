@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('livewire.components.hero');
 });
 
+Route::view('catalogo', 'livewire.components.shopping_cart_component_guest')
+    ->name('components.shopping_cart_component_guest');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
