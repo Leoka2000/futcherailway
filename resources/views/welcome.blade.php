@@ -16,6 +16,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
+<style>
+    .custombox {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+</style>
 
 <body class="font-sans antialiased relative">
     {{-- The navbar with `sticky` and `full-width` --}}
@@ -33,7 +38,7 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="" icon="o-shopping-cart" link="#" class="btn relative" responsive><x-mary-badge value="7" class="badge-warning indicator-item absolute -right-2 -top-2" /></x-mary-button>
+            <x-mary-button label="" icon="o-shopping-cart" link="#" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
             <x-mary-button label="" icon="o-user" link="{{route('profile.show')}}" class="btn-ghost btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
@@ -44,11 +49,11 @@
         <x-slot:brand>
 
 
-        <x-mary-input class="border-warning outline-warning">
-                    <x-slot:append>
-                        <x-mary-button icon="o-magnifying-glass" class="btn-warning rounded-s-none" />
-                    </x-slot:append>
-                </x-mary-input>
+            <x-mary-input class="border-warning outline-warning">
+                <x-slot:append>
+                    <x-mary-button icon="o-magnifying-glass" class="btn-warning rounded-s-none" />
+                </x-slot:append>
+            </x-mary-input>
         </x-slot:brand>
 
         {{-- Right side actions --}}
@@ -86,26 +91,20 @@
 
             {{-- Activates the menu item when a route matches the `link` property --}}
             <x-mary-menu activate-by-route>
-               
+
                 <x-mary-menu-item title="Início" icon="o-home" link="###" />
-                <x-mary-menu-item title="Perfil" icon="o-user" link="{{route('profile.show')}}"  />
+                <x-mary-menu-item title="Perfil" icon="o-user" link="{{route('profile.show')}}" />
                 <x-mary-menu-item title="Entre em contato" icon="o-chat-bubble-left-right" link="###" />
                 <x-mary-menu-item title="Termos de Serviço" icon="o-information-circle" link="###" />
                 <x-mary-menu-item title="Camisas" class="text-warning" icon="o-gift" link="###" />
-
-            
-
-
-
             </x-mary-menu>
-
-
-
         </x-slot:sidebar>
 
         {{-- The `$slot` goes here --}}
         <x-slot:content>
-            content
+            <div class="p-6 lg:p-8 dark:bg-inherit bg-gray-50 custombox rounded">
+                <livewire:shopping-cart-component />
+            </div>
         </x-slot:content>
 
     </x-mary-main>

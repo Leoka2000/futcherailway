@@ -12,6 +12,7 @@
         you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
         ecosystem to be a breath of fresh air. We hope you love it.
     </p>
+    aokskoaskasko
 </div>
 
 <div class="bg-gray-200 dark:bg-gray-800 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">

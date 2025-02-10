@@ -52,6 +52,7 @@ return [
     |
     */
 
+    // 'url' => env('APP_URL', 'http://futche.fly.dev'),
     'url' => env('APP_URL', 'http://localhost'),
 
     /*

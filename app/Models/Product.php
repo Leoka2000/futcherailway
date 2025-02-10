@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'category_id','image'];
+    protected $fillable = ['name', 'description', 'price', 'category_id', 'size', 'image'];
 
     public function category()
     {
@@ -30,4 +30,9 @@ class Product extends Model
         $query->where('name','like',"%{$value}%")
         ->orWhere('description','like',"%{$value}%");
     }
+
+    // Casting thhe image field to a array 
+    protected $casts = [
+        'image' => 'array',
+    ];
 }

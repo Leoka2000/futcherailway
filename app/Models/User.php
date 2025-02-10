@@ -3,17 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Filament\Panel;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable  /*implements MustVerifyEmail*/
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
 
@@ -24,6 +24,10 @@ class User extends Authenticatable  /*implements MustVerifyEmail*/
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true; #muito importante para o funcionamento de acesso ao painel
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -68,4 +72,6 @@ class User extends Authenticatable  /*implements MustVerifyEmail*/
             'password' => 'hashed',
         ];
     }
+
+   
 }
