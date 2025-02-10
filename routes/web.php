@@ -9,6 +9,9 @@ Route::get('/', function () {
 Route::view('catalogo', 'livewire.components.shopping_cart_component_guest')
     ->name('components.shopping_cart_component_guest');
 
+Route::view('termos-e-servicos', 'policy')
+    ->name('policy');
+
 
 Route::middleware([
     'auth:sanctum',

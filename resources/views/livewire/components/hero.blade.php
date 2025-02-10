@@ -36,7 +36,7 @@
                         </h1>
                         <p class="mx-auto text-base dark:text-gray-200 text-gray-900 sm:max-w-md lg:text-xl md:max-w-3xl"> Para ter acesso ao catálogo, clique no botão abaixo e confira nossas peças Exclusivas </p>
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                        <x-mary-button label="Catálogo" class="btn-warning bg-yellow-400 w-full" icon="o-gift" />
+                        <x-mary-button label="Catálogo" class="btn-warning bg-yellow-400 w-full" link="{{ route('components.shopping_cart_component_guest')}}" icon="o-gift" />
                         </div>
                     </div>
                 </div>

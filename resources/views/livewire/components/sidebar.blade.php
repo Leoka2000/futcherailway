@@ -15,9 +15,9 @@
         <x-mary-menu activate-by-route>
             <x-mary-menu-item title="Início" icon="o-home" link="/" />
             <x-mary-menu-item title="Perfil" icon="o-user" link="{{route('profile.show')}}" />
-            <x-mary-menu-item title="Entre em contato" icon="o-chat-bubble-left-right" link="##" />
-            <x-mary-menu-item title="Termos de Serviço" icon="o-information-circle" link="###" />
-            <x-mary-menu-item title="Camisas" class="text-warning" icon="o-gift" link="{{route('components.shopping_cart_component_guest')}}" />
+            <x-mary-menu-item title="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" />
+            <x-mary-menu-item title="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" />
+            <x-mary-menu-item title="Camisas" class="text-warning" icon="o-gift" link="{{ route('components.shopping_cart_component_guest')}}" />
         </x-mary-menu>
     </x-slot:sidebar>
 </div>

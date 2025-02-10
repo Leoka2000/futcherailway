@@ -48,8 +48,8 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="#" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" link="{{route('profile.show')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
             <x-mary-button label="Rastrear pedido" icon="o-map-pin" link="{{route('profile.show')}}" class="btn-ghost btn-sm" responsive />
         </x-slot:actions>
     </x-mary-nav>
