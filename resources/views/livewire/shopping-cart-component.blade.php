@@ -31,13 +31,8 @@ new class extends Component {
 
     public function products(): Collection
     {
-        return Product::query()
-            ->with(['category'])
-            ->when($this->category_id, fn(Builder $q) => $q->where('category_id', $this->category_id))
-            ->where('name', 'like', "%$this->search%")
-            ->take(10)
-            ->latest($this->sort)
-            ->get();
+        return Product::all();
+            
     }
 
     public function productChoices(): array
