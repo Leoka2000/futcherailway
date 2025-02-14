@@ -11,19 +11,21 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="photoswipe/dist/photoswipe.css">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/photoswipe.js'])
     <!-- Styles -->
     @livewireStyles
-
 
     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
+
+
+
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased">ú
 
     <x-mary-nav sticky full-width class="shadow-sm">
         <x-slot:brand>
@@ -45,25 +47,12 @@
             <h1 class="text-2xl font-bold mb-4">{{ $product->name }}</h1>
 
             @php
-            // Decode the JSON string of images into an array
-            $images = $product->image;
-
-            // Prepare the slides array for the carousel
-            $slides = [];
-            if (!empty($images) && is_array($images)) {
-            foreach ($images as $image) {
-            $slides[] = [
-            'image' => asset('storage/' . $image), // Ensure the path is correct
-            'title' => $product->name,
-            'description' => $product->description,
-            ];
-            }
-            }
+            $images = is_string($product->image) ? json_decode($product->image, true) : $product->image;
+            $images = collect($images)->map(fn($img) => asset('storage/' . $img))->toArray();
             @endphp
 
-            @if(!empty($slides))
-            <!-- Display the carousel -->
-            <x-mary-carousel :slides="$slides" />
+            @if (!empty($images))
+            <x-mary-image-gallery :images="$images" class="h-40 rounded-box" />
             @else
             <p>No images available</p>
             @endif
@@ -74,12 +63,6 @@
 
     {{-- TOAST area --}}
     <x-mary-toast />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js" integrity="sha512-S9RkWnGja84tXKFxTN7iLVP3pUCsnfqnF+0ZK2CSOhmCqa6lxoutHUoizBVnqCIsH8HW7e/3u9HEOOwlR01TLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js" integrity="sha512-AyqbkQ0CCFXttmj38AAryPYIKEOdL6lApyzLje2dyvMwLoHv7PPXIeKS86gF4V85Gv+ZsCiOSP0yHaCXcemmaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe-lightbox.umd.min.js" integrity="sha512-D16CBrIrVF48W0Ou0ca3D65JFo/HaEAjTugBXeWS/JH+1KNu54ZOtHPccxJ7PQ44rTItUT6DSI6xNL+U34SuuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe.umd.min.js" integrity="sha512-BXwwGU7zCXVgpT2jpXnTbioT9q1Byf7NEXVxovTZPlNvelL2I/4LjOaoiB2a19L+g5za8RbkoJFH4fMPQcjFFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

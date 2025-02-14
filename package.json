@@ -18,6 +18,7 @@
         "vite": "^6.0.11"
     },
     "dependencies": {
-        "heroicons": "^2.2.0"
+        "heroicons": "^2.2.0",
+        "photoswipe": "^5.4.4"
     }
 }

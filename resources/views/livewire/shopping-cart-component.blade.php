@@ -16,7 +16,7 @@ new class extends Component {
     public ?int $category_id = 0;
     public array $selected_product_ids = [];
 
-    #[Url]
+    
     public string $sort = 'updated_at';
 
     public function clear(): void
