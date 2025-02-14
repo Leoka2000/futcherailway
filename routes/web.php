@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('livewire.components.hero');
@@ -12,6 +13,7 @@ Route::view('catalogo', 'livewire.components.shopping_cart_component_guest')
 Route::view('termos-e-servicos', 'policy')
     ->name('policy');
 
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::middleware([
     'auth:sanctum',

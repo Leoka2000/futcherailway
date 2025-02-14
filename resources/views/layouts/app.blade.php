@@ -67,6 +67,7 @@
 
     {{-- TOAST area --}}
     <x-mary-toast />
+    
 </body>
 
 </html>

@@ -156,14 +156,10 @@ new class extends Component {
                 </div>
                 <x-slot:menu>
                     <x-mary-button icon="o-heart" class="btn-circle btn-sm shadow-md" />
-
                 </x-slot:menu>
-
-                <div class="mt-5">
-                    <x-mary-button label="Ver mais" icon="o-eye" class="btn-warning w-full shadow-md" />
+                <div class="mt-5 flex justify-between  ">
+                <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">Ver mais</a>
                 </div>
-
-
 
             </x-mary-card>
             @empty
