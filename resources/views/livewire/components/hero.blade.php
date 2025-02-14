@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="px-2 py-20 container relative isolate   bg-white dark:bg-inherit md:px-0">
+    <section  class="px-2 py-20 container relative isolate   bg-white dark:bg-inherit md:px-0" x-data="{ loading: false }">
         <div class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-[5rem] xl:-top-6 opacity-70 animate-blur-move" aria-hidden="true">
             <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#facc15] to-[#4ade80]"
                 style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
@@ -36,7 +36,15 @@
                         </h1>
                         <p class="mx-auto text-base dark:text-gray-200 text-gray-900 sm:max-w-md lg:text-xl md:max-w-3xl"> Para ter acesso ao catálogo, clique no botão abaixo e confira nossas peças Exclusivas </p>
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                        <x-mary-button label="Catálogo" class="btn-warning bg-yellow-400 w-full" link="{{ route('components.shopping_cart_component_guest')}}" icon="o-gift" />
+                        <a  
+                               @click="loading = true" 
+                               class="btn w-full customcssbtn btn-warning mt-5 flex items-center justify-center"
+                               :disabled="loading">
+                                <span x-show="!loading">Ver mais</span>
+                                <span x-show="loading">
+                                <x-mary-loading class="text-gray-400 " x-show="loading" />
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>

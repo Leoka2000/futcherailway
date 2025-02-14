@@ -28,8 +28,8 @@
             <label for="main-drawer" class="lg:hidden mr-3">
                 <x-mary-icon name="o-bars-3" class="cursor-pointer" />
             </label>
-            <img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}"
-                alt="logo" title="logo" />
+            <a class="cursor-pointer" href="/"><img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}"
+                alt="logo" title="logo" /></a>
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
