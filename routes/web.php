@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('livewire.components.hero');
 });
 
-Route::view('catalogo', 'livewire.components.shopping_cart_component_guest')
-    ->name('components.shopping_cart_component_guest');
+Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
+    ->name('components.shopping_cart_component_index');
 
 Route::view('termos-e-servicos', 'policy')
     ->name('policy');

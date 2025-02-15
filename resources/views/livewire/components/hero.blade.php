@@ -43,7 +43,7 @@
                                 @click="
         loading = true;
         setTimeout(() => {
-            window.location.href = '{{ route('components.shopping_cart_component_guest') }}'; 
+            window.location.href = '{{ route('components.shopping_cart_component_index') }}'; 
         }, 1000);"
                                 class="btn w-full customcssbtn btn-warning  mt-5 flex items-center justify-center"
                                 :disabled="loading">
