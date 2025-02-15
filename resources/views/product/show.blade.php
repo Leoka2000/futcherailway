@@ -21,6 +21,28 @@
     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
+
+    <style>
+         .customcss 
+       {
+            outline: 2px solid oklch(var(--wa)) !important;
+            outline-offset: 2px !important;
+            box-shadow: none !important;
+            /* Remove any default box-shadow */
+            border-radius: 0.20rem;
+            border-color: transparent !important;
+            /* Ensure no border color is applied */
+        }
+
+       
+
+  
+
+
+        input[type="checkbox"]:checked {
+            background-color: oklch(var(--wa)) !important;
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased">
@@ -165,7 +187,7 @@
 
                                                                 <div class="mt-4">
                                                                     <div class="flex items-center">
-                                                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-G transition duration-150 ease-in-out">
+                                                                        <input type="checkbox" class="form-checkbox customcss h-4 w-4 text-yellow-500 transition duration-150 ease-in-out">
                                                                         <span class="ml-2 text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
                                                                     </div>
                                                                     <div class="mt-2 text-sm text text-gray-700">Economia de R$ 110,00</div>

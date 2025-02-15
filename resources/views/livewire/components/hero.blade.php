@@ -64,4 +64,8 @@
             </div>
         </div>
     </section>
+    <x-testimonials />
+    <x-faq />
+    <x-team />
+    
 </x-guest-layout>
