@@ -135,6 +135,7 @@
                                                         <svg class="size-5 shrink-0 text-gray-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                                             <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
                                                         </svg>
+                                                        
                                                     </div>
                                                     <p class="sr-only">3.9 out of 5 stars</p>
                                                     <a href="#" class="ml-3 text-sm font-medium text-yellow-500 hover:text-yellow-500">117 reviews</a>
@@ -169,149 +170,201 @@
                                                     </div>
                                                 </fieldset>
 
-                                                <!-- Sizes -->
-                                                <fieldset class="my-10" aria-label="Choose a size">
-                                                    <div >
-                                                        <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-sm w-full">
-                                                            <div class="p-6">
-                                                                <span class="text-sm text-gray-500">Cód. Item 9846903013665</span>
-                                                             
-                                                                <span class=" rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
-                                                                <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Mega Manto Sport®</span></div>
+                                                <!--    MEU CODIGOOO-->
+                                                <div class="my-2">
+                                                    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+                                                        <div class="text-sm text-gray-700 mb-2">
+                                                            <span class="font-bold text-green-600">Frete Grátis</span> para <span class="font-bold">Budapest, BU, Hungary e Região</span>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm">Entrega estimada entre <span class="font-bold">01 e 16 de março</span>.</p>
 
-                                                                <div class="mt-4">
-                                                                    <span class="text-2xl font-bold text-gray-900">R$ 189,90</span>
-                                                                    <span class="text-sm text-gray-500 line-through ml-2">R$ 299,90</span>
-                                                                    <span class="text-sm text-green-600 ml-2">37% off</span>
-                                                                </div>
+                                                        <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-6 my-4">
 
-                                                                <div class="mt-4">
-                                                                    <div class="flex items-center">
-                                                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                                                        <span class="ml-2 text-sm text-gray-700">em até 12x de R$ 19,24</span>
-                                                                    </div>
-                                                                    <div class="mt-2 text-sm text-gray-700">Economia de R$ 110,00</div>
-                                                                </div>
+                                                            <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
+
+                                                            <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
+                                                            <img src="{{asset('pix.png')}}" alt="Pix" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
+
+                                                            <img src="{{asset('caixa.svg')}}" alt="Caixa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3">
+                                                            <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 px-2">
+                                                            <img src="{{asset('mercadopago.svg')}}" alt="Mercado Pago" class="h-10 border border-gray-200 shadow-sm rounded-md ">
 
 
-                                                            </div>
+                                                        </div>
+
+                                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                                            <h3 class="text-gray-800 font-semibold mb-2">Parcelas</h3>
+                                                            <ul class="text-gray-700 text-sm space-y-1">
+                                                                <li><strong>1x</strong> de R$ 189,90 à vista</li>
+                                                                <li><strong>2x</strong> de R$ 94,95 sem juros</li>
+                                                                <li><strong>3x</strong> de R$ 63,30 sem juros</li>
+                                                                <li><strong>4x</strong> de R$ 52,64* </li>
+                                                                <li><strong>5x</strong> de R$ 42,65* </li>
+                                                                <li><strong>6x</strong> de R$ 35,99* </li>
+                                                                <li><strong>7x</strong> de R$ 31,13* </li>
+                                                                <li><strong>8x</strong> de R$ 27,57* </li>
+                                                                <li><strong>9x</strong> de R$ 24,83* </li>
+                                                                <li><strong>10x</strong> de R$ 22,52* </li>
+                                                                <li><strong>11x</strong> de R$ 20,73* </li>
+                                                                <li><strong>12x</strong> de R$ 19,24* </li>
+                                                            </ul>
+                                                            <p class="text-xs text-gray-500 mt-1">*Com juros.</p>
+                                                        </div>
+
+                                                        <div class="mt-4 p-4 bg-gray-50 rounded-lg text-sm text-gray-700">
+                                                            <p class="flex items-center"><img src="{{asset('boleto.png')}}" class="h-5 mr-2">O prazo de pagamento via boleto bancário é de 2 dias corridos.</p>
+                                                        </div>
+
+                                                        <div class="mt-2 p-4 bg-green-100 rounded-lg text-sm text-green-700">
+                                                            <p class="flex items-center"><img src="{{asset('pix.svg')}}" class="h-5 mr-2">Pague com o PIX e priorizamos o despacho o mais breve possível!</p>
                                                         </div>
                                                     </div>
+</body>
+</div>
 
-                                            
-                                                    <div class="flex items-center mt-6 justify-between">
-                                                        <div class="text-sm font-medium text-gray-900">Size</div>
-                                                        <a href="#" class="text-sm font-medium text-yellow-500 hover:text-yellow-400">Size guide</a>
-                                                    </div>
+<fieldset class="my-10" aria-label="Choose a size">
+    <x-mary-menu-separator />
+    <div>
+        <div class="bg-white rounded-lg overflow-hidden max-w-sm w-full">
+            <div class="p-6">
+                <span class="text-sm text-gray-500">Cód. Item 9846903013665</span>
 
-                                                    <div class="mt-4 grid grid-cols-4 gap-4">
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXS" class="sr-only">
-                                                            <span>XXS</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XS" class="sr-only">
-                                                            <span>XS</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="S" class="sr-only">
-                                                            <span>S</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="M" class="sr-only">
-                                                            <span>M</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="L" class="sr-only">
-                                                            <span>L</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XL" class="sr-only">
-                                                            <span>XL</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXL" class="sr-only">
-                                                            <span>XXL</span>
-                                                            <!--
-                          Active: "border", Not Active: "border-2"
-                          Checked: "border-yellow-500", Not Checked: "border-transparent"
-                        -->
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <!-- Active: "ring-2 ring-yellow-500" -->
-                                                        <label class="group relative flex cursor-not-allowed items-center justify-center rounded-md border bg-gray-50 px-4 py-3 text-sm font-medium text-gray-200 uppercase hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXXL" disabled class="sr-only">
-                                                            <span>XXXL</span>
-                                                            <span aria-hidden="true" class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200">
-                                                                <svg class="absolute inset-0 size-full stroke-2 text-gray-200" viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
-                                                                    <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke" />
-                                                                </svg>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </fieldset>
+                <span class=" rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
+                <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Mega Manto Sport®</span></div>
 
-                                                <x-mary-button type="submit" class="mt-6 w-full btn-warning" icon="o-shopping-cart">Add to bag</x-mary-button>
-                                            </form>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mt-4">
+                    <span class="text-2xl font-bold text-gray-900">R$ 189,90</span>
+                    <span class="text-sm text-gray-500 line-through ml-2">R$ 299,90</span>
+                    <span class="text-sm text-green-600 ml-2">37% off</span>
                 </div>
+
+                <div class="mt-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-G transition duration-150 ease-in-out">
+                        <span class="ml-2 text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
+                    </div>
+                    <div class="mt-2 text-sm text text-gray-700">Economia de R$ 110,00</div>
+                </div>
+
+
             </div>
+        </div>
+    </div>
+    <x-mary-menu-separator />
+
+    <div class="flex items-center mt-6 justify-between">
+        <div class="text-sm font-medium text-gray-900">Size</div>
+        <a href="#" class="text-sm font-medium text-yellow-500 hover:text-yellow-400">Size guide</a>
+    </div>
+
+    <div class="mt-4 grid grid-cols-4 gap-4">
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="XXS" class="sr-only">
+            <span>XXS</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="XS" class="sr-only">
+            <span>XS</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="S" class="sr-only">
+            <span>S</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="M" class="sr-only">
+            <span>M</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="L" class="sr-only">
+            <span>L</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="XL" class="sr-only">
+            <span>XL</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="XXL" class="sr-only">
+            <span>XXL</span>
+            <!--
+                          Active: "border", Not Active: "border-2"
+                          Checked: "border-yellow-500", Not Checked: "border-transparent"
+                        -->
+            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+        </label>
+        <!-- Active: "ring-2 ring-yellow-500" -->
+        <label class="group relative flex cursor-not-allowed items-center justify-center rounded-md border bg-gray-50 px-4 py-3 text-sm font-medium text-gray-200 uppercase hover:bg-gray-50 focus:outline-hidden sm:flex-1">
+            <input type="radio" name="size-choice" value="XXXL" disabled class="sr-only">
+            <span>XXXL</span>
+            <span aria-hidden="true" class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200">
+                <svg class="absolute inset-0 size-full stroke-2 text-gray-200" viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
+                    <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke" />
+                </svg>
+            </span>
+        </label>
+    </div>
+</fieldset>
+
+<x-mary-button type="submit" class="mt-6 w-full btn-warning" icon="o-shopping-cart">Add to bag</x-mary-button>
+</form>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
-        </x-slot:content>
-    </x-mary-main>
+</x-slot:content>
+</x-mary-main>
 
-    {{-- TOAST area --}}
-    <x-mary-toast />
+{{-- TOAST area --}}
+<x-mary-toast />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js" integrity="sha512-S9RkWnGja84tXKFxTN7iLVP3pUCsnfqnF+0ZK2CSOhmCqa6lxoutHUoizBVnqCIsH8HW7e/3u9HEOOwlR01TLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js" integrity="sha512-AyqbkQ0CCFXttmj38AAryPYIKEOdL6lApyzLje2dyvMwLoHv7PPXIeKS86gF4V85Gv+ZsCiOSP0yHaCXcemmaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe-lightbox.umd.min.js" integrity="sha512-D16CBrIrVF48W0Ou0ca3D65JFo/HaEAjTugBXeWS/JH+1KNu54ZOtHPccxJ7PQ44rTItUT6DSI6xNL+U34SuuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe.umd.min.js" integrity="sha512-BXwwGU7zCXVgpT2jpXnTbioT9q1Byf7NEXVxovTZPlNvelL2I/4LjOaoiB2a19L+g5za8RbkoJFH4fMPQcjFFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js" integrity="sha512-S9RkWnGja84tXKFxTN7iLVP3pUCsnfqnF+0ZK2CSOhmCqa6lxoutHUoizBVnqCIsH8HW7e/3u9HEOOwlR01TLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js" integrity="sha512-AyqbkQ0CCFXttmj38AAryPYIKEOdL6lApyzLje2dyvMwLoHv7PPXIeKS86gF4V85Gv+ZsCiOSP0yHaCXcemmaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe-lightbox.umd.min.js" integrity="sha512-D16CBrIrVF48W0Ou0ca3D65JFo/HaEAjTugBXeWS/JH+1KNu54ZOtHPccxJ7PQ44rTItUT6DSI6xNL+U34SuuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe.umd.min.js" integrity="sha512-BXwwGU7zCXVgpT2jpXnTbioT9q1Byf7NEXVxovTZPlNvelL2I/4LjOaoiB2a19L+g5za8RbkoJFH4fMPQcjFFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
