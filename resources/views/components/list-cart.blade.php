@@ -32,8 +32,6 @@
 
           <div class="space-y-6">
             @forelse($cartItems as $item)
-
-
             @php
             $productImages = is_array($item->product->image) ? $item->product->image : [];
             $firstImage = !empty($productImages) ? $productImages[0] : 'default-image.png'; // Provide a fallback image
