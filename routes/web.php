@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Livewire\ShoppingCart;
+use App\Http\Controllers\ShoppingCartController;
 
 Route::get('/', function () {
     return view('livewire.components.hero');
@@ -15,10 +15,11 @@ Route::view('termos-e-servicos', 'policy')
     ->name('policy');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/shopping-cart', [ShoppingCartController::class, 'index'])->name('components/list-cart');
 
 Route::get('/cart-list', function () {
-    return view('cart-list');
-});
+    return view('cart-list'); // This Blade view will include the Livewire component
+})->name('cart-list');
 
 
 Route::middleware([
