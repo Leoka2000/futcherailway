@@ -8,6 +8,9 @@ Route::get('/', function () {
     return view('livewire.components.hero');
 });
 
+Route::get('/cart/debug/{id}', [ShoppingCartController::class, 'debugImage'])->name('cart.debug');
+
+
 Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
     ->name('components.shopping_cart_component_index');
 
