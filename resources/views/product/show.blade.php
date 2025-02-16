@@ -29,7 +29,7 @@
             outline-offset: 2px !important;
             box-shadow: none !important;
             /* Remove any default box-shadow */
-            border-radius: 0.20rem;
+            border-radius: 1rem;
             border-color: transparent !important;
             /* Ensure no border color is applied */
         }
@@ -391,7 +391,8 @@
 
                                                 
 
-                                                <x-mary-button type="submit" class="mt-6 w-full btn-warning" icon="o-shopping-cart">Add to bag</x-mary-button>
+                                                @livewire('add-to-cart', ['productId' => $product->id])
+                                            
                                             </form>
                                         </section>
                                     </div>
