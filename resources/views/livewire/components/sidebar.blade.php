@@ -1,4 +1,6 @@
 <div>
+@unless (request()->is('cart-list'))
+
     <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-200">
         {{-- User --}}
         @if($user = auth()->user())
@@ -20,4 +22,5 @@
             <x-mary-menu-item title="Camisas" class="text-warning" icon="o-gift" link="{{ route('components.shopping_cart_component_index')}}" />
         </x-mary-menu>
     </x-slot:sidebar>
+    @endunless
 </div>

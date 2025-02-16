@@ -16,6 +16,11 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function shoppingCarts()
+{
+    return $this->hasMany(ShoppingCart::class);
+}
+
     public function setImageAttribute($value)
     {
         // If $value is already a JSON string, decode it to an array

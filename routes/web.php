@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\ShoppingCart;
 
 Route::get('/', function () {
     return view('livewire.components.hero');
@@ -14,6 +15,11 @@ Route::view('termos-e-servicos', 'policy')
     ->name('policy');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/cart-list', function () {
+    return view('cart-list');
+});
+
 
 Route::middleware([
     'auth:sanctum',
