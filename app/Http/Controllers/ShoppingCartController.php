@@ -29,27 +29,31 @@ class ShoppingCartController extends Controller
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-    
-        // Find the cart item for the authenticated user and the given product ID
+
         $cartItem = ShoppingCart::where('user_id', Auth::id())
             ->where('product_id', $productId)
             ->first();
-    
+
         if ($cartItem) {
-            // If the item exists, delete it
-            $cartItem->delete();
-    
-            // Return a success response
-            return response()->json([
-                'message' => 'Item removed from cart successfully.',
-                'cartUpdated' => true,
-            ], 200);
+            if ($cartItem->quantity > 1) {
+                $cartItem->decrement('quantity');
+            } else {
+                $cartItem->delete();
+            }
+
+            return redirect()->back()->with('success', [
+                'title' => 'Item Removed',
+                'message' => 'The item has been removed from your cart!',
+                'position' => 'top-end',
+                'timeout' => 3000,
+            ]);
         }
-    
-        // If the item does not exist, return an error message
-        return response()->json([
-            'message' => 'Item not found in cart.',
-            'cartUpdated' => false,
-        ], 404);
+
+        return redirect()->back()->with('error', [
+            'title' => 'Item Not Found',
+            'message' => 'This item is not in your cart.',
+            'position' => 'top-end',
+            'timeout' => 3000,
+        ]);
     }
 }

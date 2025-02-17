@@ -51,9 +51,9 @@
                 <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">
+                  <x-mary-button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">
                     Remove Item
-                  </button>
+                  </x-mary-button>
                 </form>
                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                 <div class="flex items-center justify-between md:order-3 md:justify-end">
