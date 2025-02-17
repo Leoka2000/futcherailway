@@ -25,7 +25,39 @@ class ShoppingCartController extends Controller
         // dd($item->quantity); assim loga a quantity field of the shoppingcart database
         
     }
-   
+
+    public function increaseCartQuantity($productId)
+    {
+        $cartItem = ShoppingCart::where('product_id', $productId)
+                                ->where('user_id', auth()->id())
+                                ->first();
+
+        if ($cartItem) {
+            $cartItem->quantity += 1;
+            $cartItem->save();
+        }
+
+        return redirect()->back();
+    }
+
+    public function decreaseCartQuantity($productId)
+    {
+        $cartItem = ShoppingCart::where('product_id', $productId)
+                                ->where('user_id', auth()->id())
+                                ->first();
+
+        if ($cartItem) {
+            if ($cartItem->quantity > 1) {
+                $cartItem->quantity -= 1;
+                $cartItem->save();
+            } else {
+                $cartItem->delete();
+            }
+        }
+
+        return redirect()->back();
+    }
+
 
     public function removeItemFromCart($productId)
     {
@@ -71,5 +103,5 @@ class ShoppingCartController extends Controller
 //     <x-mary-button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">
 //       Remove Item
 //     </x-mary-button>
-//   </form> PARA DEBUGAR
+//   </form> PARA DE
 }

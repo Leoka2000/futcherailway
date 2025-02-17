@@ -39,36 +39,26 @@
             <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
               <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                 <a href="#" class="shrink-0 md:order-1">
-                  <img class="h-14 w-14" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
+                  <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
 
                 </a>
-                <form action="{{ route('cart.debug', ['id' => $item->id]) }}" method="GET">
-                  <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-                    Debug Image
-                  </button>
-                </form>
+                
 
-                <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <x-mary-button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">
-                    Remove Item
-                  </x-mary-button>
-                </form>
+               
                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                 <div class="flex items-center justify-between md:order-3 md:justify-end">
                   <div class="flex items-center">
-                    <button type="button" id="decrement-button-{{ $item->id }}" data-input-counter-decrement="counter-input-{{ $item->id }}" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                      <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
-                      </svg>
-                    </button>
+                 <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST">
+                  @csrf
+                  @method('POST')
+                    <x-mary-button type="submit" icon="o-minus" class="btn-sm btn-circle  shrink-0 inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  "/>
+                    </form>
                     <input type="text" id="counter-input-{{ $item->id }}" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" required />
-                    <button type="button" id="increment-button-{{ $item->id }}" data-input-counter-increment="counter-input-{{ $item->id }}" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                      <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                      </svg>
-                    </button>
+                    <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST">
+                  @csrf
+                  @method('POST')
+                    <x-mary-button type="submit" icon="o-plus" class="btn-sm btn-circle  shrink-0 inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  "/>
+                    </form>
                   </div>
                   <div class="text-end md:order-4 md:w-32">
                     <p class="text-base font-bold text-gray-900 dark:text-white">${{ number_format($item->product->price * $item->quantity, 2) }}</p>
@@ -86,10 +76,15 @@
                       Add to Favorites
                     </button>
 
-                    <x-button wire:click="removeFromCart" class="inline-flex items-center text-sm font-medium 0">
-
-                      Remove
-                    </x-button>
+               
+                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  ">
+                    
+                  </x-mary-button>
+                </form>
+              
                   </div>
                 </div>
               </div>
@@ -153,7 +148,7 @@
             <form class="space-y-4">
               <div>
                 <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Do you have a voucher or gift card? </label>
-                <input type="text" id="voucher" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
+                <input type="text" id="voucher" class="block w-full rounded-lg border border-gray-200 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
               </div>
               <button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply Code</button>
             </form>
