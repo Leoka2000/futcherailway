@@ -126,9 +126,9 @@
                           </x-mary-button>
                         </span>
                         <span x-show="loading">
-                        <x-mary-button type="submit"  class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex ">
-<x-mary-loading class="dark:text-gray-600 text-gray-700" />
-                        </x-mary-button>
+                          <x-mary-button type="submit" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex ">
+                            <x-mary-loading class="dark:text-gray-600 text-gray-700" />
+                          </x-mary-button>
                         </span>
                       </a>
                     </form>
@@ -175,7 +175,10 @@
 
               <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
                 <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                <dd class="text-base font-bold text-gray-900 dark:text-white">$8,191.00</dd>
+                @php
+                $totalPrice = $cartItems->sum(fn($item) => $item->product->price * $item->quantity);
+                @endphp
+                <dd class="text-base font-bold text-gray-900 dark:text-white">${{number_format($totalPrice, 2) }}</dd>
               </dl>
             </div>
 

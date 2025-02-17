@@ -44,7 +44,7 @@
         loading = true;
         setTimeout(() => {
             window.location.href = '{{ route('components.shopping_cart_component_index') }}'; 
-        }, 1000);"
+        }, 500);"
                                 class="btn w-full customcssbtn btn-warning  mt-5 flex items-center justify-center"
                                 :disabled="loading">
                                 <span x-show="!loading">Ver mais</span>
@@ -67,7 +67,7 @@
     <x-testimonials />
     <x-faq />
     <x-team />
-    
-  
-    
+
+
+
 </x-guest-layout>
