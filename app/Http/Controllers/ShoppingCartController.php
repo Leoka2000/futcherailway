@@ -22,7 +22,10 @@ class ShoppingCartController extends Controller
     {
         $item = ShoppingCart::with('product')->findOrFail($id);
         dd($item->product->image);
+        // dd($item->quantity); assim loga a quantity field of the shoppingcart database
+        
     }
+   
 
     public function removeItemFromCart($productId)
     {
