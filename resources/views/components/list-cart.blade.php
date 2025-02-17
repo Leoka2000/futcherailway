@@ -42,22 +42,54 @@
                   <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
 
                 </a>
-                
 
-               
+
+
                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                 <div class="flex items-center justify-between md:order-3 md:justify-end">
                   <div class="flex items-center">
-                 <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST">
-                  @csrf
-                  @method('POST')
-                    <x-mary-button type="submit" icon="o-minus" class="btn-sm btn-circle  shrink-0 inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  "/>
+                    <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                      @csrf
+                      @method('POST')
+                      <a
+                        type="submit"
+                        class=""
+                        :disabled="loading"
+                        @click.prevent="
+            loading = true;
+            setTimeout(() => {
+                $el.closest('form').submit();
+            }, 500);
+        ">
+                        <span x-show="!loading">
+                          <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
+                        </span>
+                        <span x-show="loading">
+                          <x-mary-loading class="text-gray-600 btn-circle  btn-sm mt-2 dark:text-gray-400 "><x-mary-loading /></x-mary-loading>
+                        </span>
+                      </a>
                     </form>
                     <input type="text" id="counter-input-{{ $item->id }}" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" required />
-                    <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST">
-                  @csrf
-                  @method('POST')
-                    <x-mary-button type="submit" icon="o-plus" class="btn-sm btn-circle  shrink-0 inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  "/>
+                    <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                      @csrf
+                      @method('POST')
+                      <a
+                        type="submit"
+                        class=""
+                        :disabled="loading"
+                        @click.prevent="
+            loading = true;
+            setTimeout(() => {
+                $el.closest('form').submit();
+            }, 500);
+        ">
+                        <span x-show="!loading">
+                          <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
+                        </span>
+                        <span x-show="loading">
+                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
+                        </span>
+                      </a>
                     </form>
                   </div>
                   <div class="text-end md:order-4 md:w-32">
@@ -76,15 +108,31 @@
                       Add to Favorites
                     </button>
 
-               
-                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle inline-flex items-center text-sm  text-red-400 border border-gray-200 dark:border-gray-700 dark:text-gray-500 shadow-md  ">
-                    
-                  </x-mary-button>
-                </form>
-              
+
+                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                      @csrf
+                      @method('DELETE')
+                      <a
+                        type="submit"
+                        class=""
+                        :disabled="loading"
+                        @click.prevent="
+            loading = true;
+            setTimeout(() => {
+                $el.closest('form').submit();
+            }, 500);
+        "> <span x-show="!loading">
+                          <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
+                          </x-mary-button>
+                        </span>
+                        <span x-show="loading">
+                        <x-mary-button type="submit"  class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex ">
+<x-mary-loading class="dark:text-gray-600 text-gray-700" />
+                        </x-mary-button>
+                        </span>
+                      </a>
+                    </form>
+
                   </div>
                 </div>
               </div>

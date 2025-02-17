@@ -70,11 +70,7 @@ class ShoppingCartController extends Controller
             ->first();
 
         if ($cartItem) {
-            if ($cartItem->quantity > 1) {
-                $cartItem->decrement('quantity');
-            } else {
-                $cartItem->delete();
-            }
+            $cartItem->delete();  // Delete the cart item directly without checking quantity
 
             return redirect()->back()->with('success', [
                 'title' => 'Item Removed',
