@@ -5,7 +5,13 @@
           
       
     @endif
-
+    <style>
+    /* Change the border and outline colors to yellow when focused */
+    input:focus, select:focus, textarea:focus {
+        border-color: yellow !important;
+        outline: 2px solid yellow !important;
+    }
+</style>
     <form wire:submit.prevent="submit" class="dark:bg-gray-800 dark:border-gray-700 border shadow-lg rounded-lg mt-4 px-5 py-5">
         <p class="text-lg dark:text-gray-200 font-bold text-gray-700">Email para contato</p>
         <x-mary-input id="email" label="E-mail" wire:model.debounce.500ms="email" icon="o-envelope" />
