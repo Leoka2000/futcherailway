@@ -206,7 +206,7 @@
                           <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
                         </span>
                         <span x-show="loading">
-                          <x-mary-loading class="text-gray-600 btn-circle  btn-sm mt-2 dark:text-gray-400 "><x-mary-loading /></x-mary-loading>
+                        <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
                         </span>
                       </a>
                     </form>
@@ -248,6 +248,8 @@
                       </svg>
                       Add to Favorites
                     </button>
+
+
                     <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
                       @csrf
                       @method('DELETE')
