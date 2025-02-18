@@ -55,7 +55,7 @@ class ShoppingCartForm extends Component
             'updated_by' => Auth::id(),
         ]);
 
-        session()->flash('success', 'Customer created successfully!');
+        session()->flash('success', 'Cadastro realizado com sucesso!');
 
         return redirect()->route('components/list-cart');
     }

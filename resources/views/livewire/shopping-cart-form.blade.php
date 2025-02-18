@@ -1,9 +1,9 @@
 <div>
     {{-- Success Message --}}
     @if (session()->has('success'))
-        <div class="bg-green-500 text-white p-3 rounded mb-3">
-            {{ session('success') }}
-        </div>
+    <x-mary-alert title="{{ session('success')}}" class="alert-success" icon="o-check" shadow />
+          
+      
     @endif
 
     <form wire:submit.prevent="submit" class="dark:bg-gray-800 dark:border-gray-700 border shadow-lg rounded-lg mt-4 px-5 py-5">
@@ -34,7 +34,7 @@
         @error('phone') <span class="text-red-500">{{ $message }}</span> @enderror
 
         <div class="flex-inline items-center flex space-x-1 xl:gap-2 gap-6 my-4">
-            <img src="{{ asset('pix.png') }}" alt="Pix" class="h-20 border border-gray-200 dark:border-gray-700 shadow-sm rounded-md p-1 px-2">
+            <img src="{{ asset('pix.png') }}" alt="Pix" class="h-14 border border-gray-200 dark:border-gray-700 shadow-sm rounded-md mr-2 ">Atualmente, aceitamos apenas </br> pagamentos via pix
            
         </div>
         @error('payment_type') <span class="text-red-500">{{ $message }}</span> @enderror
