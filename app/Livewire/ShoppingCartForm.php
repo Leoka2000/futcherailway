@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class ShoppingCartForm extends Component
 {
     public $brazilStates = [];
-    public $email, $first_name, $last_name, $address, $address2, $city, $selectedState, $zipcode, $phone, $payment_type = 'pix';
+    public $email, $first_name, $last_name, $address, $address2, $city, $selectedState, $zipcode, $phone;
 
     protected $rules = [
         'email' => 'required|email|max:255',
@@ -22,7 +22,7 @@ class ShoppingCartForm extends Component
         'selectedState' => 'required|string|max:255',
         'zipcode' => 'required|string|max:10',
         'phone' => 'required|string|max:15',
-        'payment_type' => 'required|in:pix',
+       
     ];
 
     public function updated($field)
@@ -50,7 +50,6 @@ class ShoppingCartForm extends Component
             'province' => $this->selectedState,
             'zipcode' => $this->zipcode,
             'phone' => $this->phone,
-            'payment_type' => $this->payment_type,
             'status' => 'active',
             'created_by' => Auth::id(),
             'updated_by' => Auth::id(),

@@ -248,8 +248,6 @@
                       </svg>
                       Add to Favorites
                     </button>
-
-
                     <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
                       @csrf
                       @method('DELETE')

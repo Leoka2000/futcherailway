@@ -35,7 +35,7 @@
 
         <div class="flex-inline items-center flex space-x-1 xl:gap-2 gap-6 my-4">
             <img src="{{ asset('pix.png') }}" alt="Pix" class="h-20 border border-gray-200 dark:border-gray-700 shadow-sm rounded-md p-1 px-2">
-            <x-mary-checkbox id="payment_type" value="pix" label="Apenas pagamentos via Pix" wire:model="payment_type" />
+           
         </div>
         @error('payment_type') <span class="text-red-500">{{ $message }}</span> @enderror
 
