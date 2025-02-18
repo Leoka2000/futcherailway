@@ -22,6 +22,146 @@
 
 
 <body>
+  @php
+  $brazilStates = [
+  [
+  'id' => 1,
+  'name' => 'Acre',
+  'abbreviation' => 'AC'
+  ],
+  [
+  'id' => 2,
+  'name' => 'Alagoas',
+  'abbreviation' => 'AL'
+  ],
+  [
+  'id' => 3,
+  'name' => 'Amapá',
+  'abbreviation' => 'AP'
+  ],
+  [
+  'id' => 4,
+  'name' => 'Amazonas',
+  'abbreviation' => 'AM'
+  ],
+  [
+  'id' => 5,
+  'name' => 'Bahia',
+  'abbreviation' => 'BA'
+  ],
+  [
+  'id' => 6,
+  'name' => 'Ceará',
+  'abbreviation' => 'CE'
+  ],
+  [
+  'id' => 7,
+  'name' => 'Distrito Federal',
+  'abbreviation' => 'DF'
+  ],
+  [
+  'id' => 8,
+  'name' => 'Espírito Santo',
+  'abbreviation' => 'ES'
+  ],
+  [
+  'id' => 9,
+  'name' => 'Goiás',
+  'abbreviation' => 'GO'
+  ],
+  [
+  'id' => 10,
+  'name' => 'Maranhão',
+  'abbreviation' => 'MA'
+  ],
+  [
+  'id' => 11,
+  'name' => 'Mato Grosso',
+  'abbreviation' => 'MT'
+  ],
+  [
+  'id' => 12,
+  'name' => 'Mato Grosso do Sul',
+  'abbreviation' => 'MS'
+  ],
+  [
+  'id' => 13,
+  'name' => 'Minas Gerais',
+  'abbreviation' => 'MG'
+  ],
+  [
+  'id' => 14,
+  'name' => 'Pará',
+  'abbreviation' => 'PA'
+  ],
+  [
+  'id' => 15,
+  'name' => 'Paraíba',
+  'abbreviation' => 'PB'
+  ],
+  [
+  'id' => 16,
+  'name' => 'Paraná',
+  'abbreviation' => 'PR'
+  ],
+  [
+  'id' => 17,
+  'name' => 'Pernambuco',
+  'abbreviation' => 'PE'
+  ],
+  [
+  'id' => 18,
+  'name' => 'Piauí',
+  'abbreviation' => 'PI'
+  ],
+  [
+  'id' => 19,
+  'name' => 'Rio de Janeiro',
+  'abbreviation' => 'RJ'
+  ],
+  [
+  'id' => 20,
+  'name' => 'Rio Grande do Norte',
+  'abbreviation' => 'RN'
+  ],
+  [
+  'id' => 21,
+  'name' => 'Rio Grande do Sul',
+  'abbreviation' => 'RS'
+  ],
+  [
+  'id' => 22,
+  'name' => 'Rondônia',
+  'abbreviation' => 'RO'
+  ],
+  [
+  'id' => 23,
+  'name' => 'Roraima',
+  'abbreviation' => 'RR'
+  ],
+  [
+  'id' => 24,
+  'name' => 'Santa Catarina',
+  'abbreviation' => 'SC'
+  ],
+  [
+  'id' => 25,
+  'name' => 'São Paulo',
+  'abbreviation' => 'SP'
+  ],
+  [
+  'id' => 26,
+  'name' => 'Sergipe',
+  'abbreviation' => 'SE'
+  ],
+  [
+  'id' => 27,
+  'name' => 'Tocantins',
+  'abbreviation' => 'TO'
+  ]
+  ];
+  @endphp
+
   <x-navbar-cart-list />
   <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
 
@@ -138,7 +278,7 @@
                 </div>
               </div>
             </div>
-          
+
             @empty
             <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
               <p class="text-center text-gray-900 dark:text-white">Your cart is empty.</p>
@@ -146,34 +286,7 @@
             @endforelse
           </div>
           <h2 class="text-xl font-semibold mt-6 mb-6 text-gray-900 dark:text-white sm:text-2xl">Informações de entrega</h2>
-          <x-mary-form class="dark:bg-gray-800 dark:border-gray-700 border shadow-lg rounded-lg mt-4 px-5 py-5 " wire:submit="save6">
-
-            {{-- Full error bag --}}
-            <x-mary-errors title="Oops!" description="Please, fix them." icon="o-face-frown" />
-
-            <p class="text-lg dark:text-gray-200 font-bold text-gray-700">Email para contato</p>
-            <x-mary-input  id="email" label="E-mail" wire:model="email" icon="o-envelope" hint="Usaremos este email para lhe notificar acerca do pedido"  style="outline: 1px solid oklch(var(--wa)) !important; outline-offset: 2px !important; box-shadow: none !important; border-color: transparent !important;" />
-
-            <p class="text-lg font-bold  dark:text-gray-200 text-gray-700">Endereço para envio</p>
-            <x-mary-input id="first_name"  label="Nome" wire:model="first_name" icon="o-user" />
-            <x-mary-input id="last_name" label="Sobrenome" wire:model="last_name" icon="o-user" />
-            <x-mary-input id="address" label="Endereço" wire:model="address" icon="o-map-pin" />
-            <x-mary-input id="address2" label="Apartamento, suíte, etc (opcional)" wire:model="address" icon="o-map-pin" />
-            <x-mary-input id="city" label="Cidade" wire:model="city" icon="o-map-pin" />
-            <x-mary-input id="province" readonly label="Província" value="Rio Grande do Sul" icon="o-map-pin" />
-            <x-mary-input id="phone" label="Telefone" wire:model="phone" prefix="+55" />
-
-            <div class="flex-inline items-center flex space-x-1 xl:gap-2 gap-6 my-4">
-              <img src="{{asset('pix.png')}}" alt="Pix" class="h-20 border border-gray-200 dark:border-gray-700 shadow-sm rounded-md p-1 px-2">
-              <x-mary-checkbox id="payment_type" value="pix" label="Por enquanto, aceitamos apenas pagamentos via pix" wire:model="payment_type" />
-            </div>
-
-            <x-slot:actions>
-              <x-mary-button label="Click me!" class="btn-primary" type="submit" spinner="save6" />
-            </x-slot:actions>
-
-          </x-mary-form>
-
+          @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
         </div>
 
         <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
@@ -237,9 +350,11 @@
         </div>
       </div>
     </div>
+
   </section>
   {{-- TOAST area --}}
   <x-mary-toast />
+  @livewireScripts
 </body>
 
 

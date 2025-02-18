@@ -14,6 +14,8 @@ Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'remov
 Route::post('/cart/increase/{productId}', [ShoppingCartController::class, 'increaseCartQuantity'])->name('cart.increase');
 Route::post('/cart/decrease/{productId}', [ShoppingCartController::class, 'decreaseCartQuantity'])->name('cart.decrease');
 
+
+
 Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
     ->name('components.shopping_cart_component_index');
 

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductSeeder::class,
             UserSeeder::class,
-            ShoppingCartSeeder::class, // Ensure this is called after CategorySeeder
+           // Ensure this is called after CategorySeeder
         ]);
 
   
