@@ -210,7 +210,7 @@
                         </span>
                       </a>
                     </form>
-                    <input type="text" id="counter-input-{{ $item->id }}" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" required />
+                    <x-mary-input style="width: 50px!important;" readonly type="text" id="counter-input-{{ $item->id }}" data-input-counter class=" btn-sm shrink-0 border-0 bg-transparent mx-2 text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" />
                     <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
                       @csrf
                       @method('POST')
@@ -222,13 +222,13 @@
             loading = true;
             setTimeout(() => {
                 $el.closest('form').submit();
-            }, 500);
+            }, 1000);
         ">
                         <span x-show="!loading">
                           <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
                         </span>
                         <span x-show="loading">
-                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
+                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-400" /> </x-mary-button>
                         </span>
                       </a>
                     </form>
@@ -268,7 +268,6 @@
                         </span>
                         <span x-show="loading">
                           <x-mary-button type="submit" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex ">
-                            <x-mary-loading class="dark:text-gray-600 text-gray-700" />
                           </x-mary-button>
                         </span>
                       </a>
@@ -322,11 +321,23 @@
                 @php
                 $totalPrice = $cartItems->sum(fn($item) => $item->product->price * $item->quantity);
                 @endphp
-                <dd class="text-base font-bold text-gray-900 dark:text-white">${{number_format($totalPrice, 2) }}</dd>
+                <dd style="border:transparent!important;" class="text-base font-bold text-gray-900 dark:text-white">${{number_format($totalPrice, 2) }}</dd>
               </dl>
             </div>
+            <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-6 my-4">
+              <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 dark:border-gray-600 shadow-sm rounded-md p-1 px-2">
 
-           <a href="{{route('checkout')}}"><x-mary-button  class="w-full"> Proceed to checkout </x-mary-button></a> 
+              <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 p-3 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
+            </div>
+            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" class="w-full mt-5"> Checkout with card </x-mary-button></a>
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
+              <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
+                Continue with pix
+                <img src="{{asset('pix.png')}}" alt="Pix" class="h-7 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md -p-36">
+              </a>
+            </div>
+            <a><x-mary-button class="btn mt-5  w-full"><img src="{{asset('pix.png')}}" alt="Pix" class="h-12  shadow-sm rounded-md p-1"> Checkout with Pix</x-mary-button></a>
 
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>

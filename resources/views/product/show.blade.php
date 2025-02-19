@@ -326,7 +326,6 @@
 
                                                             <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
                                                             <img src="{{asset('pix.png')}}" alt="Pix" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
-
                                                             <img src="{{asset('caixa.svg')}}" alt="Caixa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3">
                                                             <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 px-2">
                                                             <img src="{{asset('mercadopago.svg')}}" alt="Mercado Pago" class="h-10 border border-gray-200 shadow-sm rounded-md ">
