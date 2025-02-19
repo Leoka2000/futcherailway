@@ -206,7 +206,7 @@
                           <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
                         </span>
                         <span x-show="loading">
-                        <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
+                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
                         </span>
                       </a>
                     </form>
@@ -287,6 +287,7 @@
           </div>
           <h2 class="text-xl font-semibold mt-6 mb-6 text-gray-900 dark:text-white sm:text-2xl">Informações de entrega</h2>
           @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
+
         </div>
 
         <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
@@ -325,11 +326,11 @@
               </dl>
             </div>
 
-            <a href="#" class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Proceed to Checkout</a>
+           <a href="{{route('checkout')}}"><x-mary-button  class="w-full"> Proceed to checkout </x-mary-button></a> 
 
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
-              <a href="#" title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">
+              <a href="{{route('components.shopping_cart_component_index')}}" title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">
                 Continue Shopping
                 <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />

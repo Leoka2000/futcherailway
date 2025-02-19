@@ -10,6 +10,17 @@
             box-shadow: none !important;
             /* Remove any default box-shadow */
             border-color: transparent !important;
+  
+            /* Ensure no border color is applied */
+        }
+       
+        
+        #password_confirmation:focus {
+            outline: 2px solid oklch(var(--wa)) !important;
+            outline-offset: 2px !important;
+            box-shadow: none !important;
+            /* Remove any default box-shadow */
+            border-color: transparent !important;
             /* Ensure no border color is applied */
         }
 

@@ -14,7 +14,11 @@ Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'remov
 Route::post('/cart/increase/{productId}', [ShoppingCartController::class, 'increaseCartQuantity'])->name('cart.increase');
 Route::post('/cart/decrease/{productId}', [ShoppingCartController::class, 'decreaseCartQuantity'])->name('cart.decrease');
 
-
+//checkout method h ere(checkoutfunction)
+Route::get('/checkout', [ShoppingCartController::class, 'checkout'])->name('checkout');
+Route::get('/success', [ShoppingCartController::class, 'success'])->name('payment.checkout-success');
+Route::get('/cancel', [ShoppingCartController::class, 'cancel'])->name('payment.checkout-cancel');
+Route::post('/webhook', [ShoppingCartController::class, 'webhook'])->name('checkout.webhook');
 
 Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
     ->name('components.shopping_cart_component_index');
