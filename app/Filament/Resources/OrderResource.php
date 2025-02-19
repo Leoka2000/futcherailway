@@ -40,8 +40,8 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('unit_price')->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->formatStateUsing(fn(string $state): string => match ($state) {
-                        'unpaid' => '<span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-800 border border-red-400">Unpaid</span>',
-                        'paid' => '<span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-800 border border-green-400">Paid</span>',
+                        'unpaid' => '<span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-800 border border-red-400">Ainda não pago :(</span>',
+                        'paid' => '<span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-800 border border-green-400">PAGO! :))</span>',
                     })
                     ->html()
                     ->sortable(),
