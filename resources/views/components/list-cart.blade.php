@@ -324,12 +324,11 @@
                 <dd style="border:transparent!important;" class="text-base font-bold text-gray-900 dark:text-white">${{number_format($totalPrice, 2) }}</dd>
               </dl>
             </div>
-            <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-6 my-4">
-              <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 dark:border-gray-600 shadow-sm rounded-md p-1 px-2">
-
-              <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 p-3 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
+            <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-3 my-1">
+              <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-5 border border-gray-200 dark:border-gray-600 shadow-sm rounded-md p-1 px-2">
+              <img src="{{asset('visa.png')}}" alt="Visa" class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
             </div>
-            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" class="w-full mt-5"> Checkout with card </x-mary-button></a>
+            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" class="w-full mt-1"> Checkout with card </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
