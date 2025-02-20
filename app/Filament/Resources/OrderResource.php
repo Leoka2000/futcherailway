@@ -10,6 +10,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PaymentApproved;
 
 class OrderResource extends Resource
 {
@@ -51,7 +53,15 @@ class OrderResource extends Resource
                 Action::make('changeStatus')
                     ->label('Change Status')
                     ->requiresConfirmation()
-                    ->action(fn(Order $record) => $record->update(['status' => $record->status === 'paid' ? 'unpaid' : 'paid']))
+                    ->action(function (Order $record) {
+                        $previousStatus = $record->status;
+                        $newStatus = $previousStatus === 'paid' ? 'unpaid' : 'paid';
+                        $record->update(['status' => $newStatus]);
+
+                        if ($previousStatus === 'unpaid' && $newStatus === 'paid') {
+                            Mail::to($record->user->email)->send(new PaymentApproved($record));
+                        }
+                    })
                     ->color(fn(Order $record) => $record->status === 'paid' ? 'danger' : 'success'),
             ]);
     }
