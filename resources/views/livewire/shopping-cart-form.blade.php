@@ -1,7 +1,7 @@
 <div>
     {{-- Success Message --}}
-    @if (session()->has('success'))
-        <x-mary-alert title="Cadastro de envio confirmado, prossiga ao pagamento à direita" class="alert-success" icon="o-check" shadow />
+    @if (session()->has('success') && !session()->has('cart_message'))
+    <x-mary-alert title="Cadastro de envio confirmado, prossiga ao pagamento à direita" class="alert-success" icon="o-check" shadow />
     @endif
     <style>
         /* Remove the default border and outline for all inputs */

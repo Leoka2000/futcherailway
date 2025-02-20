@@ -279,9 +279,13 @@
             </div>
 
             @empty
-            <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+            <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+
+<x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
               <p class="text-center text-gray-900 dark:text-white">Your cart is empty.</p>
-            </div>
+
+              
+            
             @endforelse
           </div>
           <h2 class="text-xl font-semibold mt-6 mb-6 text-gray-900 dark:text-white sm:text-2xl">Informações de entrega</h2>
@@ -328,7 +332,7 @@
               <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-5 border border-gray-200 dark:border-gray-600 shadow-sm rounded-md p-1 px-2">
               <img src="{{asset('visa.png')}}" alt="Visa" class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
             </div>
-            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" class="w-full mt-1"> Checkout with card </x-mary-button></a>
+            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" type="submit" spinner="checkout"  class="w-full mt-1"> Checkout with card </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">

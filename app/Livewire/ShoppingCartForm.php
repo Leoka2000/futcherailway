@@ -22,7 +22,7 @@ class ShoppingCartForm extends Component
         'selectedState' => 'required|string|max:255',
         'zipcode' => 'required|string|max:10',
         'phone' => 'required|string|max:15',
-       
+
     ];
 
     public function updated($field)
@@ -34,7 +34,7 @@ class ShoppingCartForm extends Component
     {
         $this->brazilStates = $brazilStates;
     }
-    
+
     public function submit()
     {
         $this->validate();
@@ -53,6 +53,7 @@ class ShoppingCartForm extends Component
             'status' => 'active',
             'created_by' => Auth::id(),
             'updated_by' => Auth::id(),
+            'user_id' => Auth::id(),
         ]);
 
         session()->flash('success', 'Cadastro realizado com sucesso!');

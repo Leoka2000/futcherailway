@@ -109,9 +109,9 @@ class ShoppingCartController extends Controller
             ->first();
 
         if ($cartItem) {
-            $cartItem->delete();  // Delete the cart item directly without checking quantity
+            $cartItem->delete();
 
-            return redirect()->back()->with('success', [
+            return redirect()->back()->with('cart_message', [
                 'title' => 'Item Removed',
                 'message' => 'The item has been removed from your cart!',
                 'position' => 'top-end',
