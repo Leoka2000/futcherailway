@@ -101,13 +101,13 @@ new class extends Component {
 
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
-            <x-mary-dropdown label="Seleções" class="btn">
+            <x-mary-dropdown label="Seleções" class="btn-sm">
                 <x-mary-menu-item title="América" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Europa" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Ásia" wire:click.stop=".." spinner="..." />
                 <x-mary-menu-item title="África" wire:click.stop="..." spinner="..." />
             </x-mary-dropdown>
-            <x-mary-dropdown label="Times Europeus" class="btn">
+            <x-mary-dropdown label="Times Europeus" class="btn-sm">
                 <x-mary-menu-item title="Liga Alemã" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Liga Espanhola" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Liga Francesa" wire:click.stop=".." spinner="..." />
@@ -115,7 +115,7 @@ new class extends Component {
                 <x-mary-menu-item title="Liga Italiana" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Outra Liga" wire:click.stop="..." spinner="..." />
             </x-mary-dropdown>
-            <x-mary-dropdown label="Times Brasileiros" class="btn">
+            <x-mary-dropdown label="Times Brasileiros" class="btn-sm">
                 <x-mary-menu-item title="Cariocas" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Paulistas" wire:click.stop="..." spinner="..." />
                 <x-mary-menu-item title="Sulistas" wire:click.stop=".." spinner="..." />
