@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    use HasUuids;
     protected $table = 'orders';
-  
+
 
     protected $fillable = [
-        'user_id', 
+        'user_id',
         'quantity',
         'status',
         'unit_price',

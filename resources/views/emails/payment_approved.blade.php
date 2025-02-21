@@ -43,7 +43,7 @@
                 </div>
                 <h1 class="text-4xl font-extrabold text-green-700 dark:text-green-400">Payment Successful!</h1>
                 <p class="mt-4 text-lg text-gray-800 dark:text-gray-300">
-                    Thank you for your purchase {{ $order->user->name }} 
+                    Thank you for your purchase {{ $order->user->name }}.<br/> Your order code is <strong>{{ $order->id }}</strong>
            
                 </p>
                 <p class="mt-6 text-xl text-blue-600 dark:text-blue-400">

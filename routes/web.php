@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('livewire.components.hero');
 });
 
+
 Route::get('/cart/debug/{id}', [ShoppingCartController::class, 'debugImage'])->name('cart.debug');
 
 Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'removeItemFromCart'])->name('cart.remove');
@@ -22,6 +23,9 @@ Route::post('/webhook', [ShoppingCartController::class, 'webhook'])->name('check
 
 Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
     ->name('components.shopping_cart_component_index');
+
+Route::view('minhas-compras', 'livewire.components.order-list-index')
+    ->name('components.order-list-index');
 
 Route::view('termos-e-servicos', 'policy')
     ->name('policy');
