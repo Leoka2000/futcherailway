@@ -15,7 +15,7 @@ class UserOrdersTable extends Component
 
         $headers = [
             ['key' => 'id', 'label' => '#'],
-            ['key' => 'product.name', 'label' => 'Product Name'],
+
             ['key' => 'quantity', 'label' => 'Quantity'],
             ['key' => 'unit_price', 'label' => 'Unit Price'],
             ['key' => 'status', 'label' => 'Status'],

@@ -26,6 +26,7 @@ class OrderResource extends Resource
                     ->options([
                         'unpaid' => 'Unpaid',
                         'paid' => 'Paid',
+                        'under_process' => 'Under Process',
                     ])
                     ->required()
                     ->label('Order Status')
@@ -43,6 +44,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('status')
                     ->formatStateUsing(fn(string $state): string => match ($state) {
                         'unpaid' => '<span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-800 border border-red-400">Ainda não pago ❌ 🖕</span>',
+                        'under_process' => '<span class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-800 border border-red-400">Em processo 🙄🙏</span>',
                         'paid' => '<span class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-800 border border-green-400">PAGO! ✅ 🙌</span>',
                     })
                     ->html()

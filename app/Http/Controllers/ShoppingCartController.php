@@ -29,7 +29,7 @@ class ShoppingCartController extends Controller
             $order = new Order();
             $order->user_id = Auth::id();
             $order->quantity = $item->quantity;
-            $order->status = 'unpaid';
+            $order->status = 'under_process';
             $order->unit_price = $item->product->price;
             $order->session_id = session()->getId();
             $order->save();

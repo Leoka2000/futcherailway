@@ -1,8 +1,8 @@
 <div>
     @php
         $headers = [
-            ['key' => 'id', 'label' => '#'],
-            ['key' => 'product.name', 'label' => 'Product Name'],
+            ['key' => 'id', 'label' => 'Código da compra'],
+
             ['key' => 'quantity', 'label' => 'Quantity'],
             ['key' => 'unit_price', 'label' => 'Unit Price'],
             ['key' => 'status', 'label' => 'Status'],
@@ -11,10 +11,8 @@
 
     <x-mary-table :headers="$headers" :rows="$orders">
 
-        {{-- Custom cell for product name --}}
-        @scope('cell_product.name', $order)
-            <strong>{{ $order->product }}</strong>
-        @endscope
+   
+    
 
         {{-- Custom cell for quantity --}}
         @scope('cell_quantity', $order)
@@ -28,12 +26,12 @@
 
         {{-- Custom cell for status --}}
         @scope('cell_status', $order)
-            <x-mary-badge :value="$order->status" class="badge-info" />
+                <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">{{$order->status}}</span>
         @endscope
 
         {{-- Actions slot --}}
         @scope('actions', $order)
-            <x-mary-button icon="o-trash" wire:click="delete({{ $order->id }})" spinner class="btn-sm" />
+            <x-mary-button class="my-2" label="Pedir reembolso" wire:click="delete({{ $order->id }})" spinner/>
         @endscope
 
     </x-mary-table>
