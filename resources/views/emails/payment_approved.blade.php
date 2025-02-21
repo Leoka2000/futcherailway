@@ -60,7 +60,7 @@
         </x-slot:content>
 
     </x-mary-main>
-
+{{-- https://tailwindflex.com/@eliteai-tools/payment-successful-notification-page-2 --}}
     {{-- TOAST area --}}
     <x-mary-toast />
     @livewireScripts

@@ -67,7 +67,7 @@
 
     {{-- TOAST area --}}
     <x-mary-toast />
-    
+    <script src="//unpkg.com/alpinejs" defer></script>
 </body>
 
 </html>
