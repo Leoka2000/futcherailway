@@ -22,7 +22,7 @@
         @endscope
 
         @scope('actions', $order)
-            <x-mary-button id="openModalBtn" class="my-2" label="Reembolso" spinner/>
+        <x-mary-button class="openModalBtn my-2" label="Reembolso" spinner/>
         @endscope
     </x-mary-table>
 
@@ -34,7 +34,7 @@
         <div class="relative p-4 w-full max-w-md bg-white rounded-lg shadow-lg dark:bg-gray-700">
             <div class="flex items-center justify-between p-4 border-b dark:border-gray-600 border-gray-200">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Create New Product</h3>
-                <button id="closeModalBtn" class="text-gray-400 hover:bg-gray-200 rounded-lg text-sm w-8 h-8 dark:hover:bg-gray-600">
+                <button id="closeModalBtn" class="text-gray-400 hover:bg-gray-200 rounded-lg text- w-8 h-8 dark:hover:bg-gray-600">
                     &times;
                 </button>
             </div>
@@ -50,11 +50,19 @@
 </div>
 
 <script>
-    document.getElementById('openModalBtn').addEventListener('click', function () {
+   document.querySelectorAll('[id="openModalBtn"]').forEach(button => {
+    button.addEventListener('click', function () {
         document.getElementById('crud-modal').classList.remove('hidden');
     });
-    
-    document.getElementById('closeModalBtn').addEventListener('click', function () {
-        document.getElementById('crud-modal').classList.add('hidden');
+});
+
+document.getElementById('closeModalBtn').addEventListener('click', function () {
+    document.getElementById('crud-modal').classList.add('hidden');
+});
+
+document.querySelectorAll('.openModalBtn').forEach(button => {
+    button.addEventListener('click', function () {
+        document.getElementById('crud-modal').classList.remove('hidden');
     });
+});
 </script>
