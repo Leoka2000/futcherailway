@@ -1,3 +1,3 @@
 <x-app-layout>
-   <livewire:order-list-table />
+   @livewire('user-orders-table')
 </x-app-layout>
