@@ -6,11 +6,11 @@
     <style>
         /* Remove the default border and outline for all inputs */
         input, select {
-            border: 1px solid oklch(var(--wa)) !important; /* Ensure the border is transparent */
+            border: none !important; /* Ensure the border is transparent */
             outline: none !important; /* Remove the default outline */
         }
         div > .flex > .border-primary {
-            border: 1px solid oklch(var(--wa)) !important
+            border: none!important
         }
 
         /* Apply yellow outline only on focus */
@@ -22,7 +22,7 @@
         }
     </style> 
     @if (!session()->has('success'))
-        <x-mary-form wire:submit.prevent="submit" class="dark:bg-gray-800 dark:border-gray-700 border shadow-lg rounded-lg mt-5 p-5">
+        <x-mary-form wire:submit.prevent="submit" class="dark:bg-gray-800 dark:border-gray-700 border shadow-lg bg-gray-100 rounded-lg mt-5 p-5">
             <x-mary-errors />
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Full-width Email Row -->

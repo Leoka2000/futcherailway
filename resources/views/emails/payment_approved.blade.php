@@ -26,10 +26,6 @@
  
     {{-- The main content with `full-width` --}}
     <x-mary-main with-nav full-width>
-      
-
-
-        {{-- The `$slot` goes here --}}
         <x-slot:content>
            <div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div class="w-full max-w-2xl p-4 bg-white shadow-2xl dark:bg-gray-900 sm:p-10 sm:rounded-3xl">

@@ -13,16 +13,32 @@ use Stripe\Checkout\Session;
 class ShoppingCartController extends Controller
 {
 
-    public $myModal1 = false;
-
-    public function openModal()
+    public function markAsPaid(Request $request)
     {
-        $this->myModal1 = true;
-    }
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Você precisa estar logado para marcar um pedido como pago.');
+        }
 
-    public function closeModal()
-    {
-        $this->myModal1 = false;
+        $cartItems = ShoppingCart::where('user_id', Auth::id())->with('product')->get();
+
+        if ($cartItems->isEmpty()) {
+            return redirect()->back()->with('error', 'Seu carrinho está vazio.');
+        }
+
+        foreach ($cartItems as $item) {
+            $order = new Order();
+            $order->user_id = Auth::id();
+            $order->quantity = $item->quantity;
+            $order->status = 'unpaid';
+            $order->unit_price = $item->product->price;
+            $order->session_id = session()->getId();
+            $order->save();
+
+            // Remove item from cart after order creation
+            $item->delete();
+        }
+
+        return redirect()->route('components.order-list-index')->with('success', 'Seu pedido foi registrado como pago.');
     }
 
     public function index(Request $request)
