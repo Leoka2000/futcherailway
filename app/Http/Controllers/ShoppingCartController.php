@@ -13,7 +13,17 @@ use Stripe\Checkout\Session;
 class ShoppingCartController extends Controller
 {
 
+    public $myModal1 = false;
 
+    public function openModal()
+    {
+        $this->myModal1 = true;
+    }
+
+    public function closeModal()
+    {
+        $this->myModal1 = false;
+    }
 
     public function index(Request $request)
     {
