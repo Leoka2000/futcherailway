@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,13 +16,29 @@ class CategoryFactory extends Factory
      * @return array<string, mixed>
      */
 
-     protected $model = Category::class;
+    protected $model = Category::class;
 
-     
     public function definition(): array
     {
+        $categories = [
+            'america',
+            'europa',
+            'asia',
+            'africa',
+            'liga_alema',
+            'liga_espanhola',
+            'liga_francesa',
+            'liga_inglesa',
+            'liga_italiana',
+            'outra_liga',
+            'paulistas',
+            'pulistas',
+            'mineiros',
+            'nordestinos'
+        ];
+
         return [
-            'name' => $this->faker->word, // Generates a random word for the category name
+            'name' => $this->faker->randomElement($categories), // Ensuring only predefined values are used
         ];
     }
 }
