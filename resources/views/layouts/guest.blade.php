@@ -39,18 +39,14 @@
         </x-slot:actions>
     </x-mary-nav>
     <x-mary-nav sticky full-width class="shadow-sm top-20">
-        <x-slot:brand>
-            <x-mary-input class="border-warning outline-warning">
-                <x-slot:append>
-                    <x-mary-button icon="o-magnifying-glass" class="btn-warning rounded-s-none" />
-                </x-slot:append>
-            </x-mary-input>
-        </x-slot:brand>
+       
         {{-- Right side actions --}}
         <x-slot:actions>
+            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
             <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
             <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Camisas" icon="o-shopping-cart" link="{{ route('components.shopping_cart_component_index')}}" class="btn-sm btn-warning" responsive />
+
         </x-slot:actions>
     </x-mary-nav>
     @endunless

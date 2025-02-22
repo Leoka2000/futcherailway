@@ -27,6 +27,10 @@ class ProductResource extends Resource
                     ->required()
                     ->maxLength(255),
 
+                Forms\Components\TextInput::make('tracking_code')
+                    ->required()
+                    ->maxLength(255),
+
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required()
@@ -77,6 +81,10 @@ class ProductResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('size')
+                    ->searchable()
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('tracking_code')
                     ->searchable()
                     ->sortable(),
 

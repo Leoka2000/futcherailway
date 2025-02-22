@@ -15,9 +15,10 @@ return new class extends Migration
             $table->uuid('id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('quantity')->nullable();
-            $table->string('status')->nullable();;
+            $table->string('status')->nullable();
+            $table->string('tracking_code')->nullable();
             $table->decimal('unit_price')->nullable();
-            $table->string('session_id')->nullable();;
+            $table->string('session_id')->nullable();
             $table->timestamps();
         });
     }
