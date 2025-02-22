@@ -7,9 +7,16 @@ use Livewire\Attributes\Reactive;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\RefundOrder;
+use Mary\Traits\Toast;
+
 
 class UserOrdersTable extends Component
+
 {
+
+    use Toast;
+
+
     public $order_hashed_id;
     public $email;
     public $refund_reason;
@@ -41,6 +48,12 @@ class UserOrdersTable extends Component
 
         // Close the modal
         $this->showModal = false;
+        $this->success(
+            'Obrigado pela mensagem!', // Title
+            'Entraremos em contato em breve!', // Description
+            position: 'toast-top toast-end', // Position
+            timeout: 10000 // Timeout in milliseconds
+        );
     }
 
     public function openModal()

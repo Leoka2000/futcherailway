@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('refund_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_hashed_id')->unique();
+            $table->string('order_hashed_id');
             $table->string('email')->nullable();
             $table->text('refund_reason')->nullable();
             $table->string('refund_pix_key')->nullable();;
