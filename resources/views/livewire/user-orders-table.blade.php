@@ -26,18 +26,23 @@
                     <x-mary-button wire:click="closeModal" icon="o-x-mark" class="btn-circle btn-sm" />
                 </div>
                 <div class="p-4">
-                    <div class="mb-4">
+                    <div class="">
+                        <div class="mb-3">
                         <label for="order_hashed_id" class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">Id of the order</label>
-                        <x-mary-input type="text" id="order_hashed_id" wire:model.defer="order_hashed_id" class="w-full p-2 border rounded-lg mb-4 dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your order ID" />
-
+                        <x-mary-input type="text" id="order_hashed_id" wire:model.defer="order_hashed_id" class="w-full p-2 border rounded-lg  dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your order ID" />
+                    </div>
+                    <div class="mb-3">
                         <label for="refund_pix_key" class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">Chave pix para lhe enviarmos o reembolso</label>
-                        <x-mary-input type="text" id="refund_pix_key" wire:model.defer="refund_pix_key" class="w-full p-2 border rounded-lg mb-4 dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your pix key" />
-                        
+                        <x-mary-input type="text" id="refund_pix_key" wire:model.defer="refund_pix_key" class="w-full p-2 border rounded-lg  dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your pix key" />
+                    </div>
+                    <div class="mb-3">
                         <label for="email" class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">Seu email para contatármos-lhe</label>
-                        <x-mary-input type="email" id="email" wire:model.defer="email" class="w-full p-2 border rounded-lg mb-4 dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your email" />
-
+                        <x-mary-input type="email" id="email" wire:model.defer="email" class="w-full p-2 border rounded-lg  dark:border-gray-500 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Type your email" />
+                    </div>
+                    <div class="mb-3">
                         <label for="refund_reason" class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">Please explain your reason for refund</label>
-                        <x-mary-input type="text" id="refund_reason" wire:model.defer="refund_reason" class="w-full p-2 border rounded-lg dark:border-gray-500 mb-4 border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Explain your reasonings" />
+                        <x-mary-input type="text" id="refund_reason" wire:model.defer="refund_reason" class="w-full p-2 border rounded-lg dark:border-gray-500  border-gray-300 dark:bg-gray-600 dark:text-white" placeholder="Explain your reasonings" />
+                    </div>
                     </div>
                     <x-mary-button label="Enviar pedido" type="submit" spinner="submit" class="w-full py-2" icon="o-paper-airplane"/>
                 </div>

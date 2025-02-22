@@ -20,7 +20,7 @@ class UserOrdersTable extends Component
     protected $rules = [
         'order_hashed_id' => 'required|string',
         'email' => 'required|email',
-        'refund_reason' => 'nullable|string',
+        'refund_reason' => 'required|string',
         'refund_pix_key' => 'required|string',
     ];
 

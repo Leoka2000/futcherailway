@@ -1,24 +1,13 @@
 <x-guest-layout>
     <style>
-         #password:focus,
-        #email:focus,
-        #remember_me:focus {
-            outline: 2px solid oklch(var(--wa)) !important;
-            outline-offset: 2px !important;
-            box-shadow: none !important;
-            /* Remove any default box-shadow */
-            border-color: transparent !important;
-            /* Ensure no border color is applied */
+        input, select {
+            border: none !important; /* Ensure the border is transparent */
+            outline: none !important; /* Remove the default outline */
+        }
+        div > .flex > .border-primary {
+            border: none!important
         }
 
-       
-
-  
-
-
-        input[type="checkbox"]:checked {
-            background-color: oklch(var(--wa)) !important;
-        }
     </style>
     <x-authentication-card>
         <x-slot name="logo">
