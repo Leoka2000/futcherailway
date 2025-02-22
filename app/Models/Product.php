@@ -17,9 +17,9 @@ class Product extends Model
     }
 
     public function shoppingCarts()
-{
-    return $this->hasMany(ShoppingCart::class);
-}
+    {
+        return $this->hasMany(ShoppingCart::class);
+    }
 
     public function setImageAttribute($value)
     {
@@ -41,7 +41,7 @@ class Product extends Model
     protected $casts = [
         'image' => 'array',
     ];
-  
+
 
     // Casting thhe image field to a array 
     //is unnecessary because you are storing a string, not a JSON array. Remove this casting to prevent conflicts.
