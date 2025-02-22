@@ -14,6 +14,8 @@ class UserOrdersTable extends Component
     public $email;
     public $refund_reason;
     public $refund_pix_key;
+    public $showModal = false;
+
 
     protected $rules = [
         'order_hashed_id' => 'required|string',
@@ -34,9 +36,22 @@ class UserOrdersTable extends Component
         ]);
 
         session()->flash('message', 'Refund request submitted successfully.');
-        $this->reset();
+        // Reset form fields
+        $this->reset(['order_hashed_id', 'email', 'refund_reason', 'refund_pix_key']);
+
+        // Close the modal
+        $this->showModal = false;
     }
 
+    public function openModal()
+    {
+        $this->showModal = true;
+    }
+
+    public function closeModal()
+    {
+        $this->showModal = false;
+    }
 
     public function render()
     {
