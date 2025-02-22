@@ -34,7 +34,8 @@ class CategoryFactory extends Factory
             'paulistas',
             'pulistas',
             'mineiros',
-            'nordestinos'
+            'nordestinos',
+
         ];
 
         return [

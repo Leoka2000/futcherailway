@@ -10,28 +10,28 @@ use Livewire\Attributes\Url;
 
 new class extends Component {
 
+    public ?int $category_id = null;
 
-    #[Url]
-    public ?int $category_id = null; 
-   
+public function updatedCategoryId($value)
+{
+    $this->category_id = $value;
+}
 
-    public function categories()
-    {
-        return Category::withCount('products')->get();
+public function categories()
+{
+    return Category::all();
+}
+
+public function products()
+{
+    $query = Product::query();
+
+    if ($this->category_id) {
+        $query->where('category_id', $this->category_id);
     }
 
-    public function products()
-    {
-        $query = Product::query();
-
-        if ($this->category_id) {
-            $query->where('category_id', $this->category_id);
-        }
-
-        return $query->get();
-    }
-
-   
+    return $query->get();
+}
 
     public function with(): array
     {
@@ -92,11 +92,10 @@ new class extends Component {
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
             <x-mary-dropdown label="Seleções" class="btn-sm">
-                <x-mary-menu-item value="america" title="América" />
-                <x-mary-menu-item value="europas" title="Europa" />
-                <x-mary-menu-item value="asia" title="Ásia" />
-                <x-mary-menu-item value="africa" title="África" />
-                <x-mary-menu-item value=todos title="Todos"  />
+                @foreach($categories as $category)
+                    <x-mary-menu-item wire:click="$set('category_id', {{ $category->id }})" title="{{ $category->name }}" />
+                @endforeach
+                <x-mary-menu-item wire:click="$set('category_id', null)" title="Todos" />
             </x-mary-dropdown>
     
             <x-mary-dropdown label="Times Europeus" class="btn-sm">
@@ -114,16 +113,11 @@ new class extends Component {
         {{-- PRODUCTS LIST --}}
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach($products as $product)
-                <div class="product-card" data-category="{{ $product->category_id }}">
-                    <x-mary-card title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
-                        <x-slot:figure>
-                            <img src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" />
-                        </x-slot:figure>
-                        <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                        <a class="btn w-full mt-5 btn-warning" href="{{ route('product.show', $product->id) }}">Ver mais</a>
-                    </x-mary-card>
-                </div>
-            @endforeach
+            <x-mary-card title="{{ $product->name }}">
+                <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
+                <a class="btn w-full mt-5 btn-warning" href="{{ route('product.show', $product->id) }}">Ver mais</a>
+            </x-mary-card>
+        @endforeach
         </div>
     </div>
    
