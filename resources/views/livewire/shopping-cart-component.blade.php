@@ -134,11 +134,33 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div  x-data="{ loading: false }"  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            @foreach($products as $product)
-            <x-mary-card title="{{ $product->name }}">
-                <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                <button 
+        <div  x-data="{ loading: false }" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"  >
+        @forelse($products as $product)
+        <x-mary-card title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
+           
+            <span class="inline-flex items-start gap-1 top-2 left-2 absolute rounded-md bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-400 dark:ring-yellow-600 ring-inset"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mt-[2px]">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                </svg> 21%</span>
+
+            <x-slot:figure class="relative">
+                @foreach($product->image as $img)
+                <img src="{{ $product->image[0] }}" alt="Product Image" class="w-full h-auto rounded-md" />
+            @endforeach
+                <span class="inline-flex  bottom-2 right-2 absolute  items-start rounded-md text-start bg-green-100 px-2 py-1 text-xs gap-1 font-medium dark:text-green-500 text-green-600 ring-1 ring-green-600/20 ring-inset">  <x-mary-icon name="o-truck" /> <span class="mt-[3px]"> FRETE GRÁTIS</span></span>
+
+
+            </x-slot:figure>
+            <div class="mb-1 gap-1">
+                <p class="xl:text-xl font-semibold dark:text-red-600 text-red-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
+            </div>
+            <div class="flex items-center gap-1">
+                <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-red-600 text-red-500 font-semibold">R$ 15,24</span></p>
+            </div>
+            <x-slot:menu>
+                <x-mary-button icon="o-heart" class="btn-circle btn-sm shadow-md" />
+            </x-slot:menu>
+            <div   >
+                <xbutton 
                 x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
                 x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
                 class="btn w-full mt-5 btn-warning"
@@ -146,12 +168,46 @@ new class extends Component {
             >
                 <span x-show="!loading">Ver mais</span>
                 <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
-            </button>
-                {{ $product->category }}
-            </x-mary-card>
-        @endforeach
-        </div>
+            </xbutton>
+            </div>
+           
+
+
+
+        </x-mary-card>
+        @empty
+        {{-- NO RESULTS--}}
+        <x-mary-alert title="Nothing here!" description="Try to remove some filters." icon="o-exclamation-triangle" class="bg-base-100 border-none">
+            <x-slot:actions>
+                <x-mary-button label="Clear filters" wire:click="clear" icon="o-x-mark" spinner />
+            </x-slot:actions>
+        </x-mary-alert>
+        @endforelse
+    </div>
     </div>
    
    
 </div>
+
+
+
+{{--    <div x-data="{ loading: false }"  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            @foreach($products as $product)
+            <x-mary-card title="{{ $product->name }}">
+                <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
+                @foreach($product->image as $img)
+                <img src="{{ $product->image[0] }}" alt="Product Image" class="w-full h-auto rounded-md" />
+            @endforeach
+                 <button 
+                        x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
+                        x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
+                        class="btn w-full mt-5 btn-warning"
+                        :disabled="loading"
+                    >
+                        <span x-show="!loading">Ver mais</span>
+                        <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
+                    </button>
+              
+            </x-mary-card>
+        @endforeach
+        </div> --}}

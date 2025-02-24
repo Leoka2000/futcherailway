@@ -45,8 +45,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'image' => json_encode([
-                "products/Image 08-02-2025 at 03.45.jpg",
-                "products/" . $this->faker->uuid . ".jpg"
+                "https://loremflickr.com/320/240/any?" . $this->faker->uuid,
+                "https://loremflickr.com/320/240/any?" . $this->faker->uuid
             ], JSON_UNESCAPED_SLASHES),
         ];
     }
