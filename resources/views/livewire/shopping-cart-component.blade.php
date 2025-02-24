@@ -164,7 +164,7 @@ new class extends Component {
                     x-data="{ loading: false }" 
                     x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
                     x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                    class="btn w-full mt-5 btn-warning"
+                    class="btn w-full mt-5 outline-warning"
                     :disabled="loading"
                 >
                     <span x-show="!loading">Ver mais</span>
