@@ -10,10 +10,12 @@ new class extends Component {
     {
         $query = Product::query();
 
+        // Apply category filter
         if ($this->selectedCategory !== 'todos') {
             $query->where('category', $this->selectedCategory);
         }
 
+        // Apply search filter for product name
         if (!empty($this->searchTerm)) {
             $query->where('name', 'like', '%' . $this->searchTerm . '%');
         }
@@ -23,14 +25,13 @@ new class extends Component {
 
     public function setFilter($category)
     {
-        // Reset search when category changes
-        $this->searchTerm = '';
+        $this->searchTerm = ''; // Clear search term when category changes
         $this->selectedCategory = $category;
     }
 
     public function searchMulti($search)
     {
-        $this->searchTerm = $search;
+        $this->searchTerm = $search; // Update search term dynamically
     }
 
     public function with(): array
@@ -44,7 +45,7 @@ new class extends Component {
 };
 ?>
 
-<div >
+<div  x-data="{ searchTerm: @entangle('searchTerm') }">
     <style>
         .pb-5>div>div>div {
             font-size: 1rem;
@@ -70,6 +71,11 @@ new class extends Component {
             /* Adjust the thickness as needed */
             outline-offset: 2px !important;
         }
+
+        .end-8 {
+        display: none;
+
+        }
     </style>
     <x-mary-header title="Camisas" />
 
@@ -77,15 +83,17 @@ new class extends Component {
         {{-- SEARCH --}}
        
         <x-slot:title>
+            <x-mary-choices
+                label="Search for Products"
+                placeholder="Type to search..."
+                search-function="searchMulti"
+                no-result-text="Ops! Nothing found..."
+                searchable
+                class="md:w-96 w-full border-warning text-warning" 
+                x-model="searchTerm"
+                wire:model="searchTerm" />
+        </x-slot:title>
 
-        <x-mary-choices
-            label="Search for Products"
-            placeholder="Type to search..."
-            search-function="searchMulti"
-            no-result-text="Ops! Nothing found..."
-            searchable
-            class="md:w-96 w-full border-warning text-warning" />
-    </x-slot:title>
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
             <x-mary-dropdown label="Times Europeus" class="btn-sm">
