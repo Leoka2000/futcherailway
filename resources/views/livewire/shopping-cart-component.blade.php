@@ -4,6 +4,7 @@ use Livewire\Volt\Component;
 
 new class extends Component {
     public string $selectedCategory = 'todos';
+    public string $searchTerm = ''; // Search input
 
     public function products()
     {
@@ -13,13 +14,23 @@ new class extends Component {
             $query->where('category', $this->selectedCategory);
         }
 
+        if (!empty($this->searchTerm)) {
+            $query->where('name', 'like', '%' . $this->searchTerm . '%');
+        }
+
         return $query->get();
     }
 
     public function setFilter($category)
     {
-        // Reset all filters before setting the new one
+        // Reset search when category changes
+        $this->searchTerm = '';
         $this->selectedCategory = $category;
+    }
+
+    public function searchMulti($search)
+    {
+        $this->searchTerm = $search;
     }
 
     public function with(): array
@@ -27,6 +38,7 @@ new class extends Component {
         return [
             'products' => $this->products(),
             'selectedCategory' => $this->selectedCategory,
+            'searchTerm' => $this->searchTerm
         ];
     }
 };
@@ -64,7 +76,16 @@ new class extends Component {
     <x-mary-header size="text-inherit" progress-indicator>
         {{-- SEARCH --}}
        
+        <x-slot:title>
 
+        <x-mary-choices
+            label="Search for Products"
+            placeholder="Type to search..."
+            search-function="searchMulti"
+            no-result-text="Ops! Nothing found..."
+            searchable
+            class="md:w-96 w-full border-warning text-warning" />
+    </x-slot:title>
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
             <x-mary-dropdown label="Times Europeus" class="btn-sm">
@@ -103,7 +124,7 @@ new class extends Component {
             @foreach($products as $product)
             <x-mary-card title="{{ $product->name }}">
                 <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                <x-mary-button icon="o-plus" spinner="{{ route('product.show', $product->id) }}" class="btn w-full mt-5 btn-warning" link="{{ route('product.show', $product->id) }}">Ver mais</x-mary-button>
+                <x-mary-button icon="o-eye" spinner="{{ route('product.show', $product->id) }}" class="btn w-full mt-5 btn-warning" link="{{ route('product.show', $product->id) }}">Ver mais</x-mary-button>
                 {{ $product->category }}
             </x-mary-card>
         @endforeach
