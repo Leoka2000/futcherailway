@@ -111,32 +111,31 @@ new class extends Component {
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
             <x-mary-dropdown label="Times Europeus" class="btn-sm">
-                <x-mary-menu-item value="liga_alema" title="Liga Alemã" wire:click="setFilter('liga_alema')" />
-                <x-mary-menu-item value="liga_espanhola" title="Liga Espanhola" wire:click="setFilter('liga_espanhola')" />
-                <x-mary-menu-item value="liga_francesa" title="Liga Francesa" wire:click="setFilter('liga_francesa')" />
-                <x-mary-menu-item value="liga_inglesa" title="Liga Inglesa" wire:click="setFilter('liga_inglesa')" />
-                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
+                <x-mary-menu-item  @click.stop  value="liga_alema" title="Liga Alemã" wire:click="setFilter('liga_alema')" wire:click.stop="setFilter('liga_alema')" spinner="setFilter('liga_alema')" />
+                <x-mary-menu-item  @click.stop  value="liga_espanhola" title="Liga Espanhola" wire:click="setFilter('liga_espanhola')" spinner="setFilter('liga_espanhola')" />
+                <x-mary-menu-item   @click.stop value="liga_francesa" title="Liga Francesa" wire:click="setFilter('liga_francesa')" spinner="setFilter('liga_francesa')" />
+                <x-mary-menu-item  @click.stop  value="liga_inglesa" title="Liga Inglesa" wire:click="setFilter('liga_inglesa')" spinner="setFilter('liga_inglesa')" />
+                <x-mary-menu-item  @click.stop  value="todos" title="Todos" wire:click="setFilter('todos')" spinner="setFilter('todos')" />
             </x-mary-dropdown>
-    
+        
             {{-- National Teams --}}
             <x-mary-dropdown label="Seleções" class="btn-sm">
-                <x-mary-menu-item value="america" title="América" wire:click="setFilter('america')" />
-                <x-mary-menu-item value="europa" title="Europa" wire:click="setFilter('europa')" />
-                <x-mary-menu-item value="asia" title="Ásia" wire:click="setFilter('asia')" />
-                <x-mary-menu-item value="africa" title="África" wire:click="setFilter('africa')" />
-                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
+                <x-mary-menu-item @click.stop value="america" title="América" wire:click="setFilter('america')" spinner="setFilter('america')" />
+                <x-mary-menu-item  @click.stop  value="europa" title="Europa" wire:click="setFilter('europa')" spinner="setFilter('europa')" />
+                <x-mary-menu-item  @click.stop  value="asia" title="Ásia" wire:click="setFilter('asia')" spinner="setFilter('asia')" />
+                <x-mary-menu-item  @click.stop  value="africa" title="África" wire:click="setFilter('africa')" spinner="setFilter('africa')" />
+                <x-mary-menu-item  @click.stop  value="todos" title="Todos" wire:click="setFilter('todos')" spinner="setFilter('todos')" />
             </x-mary-dropdown>
-    
+        
             {{-- Brazilian Teams --}}
             <x-mary-dropdown label="Times Brasileiros" class="btn-sm">
-                <x-mary-menu-item value="cariocas" title="Cariocas" wire:click="setFilter('cariocas')" />
-                <x-mary-menu-item value="paulistas" title="Paulistas" wire:click="setFilter('paulistas')" />
-                <x-mary-menu-item value="sulistas" title="Sulistas" wire:click="setFilter('sulistas')" />
-                <x-mary-menu-item value="mineiros" title="Mineiros" wire:click="setFilter('mineiros')" />
-                <x-mary-menu-item value="nordestinos" title="Nordestinos" wire:click="setFilter('nordestinos')" />
-                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
+                <x-mary-menu-item  @click.stop  value="cariocas" title="Cariocas" wire:click="setFilter('cariocas')" spinner="setFilter('cariocas')" />
+                <x-mary-menu-item  @click.stop  value="paulistas" title="Paulistas" wire:click="setFilter('paulistas')" spinner="setFilter('paulistas')" />
+                <x-mary-menu-item  @click.stop  value="sulistas" title="Sulistas" wire:click="setFilter('sulistas')" spinner="setFilter('sulistas')" />
+                <x-mary-menu-item  @click.stop  value="mineiros" title="Mineiros" wire:click="setFilter('mineiros')" spinner="setFilter('mineiros')" />
+                <x-mary-menu-item  @click.stop  value="nordestinos" title="Nordestinos" wire:click="setFilter('nordestinos')" spinner="setFilter('nordestinos')" />
+                <x-mary-menu-item  @click.stop  value="todos" title="Todos" wire:click="setFilter('todos')" spinner="setFilter('todos')" />
             </x-mary-dropdown>
-           
         </x-slot:actions>
     </x-mary-header>
 
