@@ -134,7 +134,7 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div  x-data="{ loading: false }" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"  >
+        <div x-data  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"  >
         @forelse($products as $product)
         <x-mary-card title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
            
@@ -160,15 +160,16 @@ new class extends Component {
                 <x-mary-button icon="o-heart" class="btn-circle btn-sm shadow-md" />
             </x-slot:menu>
             <div   >
-                <xbutton 
-                x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
-                x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                class="btn w-full mt-5 btn-warning"
-                :disabled="loading"
-            >
-                <span x-show="!loading">Ver mais</span>
-                <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
-            </xbutton>
+                <button 
+                    x-data="{ loading: false }" 
+                    x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
+                    x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
+                    class="btn w-full mt-5 btn-warning"
+                    :disabled="loading"
+                >
+                    <span x-show="!loading">Ver mais</span>
+                    <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
+                </button>
             </div>
            
 

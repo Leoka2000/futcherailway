@@ -21,6 +21,7 @@
 </head>
 
 <body class="relative font-sans antialiased">
+    
     @unless (request()->is('login', 'register'))
     <x-mary-nav sticky full-width class="shadow-sm">
         <x-slot:brand>
