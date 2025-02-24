@@ -33,7 +33,6 @@ class ProductFactory extends Factory
             'liga_italiana',
             'outra_liga',
             'paulistas',
-            'pulistas',
             'mineiros',
             'nordestinos'
         ];

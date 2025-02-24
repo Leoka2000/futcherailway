@@ -31,7 +31,24 @@ class ProductResource extends Resource
                     ->required()
                     ->maxLength(255),
 
+                Forms\Components\Select::make('category')
+                    ->options([
+                        'america' => 'América',
+                        'europa' => 'Europa',
+                        'asia' => 'Ásia',
+                        'africa' => 'África',
+                        'liga_alema' => 'liga_alema',
+                        'liga_espanhola' => 'liga_espanhola',
+                        'liga_espanhola' => 'liga_espanhola',
+                        'liga_inglesa' => 'liga_italiana',
+                        'outra_liga' => 'outra_liga',
+                        'paulistas' => 'paulistas',
+                        'mineiros' => 'mineiros',
+                        'nordestinos' => 'nordestinos',
 
+
+                    ])
+                    ->required(),
 
 
 
