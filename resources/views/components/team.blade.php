@@ -17,7 +17,7 @@
             <div class="flex flex-col items-center justify-center col-span-1">
                 <div class="relative p-5">
                     <div class="absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none bg-yellow-50 dark:bg-yellow-900"></div>
-                    <img class="relative z-20 w-full rounded-full" src="https://cdn.devdojo.com/images/june2021/avt-03.jpg" />
+                    <img class="relative z-20 w-full rounded-full" src="{{asset('bernardo.jpg')}}" />
                 </div>
                 <div class="mt-3 space-y-2 text-center">
                     <div class="space-y-1 text-lg font-medium leading-6">
@@ -42,7 +42,7 @@
             <div class="flex flex-col items-center justify-center col-span-1">
                 <div class="relative p-5">
                     <div class="absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none bg-green-50 dark:bg-green-900"></div>
-                    <img class="relative z-20 w-full rounded-full" src="https://cdn.devdojo.com/images/june2021/avt-07.jpg" />
+                    <img class="relative z-20 w-full rounded-full" src="{{asset('leo.jpg')}}" />
                 </div>
                 <div class="mt-3 space-y-2 text-center">
                     <div class="space-y-1 text-lg font-medium leading-6">
@@ -67,7 +67,7 @@
             <div class="flex flex-col items-center justify-center col-span-1">
                 <div class="relative p-5">
                     <div class="absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none bg-pink-50 dark:bg-pink-100"></div>
-                    <img class="relative z-20 w-full rounded-full" src="https://cdn.devdojo.com/images/june2021/avt-20.jpg" />
+                    <img class="relative z-20 w-full rounded-full" src="{{asset('luma.jpg')}}" />
                 </div>
                 <div class="mt-3 space-y-2 text-center">
                     <div class="space-y-1 text-lg font-medium leading-6">
