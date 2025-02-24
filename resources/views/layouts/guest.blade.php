@@ -47,7 +47,7 @@
         {{-- Right side actions --}}
         <x-slot:actions>
          
-            <x-mary-button label="Minha conta" icon="o-arrow-right-start-on-rectangle" link="{{ route('profile.show')}}" class="btn-ghost btn-sm" responsive />
+   
             @unless (request()->is('/', 'termos-e-servicos', 'shopping-cart'))
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
             @endunless
