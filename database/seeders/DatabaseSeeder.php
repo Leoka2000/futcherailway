@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->withPersonalTeam()->create();
 
         $this->call([
-            CategorySeeder::class,
+
             ProductSeeder::class,
             UserSeeder::class,
             // Ensure this is called after CategorySeeder

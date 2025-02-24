@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,7 +15,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Create 10 users using the UserFactory
-        DB::table('users')->truncate(); 
+        DB::table('users')->truncate();
         User::factory()->count(10)->create();
 
         // Optionally, create a specific user for testing

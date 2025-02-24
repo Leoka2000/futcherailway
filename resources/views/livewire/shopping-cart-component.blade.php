@@ -1,47 +1,36 @@
 <?php
-
-use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection;
 use Livewire\Volt\Component;
-use Livewire\Attributes\Url;
 
 new class extends Component {
+    public string $selectedCategory = 'todos';
 
-    public ?int $category_id = null;
+    public function products()
+    {
+        $query = Product::query();
 
-public function updatedCategoryId($value)
-{
-    $this->category_id = $value;
-}
+        if ($this->selectedCategory !== 'todos') {
+            $query->where('category', $this->selectedCategory);
+        }
 
-public function categories()
-{
-    return Category::all();
-}
-
-public function products()
-{
-    $query = Product::query();
-
-    if ($this->category_id) {
-        $query->where('category_id', $this->category_id);
+        return $query->get();
     }
 
-    return $query->get();
-}
+    public function setFilter($category)
+    {
+        // Reset all filters before setting the new one
+        $this->selectedCategory = $category;
+    }
 
     public function with(): array
     {
         return [
-            'categories' => $this->categories(),
             'products' => $this->products(),
-          
+            'selectedCategory' => $this->selectedCategory,
         ];
     }
-}; ?>
+};
+?>
 
 <div >
     <style>
@@ -74,36 +63,35 @@ public function products()
 
     <x-mary-header size="text-inherit" progress-indicator>
         {{-- SEARCH --}}
-        <x-slot:title id="buceta">
-
-            <!-- Replace the input with the choices component -->
-            <x-mary-choices
-                label="Select Products"
-                wire:model.live="selected_product_ids"
-            
-                placeholder="Digite algo"
-                search-function="searchProducts"
-                no-result-text="No products found"
-                searchable
-                multiple
-                class="md:w-96 w-full border-warning text-warning" />
-        </x-slot:title>
+       
 
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
-            <x-mary-dropdown label="Seleções" class="btn-sm">
-                @foreach($categories as $category)
-                    <x-mary-menu-item wire:click="$set('category_id', {{ $category->id }})" title="{{ $category->name }}" />
-                @endforeach
-                <x-mary-menu-item wire:click="$set('category_id', null)" title="Todos" />
+            <x-mary-dropdown label="Times Europeus" class="btn-sm">
+                <x-mary-menu-item value="liga_alema" title="Liga Alemã" wire:click="setFilter('liga_alema')" />
+                <x-mary-menu-item value="liga_espanhola" title="Liga Espanhola" wire:click="setFilter('liga_espanhola')" />
+                <x-mary-menu-item value="liga_francesa" title="Liga Francesa" wire:click="setFilter('liga_francesa')" />
+                <x-mary-menu-item value="liga_inglesa" title="Liga Inglesa" wire:click="setFilter('liga_inglesa')" />
+                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
             </x-mary-dropdown>
     
-            <x-mary-dropdown label="Times Europeus" class="btn-sm">
-                <x-mary-menu-item value="liga_alema" title="Liga Alemã" />
-                <x-mary-menu-item value="liga_espanhola" title="Liga Espanhola"  /> 
-                <x-mary-menu-item value="liga_francesa" title="Liga Francesa"  />
-                <x-mary-menu-item value="liga_inglesa"  title="Liga Ingles"/>
-                <x-mary-menu-item value="todos"  title="Todos"  />
+            {{-- National Teams --}}
+            <x-mary-dropdown label="Seleções" class="btn-sm">
+                <x-mary-menu-item value="america" title="América" wire:click="setFilter('america')" />
+                <x-mary-menu-item value="europa" title="Europa" wire:click="setFilter('europa')" />
+                <x-mary-menu-item value="asia" title="Ásia" wire:click="setFilter('asia')" />
+                <x-mary-menu-item value="africa" title="África" wire:click="setFilter('africa')" />
+                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
+            </x-mary-dropdown>
+    
+            {{-- Brazilian Teams --}}
+            <x-mary-dropdown label="Times Brasileiros" class="btn-sm">
+                <x-mary-menu-item value="cariocas" title="Cariocas" wire:click="setFilter('cariocas')" />
+                <x-mary-menu-item value="paulistas" title="Paulistas" wire:click="setFilter('paulistas')" />
+                <x-mary-menu-item value="sulistas" title="Sulistas" wire:click="setFilter('sulistas')" />
+                <x-mary-menu-item value="mineiros" title="Mineiros" wire:click="setFilter('mineiros')" />
+                <x-mary-menu-item value="nordestinos" title="Nordestinos" wire:click="setFilter('nordestinos')" />
+                <x-mary-menu-item value="todos" title="Todos" wire:click="setFilter('todos')" />
             </x-mary-dropdown>
            
         </x-slot:actions>
@@ -115,7 +103,8 @@ public function products()
             @foreach($products as $product)
             <x-mary-card title="{{ $product->name }}">
                 <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                <a class="btn w-full mt-5 btn-warning" href="{{ route('product.show', $product->id) }}">Ver mais</a>
+                <x-mary-button icon="o-plus" spinner="{{ route('product.show', $product->id) }}" class="btn w-full mt-5 btn-warning" link="{{ route('product.show', $product->id) }}">Ver mais</x-mary-button>
+                {{ $product->category }}
             </x-mary-card>
         @endforeach
         </div>

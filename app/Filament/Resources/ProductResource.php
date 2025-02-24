@@ -31,11 +31,7 @@ class ProductResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\Select::make('category_id')
-                    ->relationship('category', 'name')
-                    ->required()
-                    ->searchable()
-                    ->preload(),
+
 
 
 
@@ -75,10 +71,6 @@ class ProductResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('category.name')
-                    ->label('Category')
-                    ->searchable()
-                    ->sortable(),
 
                 Tables\Columns\TextColumn::make('size')
                     ->searchable()

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
 
@@ -13,6 +12,27 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory()->count(50)->create();
+        $categories = [
+            'america',
+            'europa',
+            'asia',
+            'africa',
+            'liga_alema',
+            'liga_espanhola',
+            'liga_francesa',
+            'liga_inglesa',
+            'liga_italiana',
+            'outra_liga',
+            'paulistas',
+            'pulistas',
+            'mineiros',
+            'nordestinos'
+        ];
+
+        foreach ($categories as $category) {
+            Product::factory()->create([
+                'category' => $category
+            ]);
+        }
     }
 }
