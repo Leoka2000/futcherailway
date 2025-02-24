@@ -24,7 +24,12 @@
                 </svg>
             </a>
 
-            
+      
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+                    <x-mary-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff" type="submit" />
+                </form>
+    
         </span>
     </div>
 </section>

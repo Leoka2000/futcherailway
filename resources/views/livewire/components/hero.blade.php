@@ -47,7 +47,7 @@
         }, 500);"
                                 class="btn w-full customcssbtn btn-warning  mt-5 flex items-center justify-center"
                                 :disabled="loading">
-                                <span x-show="!loading">Ver mais</span>
+                                <span x-show="!loading">Comprar agora</span>
                                 <span x-show="loading">
                                     <x-mary-loading class="text-gray-700 dark:text-gray-400 " x-show="loading" />
                                 </span>
