@@ -76,6 +76,12 @@ new class extends Component {
         display: none;
 
         }
+        .outline-none {
+           width:5rem;
+           border-radius: 0.5rem;
+           border-color:transparent;
+
+        }
     </style>
     <x-mary-header title="Camisas" />
 
