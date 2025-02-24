@@ -59,7 +59,7 @@
 
         {{-- This is a sidebar that works also as a drawer on small screens --}}
         {{-- Notice the `main-drawer` reference here --}}
-        <livewire:components.sidebar />
+    
 
         {{-- The `$slot` goes here --}}
         <x-slot:content>

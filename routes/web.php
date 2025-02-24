@@ -31,7 +31,7 @@ Route::view('termos-e-servicos', 'policy')
     ->name('policy');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/shopping-cart', [ShoppingCartController::class, 'index'])->name('components/list-cart');
+Route::get('/shopping-cart', [ShoppingCartController::class, 'index'])->middleware(['auth'])->name('components/list-cart');
 
 Route::get('/cart-list', function () {
     return view('cart-list'); // This Blade view will include the Livewire component

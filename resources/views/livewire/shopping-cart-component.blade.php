@@ -84,6 +84,7 @@ new class extends Component {
         }
     </style>
     <x-mary-header title="Camisas" />
+    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Back </x-mary-button >
 
     <x-mary-header size="text-inherit" progress-indicator>
         {{-- SEARCH --}}
@@ -143,9 +144,9 @@ new class extends Component {
                 </svg> 21%</span>
 
             <x-slot:figure class="relative">
-                @foreach($product->image as $img)
-                <img src="{{ $product->image[0] }}" alt="Product Image" class="w-full h-auto rounded-md" />
-            @endforeach
+                @
+                <img src="{{ asset('sample_img.jpg')}}" alt="Product Image" class="w-full h-auto rounded-md" />
+
                 <span class="inline-flex  bottom-2 right-2 absolute  items-start rounded-md text-start bg-green-100 px-2 py-1 text-xs gap-1 font-medium dark:text-green-500 text-green-600 ring-1 ring-green-600/20 ring-inset">  <x-mary-icon name="o-truck" /> <span class="mt-[3px]"> FRETE GRÁTIS</span></span>
 
 
@@ -192,23 +193,3 @@ new class extends Component {
 
 
 
-{{--    <div x-data="{ loading: false }"  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            @foreach($products as $product)
-            <x-mary-card title="{{ $product->name }}">
-                <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                @foreach($product->image as $img)
-                <img src="{{ $product->image[0] }}" alt="Product Image" class="w-full h-auto rounded-md" />
-            @endforeach
-                 <button 
-                        x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
-                        x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                        class="btn w-full mt-5 btn-warning"
-                        :disabled="loading"
-                    >
-                        <span x-show="!loading">Ver mais</span>
-                        <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
-                    </button>
-              
-            </x-mary-card>
-        @endforeach
-        </div> --}}

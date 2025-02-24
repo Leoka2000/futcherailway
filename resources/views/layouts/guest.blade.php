@@ -45,8 +45,9 @@
        
         {{-- Right side actions --}}
         <x-slot:actions>
-      
+            @unless (request()->is('/', 'termos-e-servicos'))
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
+            @endunless
             <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
        
             <x-mary-button label="Camisas" icon="o-shopping-cart" link="{{ route('components.shopping_cart_component_index')}}" class="btn-sm shadow-lg btn-warning" responsive />
@@ -55,7 +56,7 @@
     </x-mary-nav>
     @endunless
     @endunless
-
+    <livewire:components.sidebar />
     {{-- The main content with `full-width` --}}
     <x-mary-main with-nav full-width>
        
