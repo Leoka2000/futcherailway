@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 [x-cloak] {
-    display: none;
+  display: none;
+}
+
+.flex-1 > .mr-3 {
+  display: none !important;
 }
