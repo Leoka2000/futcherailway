@@ -134,11 +134,19 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div  x-data="{ loading: false }"  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach($products as $product)
             <x-mary-card title="{{ $product->name }}">
                 <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                <x-mary-button icon="o-eye" spinner="{{ route('product.show', $product->id) }}" class="btn w-full mt-5 btn-warning" link="{{ route('product.show', $product->id) }}">Ver mais</x-mary-button>
+                <button 
+                x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
+                x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
+                class="btn w-full mt-5 btn-warning"
+                :disabled="loading"
+            >
+                <span x-show="!loading">Ver mais</span>
+                <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
+            </button>
                 {{ $product->category }}
             </x-mary-card>
         @endforeach
