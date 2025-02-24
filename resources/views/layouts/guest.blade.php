@@ -20,7 +20,7 @@
     @livewireStyles
 </head>
 
-<body class="relative font-sans antialiased">
+<body class="relative font-sans antialiased ">
     
     @unless (request()->is('login', 'register'))
     <x-mary-nav sticky full-width class="shadow-sm">
@@ -38,6 +38,7 @@
             <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
 
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
+
         </x-slot:actions>
     </x-mary-nav>
     @unless (request()->is('catalogo'))
@@ -45,6 +46,8 @@
        
         {{-- Right side actions --}}
         <x-slot:actions>
+         
+            <x-mary-button label="Minha conta" icon="o-arrow-right-start-on-rectangle" link="{{ route('profile.show')}}" class="btn-ghost btn-sm" responsive />
             @unless (request()->is('/', 'termos-e-servicos', 'shopping-cart'))
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
             @endunless
@@ -61,7 +64,7 @@
     <x-mary-main with-nav full-width>
        
         {{-- The `$slot` goes here --}}
-        <x-slot:content>
+        <x-slot:content  >
             {{ $slot }}
         </x-slot:content>
 

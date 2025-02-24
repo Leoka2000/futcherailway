@@ -49,7 +49,7 @@
 
     {{-- The main content with `full-width` --}}
     <x-mary-main with-nav full-width>
-        <livewire:components.sidebar />
+    
 
         {{-- The `$slot` goes here --}}
         <x-slot:content>

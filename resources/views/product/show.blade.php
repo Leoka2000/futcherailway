@@ -54,7 +54,7 @@
         </x-slot:actions>
     </x-mary-nav>
 
-    <x-mary-main with-nav full-width>
+    <x-mary-main with-nav full-width class>
        
         <x-slot:content>
             <div class="relative z-10" role="dialog" aria-modal="true">

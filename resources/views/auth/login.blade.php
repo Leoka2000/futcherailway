@@ -1,15 +1,20 @@
 <x-guest-layout>
     <style>
         input, select {
-            border: none !important;
-            outline: none !important;
+            outline: 1px solid oklch(var(--wa)) !important;
+            outline-offset: 1px !important;
+            box-shadow: none !important;
+            border-color: transparent !important;
         }
         div > .flex > .border-primary {
-            border: none!important;
+            outline: 1px solid oklch(var(--wa)) !important;
+            outline-offset: 1px !important;
+            box-shadow: none !important;
+            
         }
     </style>
 
-    <x-authentication-card>
+    <x-authentication-card >
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
@@ -22,7 +27,7 @@
             </div>
         @endsession
 
-        <form method="POST" action="{{ route('login') }}" onsubmit="setLoadingState()">
+        <form method="POST" action="{{ route('login') }}" onsubmit="setLoadingState()" >
             @csrf
 
             <div>
@@ -38,7 +43,7 @@
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                    <span class="ms-2 text-sm text-gray-500 dark:text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
@@ -49,7 +54,7 @@
                     </a>
                 @endif
 
-                <button id="loginButton" type="submit" class="ms-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center">
+                <button id="loginButton" type="submit" class="ms-4 text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 inline-flex items-center">
                     {{ __('Log in') }}
                 </button>
             </div>
