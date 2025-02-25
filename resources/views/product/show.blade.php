@@ -93,7 +93,7 @@
                                     <!-- Rest of your product details -->
                                     <div class="sm:col-span-8 lg:col-span-7">
                                         <div class="gap-5 flex items-center sm:pr-12">
-                                            <h2 class="text-2xl font-bold text-gray-900 ">Basic Tee 6-Pack</h2> <img class="h-10 w-10 rounded-full opacity-90" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;" src="{{asset('bandeira.png')}}" />
+                                            <h2 class="text-2xl font-bold text-gray-900 ">{{$product->name}}</h2> <img class="h-10 w-10 rounded-full opacity-90" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;" src="{{asset('logo.png')}}" />
                                         </div>
         
                                         <section aria-labelledby="information-heading" class="mt-2">
@@ -101,31 +101,7 @@
                                             <p class="text-xl  text-green-500">R$ {{$product->price}}</p>
         
                                             <!-- Reviews -->
-                                            <div class="mt-6">
-                                                <h4 class="sr-only">Reviews</h4>
-                                                <div class="flex items-center">
-                                                    <div class="flex items-center">
-                                                        <!-- Active: "text-gray-900", Default: "text-gray-200" -->
-                                                        <svg class="size-5 shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                                                        </svg>
-                                                        <svg class="size-5 shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                                                        </svg>
-                                                        <svg class="size-5 shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                                                        </svg>
-                                                        <svg class="size-5 shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                                                        </svg>
-                                                        <svg class="size-5 shrink-0 text-gray-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                    <p class="sr-only">3.9 out of 5 stars</p>
-                                                    <a href="#" class="ml-3 text-sm font-medium text-yellow-500 hover:text-yellow-500">117 reviews</a>
-                                                </div>
-                                            </div>
+                                           
                                         </section>
         
                                         <section aria-labelledby="options-heading" class="mt-10">
@@ -136,75 +112,54 @@
                                                     <div>
                                                         <div class="bg-white rounded-lg overflow-hidden max-w-sm w-full">
                                                             <div class="p-6">
-                                                                <span class="text-sm text-gray-500">Cód. Item 9846903013665</span>
+                                                                
                                                                 <span class=" rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
-                                                                <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Mega Manto Sport®</span></div>
+                                                                <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Futchê®</span></div>
                                                                 <div class="mt-4">
-                                                                    <span class="text-2xl font-bold text-gray-900">R$ 189,90</span>
+                                                                    <span class="text-2xl font-bold text-gray-900">R$ {{$product->price}}</span>
                                                                     <span class="text-sm text-gray-500 line-through ml-2">R$ 299,90</span>
                                                                     <span class="text-sm text-green-600 ml-2">37% off</span>
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <div class="flex items-center">
-                                                                        <input type="checkbox" class="form-checkbox customcss h-4 w-4 text-yellow-500 transition duration-150 ease-in-out">
-                                                                        <span class="ml-2 text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
+                                                            
+                                                                        <span class="text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
                                                                     </div>
-                                                                    <div class="mt-2 text-sm text text-gray-700">Economia de R$ 110,00</div>
+                                                                  
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <x-mary-menu-separator />
-                                                    <div class="flex items-center mt-6 justify-between">
-                                                        <div class="text-sm font-medium text-gray-900">Size</div>
-                                                        <a href="#" class="text-sm font-medium text-yellow-500 hover:text-yellow-400">Size guide</a>
-                                                    </div>
-                                                    <div class="mt-4 grid grid-cols-4 gap-4">
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXS" class="sr-only">
-                                                            <span>XXS</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XS" class="sr-only">
-                                                            <span>XS</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="S" class="sr-only">
-                                                            <span>S</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="M" class="sr-only">
-                                                            <span>M</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="L" class="sr-only">
-                                                            <span>L</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XL" class="sr-only">
-                                                            <span>XL</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 uppercase shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXL" class="sr-only">
-                                                            <span>XXL</span>
-                                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                                        </label>
-                                                        <label class="group relative flex cursor-not-allowed items-center justify-center rounded-md border bg-gray-50 px-4 py-3 text-sm font-medium text-gray-200 uppercase hover:bg-gray-50 focus:outline-hidden sm:flex-1">
-                                                            <input type="radio" name="size-choice" value="XXXL" disabled class="sr-only">
-                                                            <span>XXXL</span>
-                                                            <span aria-hidden="true" class="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200">
-                                                                <svg class="absolute inset-0 size-full stroke-2 text-gray-200" viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
-                                                                    <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke" />
-                                                                </svg>
-                                                            </span>
-                                                        </label>
-                                                    </div>
+                                                  
+<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Size</h3>
+<ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+        <div class="flex items-center ps-3">
+            <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P </label>
+        </div>
+    </li>
+    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+        <div class="flex items-center ps-3">
+            <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
+        </div>
+    </li>
+    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+        <div class="flex items-center ps-3">
+            <input id="horizontal-list-radio-military" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
+        </div>
+    </li>
+    <li class="w-full dark:border-gray-600">
+        <div class="flex items-center ps-3">
+            <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="horizontal-list-radio-passport" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
+        </div>
+    </li>
+</ul>
+
                                                 </fieldset>
                                                 <fieldset aria-label="Choose a color">
                                                     <legend class="text-sm font-medium text-gray-900">Color</legend>

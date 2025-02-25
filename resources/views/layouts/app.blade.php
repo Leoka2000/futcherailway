@@ -43,15 +43,13 @@
          
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
             @unless (request()->is('dashboard', 'minhas-compras', 'user/profile'))
-         
-          
             <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
          @endunless
-         @unless (request()->is('minhas-compras'))
+      
          <a href="{{ route('components.shopping_cart_component_index')}}">
             <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn-sm btn-outline lg:w-64 shadow-lg btn-warning" responsive />
          </ad>
-            @endunless
+       
         </x-slot:actions>
     </x-mary-nav>
 

@@ -3,26 +3,21 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\Attributes\Reactive;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\RefundOrder;
+use Livewire\WithPagination;
 use Mary\Traits\Toast;
 
-
 class UserOrdersTable extends Component
-
 {
-
-    use Toast;
-
+    use Toast, WithPagination;
 
     public $order_hashed_id;
     public $email;
     public $refund_reason;
     public $refund_pix_key;
     public $showModal = false;
-
 
     protected $rules = [
         'order_hashed_id' => 'required|string',
@@ -31,6 +26,16 @@ class UserOrdersTable extends Component
         'refund_pix_key' => 'required|string',
     ];
 
+    public function mount()
+    {
+        // Fetch orders from the database or any other source
+        $this->orders = $this->fetchOrders();
+    }
+    public function fetchOrders()
+    {
+        // Example: Fetch orders from the database
+        return Order::where('user_id', auth()->id())->get()->toArray();
+    }
     public function submit()
     {
         $this->validate();
@@ -43,18 +48,11 @@ class UserOrdersTable extends Component
         ]);
 
         session()->flash('message', 'Refund request submitted successfully.');
-        // Reset form fields
         $this->reset(['order_hashed_id', 'email', 'refund_reason', 'refund_pix_key']);
-
-        // Close the modal
         $this->showModal = false;
-        $this->success(
-            'Obrigado pela mensagem!', // Title
-            'Entraremos em contato em breve!', // Description
-            position: 'toast-top toast-end', // Position
-            timeout: 10000 // Timeout in milliseconds
-        );
+        $this->success('Obrigado pela mensagem!', 'Entraremos em contato em breve!', 'toast-top toast-end', 10000);
     }
+
 
     public function openModal()
     {
@@ -69,7 +67,13 @@ class UserOrdersTable extends Component
     public function render()
     {
         $user = Auth::user();
-        $orders = $user->orders()->with('product')->get();
+        $orders = $user ? $user->orders()->with('product')->get() : collect();
+
+        if (!$user) {
+            $orders = collect([
+                (object) ['id' => '-', 'quantity' => '-', 'unit_price' => '-', 'status' => '-']
+            ]);
+        }
 
         $headers = [
             ['key' => 'id', 'label' => 'Código da compra'],
@@ -81,6 +85,7 @@ class UserOrdersTable extends Component
         return view('livewire.user-orders-table', [
             'orders' => $orders,
             'headers' => $headers,
+            'isGuest' => !$user
         ]);
     }
 }

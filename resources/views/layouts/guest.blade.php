@@ -49,7 +49,7 @@
         <x-slot:actions>
           
    
-            @unless (request()->is('termos-e-servicos', 'shopping-cart'))
+            @unless (request()->is('shopping-cart'))
             <a href="{{route('components.order-list-index')}}">
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="" class="btn-ghost btn-sm" responsive />
             </a>
@@ -67,7 +67,7 @@
     <x-mary-main with-nav full-width>
        
         {{-- The `$slot` goes here --}}
-        <x-slot:content  >
+        <x-slot:content   >
             {{ $slot }}
         </x-slot:content>
 

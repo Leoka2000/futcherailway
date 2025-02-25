@@ -198,13 +198,19 @@
               </a>
             </div>
            
-
+            @auth
             <div x-data="{ modalOpen: false }"
     @keydown.escape.window="modalOpen = false"
     :class="{ 'z-40': modalOpen }" class="relative w-auto h-auto">
+     
     <x-mary-button @click="modalOpen=true" class="btn w-full">
       <img src="{{ asset('pix.png') }}"  alt="Pix" class="h-12 shadow-sm rounded-md p-1"> Checkout with Pix
     </x-mary-button>
+    @else
+    <x-mary-button href="{{ route('login') }}" class="btn w-full">
+      <img src="{{ asset('pix.png') }}" alt="Pix" class="h-12 shadow-sm rounded-md p-1"> Login to Checkout
+  </x-mary-button> 
+@endif
     <template x-teleport="body">
         <div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
             <div x-show="modalOpen"
