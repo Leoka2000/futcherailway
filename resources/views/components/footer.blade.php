@@ -29,6 +29,7 @@
                     @csrf
                     <x-mary-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff" type="submit" />
                 </form>
+                <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
     
         </span>
     </div>

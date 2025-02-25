@@ -1,5 +1,10 @@
 <x-guest-layout>
     <div class="pt-4 bg-inherit dark:bg-inherit box">
+        <a href="{{ route('components.shopping_cart_component_index') }}" 
+    x-data="{ loading: false }"
+    @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
+    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Back </x-mary-button >
+    </a>
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
             <div class="flex justify-center items-center gap-5">
                 <x-authentication-card-logo />

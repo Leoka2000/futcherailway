@@ -90,7 +90,8 @@ new class extends Component {
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
     <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Back </x-mary-button >
-{{--  --}}
+    </a>
+
 
                              
     <x-mary-header size="text-inherit" progress-indicator>
@@ -209,6 +210,7 @@ new class extends Component {
                     <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
                 </button>
                 {{$product->category}}
+                
             </div>
            
 
@@ -226,7 +228,7 @@ new class extends Component {
     </div>
     </div>
    
-   
+  
 </div>
 
 

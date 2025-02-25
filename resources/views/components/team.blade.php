@@ -21,8 +21,8 @@
                 </div>
                 <div class="mt-3 space-y-2 text-center">
                     <div class="space-y-1 text-lg font-medium leading-6">
-                        <h3 class="text-gray-900 dark:text-gray-100">Freddy Smith</h3>
-                        <p class="text-yellow-500 dark:text-yellow-400">CEO and Founder</p>
+                        <h3 class="text-gray-900 dark:text-gray-100">Bernardo Regla</h3>
+                        <p class="text-yellow-500 dark:text-yellow-400">CEO</p>
                     </div>
                     <div class="relative flex items-center justify-center space-x-3">
                         <a href="#_" class="text-gray-300 hover:text-gray-400 dark:hover:text-gray-200">
@@ -46,8 +46,8 @@
                 </div>
                 <div class="mt-3 space-y-2 text-center">
                     <div class="space-y-1 text-lg font-medium leading-6">
-                        <h3 class="text-gray-900 dark:text-gray-100">Carl Jones</h3>
-                        <p class="text-yellow-500 dark:text-yellow-400">CTO and Co-Founder</p>
+                        <h3 class="text-gray-900 dark:text-gray-100">Leo Reus Oliveira </h3>
+                        <p class="text-yellow-500 dark:text-yellow-400">CTO e Desenvolvedor</p>
                     </div>
                     <div class="relative flex items-center justify-center space-x-3">
                         <a href="#_" class="text-gray-300 hover:text-gray-400 dark:hover:text-gray-200">

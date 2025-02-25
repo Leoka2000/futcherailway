@@ -1,7 +1,17 @@
 <div>
+    <a href="{{ route('components.shopping_cart_component_index') }}" 
+    x-data="{ loading: false }"
+    @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
+    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Back </x-mary-button >
+    </a>
+
+    <h1 class="md:text-2xl mb-10 text-xl"><strong>Minhas compras</strong></h1>
     <x-mary-table :headers="$headers" :rows="$orders">
         @scope('cell_quantity', $order)
+      
+     
             <span>{{ $order->quantity }}</span>
+        
         @endscope
 
         @scope('cell_unit_price', $order)
@@ -9,10 +19,19 @@
         @endscope
 
         @scope('cell_status', $order)
-            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">{{ $order->status }} </span>
-        @endscope
+        @if ($order->status === 'under_process')
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
+                Processando pagamento...
+            </span>
+        @else
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
+                {{ $order->status }}
+            </span>
+        @endif
+    @endscope
 
         @scope('actions', $order)
+        
             <x-mary-button wire:click="openModal" class="my-2" label="Reembolso" spinner />
         @endscope
     </x-mary-table>
