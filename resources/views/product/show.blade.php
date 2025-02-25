@@ -26,6 +26,15 @@
         input[type="checkbox"]:checked {
             background-color: oklch(var(--wa)) !important;
         }
+        .customcss2 {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            border-radius:0.5rem;
+            transition:0.2s;
+        }
+        .customcss2:hover {
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+        }
     </style>
 </head>
 
@@ -39,7 +48,7 @@
                         <div class="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
                             <div class="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                                 <a href="{{ route('components.shopping_cart_component_index') }}" x-data="{ loading: false }" @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-                                    <button x-show="!loading" type="button" class="absolute top-4 right-4 text-yellow-500 border border-yellow-500 hover:bg-yellow-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:focus:ring-yellow-600 dark:hover:bg-yellow-600">
+                                    <button x-show="!loading" type="button" class="absolute top-4 shadow-sm hover:shadow-lg right-4 text-yellow-500 border border-yellow-500 hover:bg-yellow-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:focus:ring-yellow-600 dark:hover:bg-yellow-600">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                         </svg>
@@ -69,10 +78,10 @@
                                     @if(!empty($slides))
                                         <!-- PhotoSwipe Gallery -->
                                         <div class="w-full h-screen sm:col-span-4 lg:col-span-5">
-                                            <div class="pswp-gallery" id="gallery">
+                                            <div class="pswp-gallery grid grid-cols-2 gap-3" id="gallery">
                                                 @foreach($slides as $index => $slide)
-                                                    <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank">
-                                                        <img src="{{ $slide['image'] }}" alt="{{ $slide['description'] }}" class="w-full h-full min-h-screen rounded-lg bg-gray-100 object-cover">
+                                                    <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="block ">
+                                                        <img src="{{ $slide['image'] }}" alt="{{ $slide['description'] }}" class="w-full h-56  object-cover customcss2  bg-gray-100">
                                                     </a>
                                                 @endforeach
                                             </div>
