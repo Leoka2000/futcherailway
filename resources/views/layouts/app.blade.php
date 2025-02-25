@@ -48,7 +48,9 @@
             <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
          @endunless
          @unless (request()->is('minhas-compras'))
-            <x-mary-button label="Camisas" icon="o-shopping-cart" link="{{ route('components.shopping_cart_component_index')}}" class="btn shadow-lg btn-warning" responsive />
+         <a href="{{ route('components.shopping_cart_component_index')}}">
+            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn-sm btn-outline lg:w-64 shadow-lg btn-warning" responsive />
+         </ad>
             @endunless
         </x-slot:actions>
     </x-mary-nav>

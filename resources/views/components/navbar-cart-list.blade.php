@@ -28,7 +28,7 @@
             @endunless
           
        <a href="{{ route('components.shopping_cart_component_index')}}" >
-            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn-sm lg:w-64 btn-outline shadow-lg btn-warning" responsive />
+            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn-sm lg:w-64 btn-outline  shadow-lg btn-warning" responsive />
        </a>
 
         </x-slot:actions>
