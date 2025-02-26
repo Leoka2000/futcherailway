@@ -60,10 +60,12 @@ class ShoppingCartController extends Controller
 
         foreach ($cartItems as $item) {
             $order = new Order();
-            $order->user_id = Auth::id();
+            $order->user_id = Auth::id(); // Ensure this field exists
+            $order->name = $item->product->name;
             $order->quantity = $item->quantity;
+            $order->size = $item->size ?? null; // Ensure size is available
             $order->status = 'under_process';
-            $order->unit_price = $item->product->price;
+            $order->unit_price = $item->product->price * $item->quantity;
             $order->session_id = session()->getId();
             $order->save();
 
@@ -218,8 +220,8 @@ class ShoppingCartController extends Controller
             $order->name = $item->product->name;
             $order->size = $item->size;
             $order->quantity = $item->quantity;
-            $order->status = 'Processando pagamento...';
-            $order->unit_price = $item->product->price * $item->quantity;;
+            $order->status = 'under_process';
+            $order->unit_price = $item->product->price * $item->quantity;
             $order->save();
         }
 

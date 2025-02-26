@@ -228,7 +228,7 @@
               <img src="{{asset('visa.png')}}" alt="Visa" class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
             </div>
             @if($cartItems->isEmpty())
-            <a ><x-mary-button icon="o-credit-card" class="w-full mt-3"> Checkout with card </x-mary-button></a>
+            <a><x-mary-button icon="o-credit-card" tooltip="Your cart is empty!" class="w-full mt-3"> Checkout with card </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
@@ -291,12 +291,15 @@
                    <p class="mt-2 text-gray-800 dark:text-gray-300">Após o pagamento, clique no botão "Já paguei" e receberás brevemente um email com a confirmação</p>
                 </div>
                 <div class="flex flex-col-reverse gap-1 sm:flex-row sm:justify-end sm:space-x-2">
+                  @if($cartItems->isEmpty())
+                  <x-mary-alert title="Your cart is empty! Fill up you cart and then the payment buttons will appear" icon="o-exclamation-triangle" shadow />
+                  @else
                     <x-mary-button @click="modalOpen=false" type="button" class="">Voltar</x-mary-button>
                     <form action="{{ route('markAsPaid') }}" method="POST">
                       @csrf
                       <x-mary-button class="btn btn-success" type="submit">Já paguei</x-mary-button>
                   </form>
-
+                  @endif
                 </div>
             </div>
         </div>
