@@ -16,6 +16,7 @@ class Order extends Model
         'quantity',
         'status',
         'unit_price',
+        'size',
         'session_id',
     ];
     public function user()

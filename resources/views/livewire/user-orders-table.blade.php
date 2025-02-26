@@ -34,7 +34,15 @@
             @endscope
         </x-mary-table>
     @else
-        <p class="text-gray-500 text-center mt-10">Nenhuma roupa disponível.</p>
+    <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+
+        <x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
+                      <p class="text-center text-gray-900 dark:text-white">Não há compras </p>
+        
+                      
+                    
+         
+                  </div>
     @endif
 
     @if($showModal)
