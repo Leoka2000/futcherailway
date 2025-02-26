@@ -201,11 +201,26 @@ class ShoppingCartController extends Controller
                     'currency' => 'brl',
                     'product_data' => [
                         'name' => $item->product->name,
+                        'description' => strip_tags($item->product->description), // Remove HTML tags from description
+                        'metadata' => [
+                            'size' => $item->size, // Pass size as metadata
+                            'quantity' => $item->quantity, // Pass quantity as metadata
+                        ],
                     ],
                     'unit_amount' => $item->product->price * 100,
                 ],
                 'quantity' => $item->quantity,
             ];
+
+            // Create the order for each cart item
+            $order = new Order();
+            $order->user_id = auth()->id(); // Assign the user ID
+            $order->name = $item->product->name;
+            $order->size = $item->size;
+            $order->quantity = $item->quantity;
+            $order->status = 'Processando pagamento...';
+            $order->unit_price = $item->product->price * $item->quantity;;
+            $order->save();
         }
 
         $session = Session::create([
@@ -215,14 +230,9 @@ class ShoppingCartController extends Controller
             'cancel_url' => route('payment.checkout-cancel', [], true),
         ]);
 
-        // Create the order
-        $order = new Order();
-        $order->user_id = auth()->id(); // Assign the user ID
-        $order->status = 'unpaid';
-        $order->save();
-
         return redirect($session->url);
     }
+
 
     public function success(Request $request)
     {

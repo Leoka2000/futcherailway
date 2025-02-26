@@ -216,10 +216,7 @@ new class extends Component {
                
                 
             </div>
-           
-
-
-
+        
         </x-mary-card>
         @empty
         {{-- NO RESULTS--}}

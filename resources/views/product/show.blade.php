@@ -122,7 +122,6 @@
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <div class="flex items-center">
-                                                            
                                                                         <span class="text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
                                                                     </div>
                                                                   

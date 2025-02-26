@@ -24,7 +24,6 @@
 <body>
  {{-- nao remova este navbar pois o codigo esta muito ruim e por algum motivo que nao tenho tempo e tbm preguica nao alterarei. Apenas o deixe ai --}}
   <x-navbar-cart-list /> 
-  
   <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
 
     <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -49,6 +48,7 @@
                 <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                   <a href="#" class="shrink-0 md:order-1">
                     <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
+
                   </a>
                   <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                   <div class="flex items-center justify-between md:order-3 md:justify-end">
@@ -128,9 +128,7 @@
                               <x-mary-loading class="dark:text-gray-500 text-gray-400" />
                             </x-mary-button>
                           </span>
-                          
                         </a>
-                        
                       </form>
                       <form x-data="{ loading: false }"
                       x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
@@ -188,7 +186,6 @@
           </div>
           <h2 class="text-xl font-semibold mt-6 mb-6 text-gray-900 dark:text-white sm:text-2xl">Informações de entrega</h2>
           @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
-
         </div>
 
         <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
@@ -230,15 +227,24 @@
               <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-5 border border-gray-200 dark:border-gray-600 shadow-sm rounded-md p-1 px-2">
               <img src="{{asset('visa.png')}}" alt="Visa" class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
             </div>
-            <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" type="submit" spinner="checkout"  class="w-full mt-3"> Checkout with card </x-mary-button></a>
+            @if($cartItems->isEmpty())
+            <a ><x-mary-button icon="o-credit-card" class="w-full mt-3"> Checkout with card </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
                 Continue with pix
                 <img src="{{asset('pix.png')}}" alt="Pix" class="h-7 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md -p-36">
               </a>
+              @else
+              <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" type="submit" spinner="checkout"  class="w-full mt-3"> Checkout with card </x-mary-button></a>
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
+              <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
+                Continue with pix
+                <img src="{{asset('pix.png')}}" alt="Pix" class="h-7 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md -p-36">
+              </a>
+              @endif
             </div>
-           
             @auth
             <div x-data="{ modalOpen: false }"
     @keydown.escape.window="modalOpen = false"
