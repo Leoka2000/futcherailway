@@ -80,7 +80,7 @@
             loading = true;
             setTimeout(() => {
                 $el.closest('form').submit();
-            }, 1000);
+            }, 300);
         ">
                         <span x-show="!loading">
                           <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
@@ -115,7 +115,7 @@
             loading = true;
             setTimeout(() => {
                 $el.closest('form').submit();
-            }, 500);
+            }, 300);
         "> <span x-show="!loading">
                           <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
                           </x-mary-button>
@@ -130,15 +130,13 @@
                       
                     </form>
                     <form x-data="{ loading: false }"
-                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 1000)"
+                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 200)"
                     action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
                     method="POST" 
                     class="w-full">
                   @csrf
-                  @method('PUT')
-              
+                  @method('PUT')   
                   <input type="hidden" name="product_id" value="{{ $item->product_id }}">
-                  
                   <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                       <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                           <div class="flex items-center ps-3">
@@ -174,6 +172,7 @@
                   </button>
               </form>
                 </div>
+              </div>
               </div>
             </div>
 
