@@ -34,170 +34,157 @@
         <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
 
           <div class="space-y-6">
-            @forelse($cartItems as $item)
-            @php
-            $productImages = is_array($item->product->image) ? $item->product->image : [];
-            $firstImage = !empty($productImages) ? $productImages[0] : 'default-image.png'; // Provide a fallback image
-            @endphp
-            <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
-              <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-                <a href="#" class="shrink-0 md:order-1">
-                  <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
-                </a>
-                <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
-                <div class="flex items-center justify-between md:order-3 md:justify-end">
-                  <div class="flex items-center">
-                    <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
-                      @csrf
-                      @method('POST')
-                      <a
-                        type="submit"
-                        class=""
-                        :disabled="loading"
-                        @click.prevent="
-            loading = true;
-            setTimeout(() => {
-                $el.closest('form').submit();
-            }, 500);
-        ">
-                        <span x-show="!loading">
-                          <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
-                        </span>
-                        <span x-show="loading">
-                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
-                        </span>
-                      </a>
-                    </form>
-                    <x-mary-input style="width: 50px!important;" readonly type="text" id="counter-input-{{ $item->id }}" data-input-counter class=" btn-sm shrink-0 border-0 bg-transparent mx-2 text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" />
-                    <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
-                      @csrf
-                      @method('POST')
-                      <a
-                        type="submit"
-                        class=""
-                        :disabled="loading"
-                        @click.prevent="
-            loading = true;
-            setTimeout(() => {
-                $el.closest('form').submit();
-            }, 300);
-        ">
-                        <span x-show="!loading">
-                          <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
-                        </span>
-                        <span x-show="loading">
-                          <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-400" /> </x-mary-button>
-                        </span>
-                      </a>
-                    </form>
-                    
-                  </div>
-                  <div class="text-end md:order-4 md:w-32">
-                    <p class="text-base font-bold text-gray-900 dark:text-white">${{ number_format($item->product->price * $item->quantity, 2) }}</p>
-                  </div>
-                </div>
-
-                <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                  <a href="#" class="text-base font-medium text-gray-900 hover:underline dark:text-white">{{ $item->product->name }}</a>
-
-                  <div class="flex items-center gap-4">
-                    
-
-
-                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
-                      @csrf
-                      @method('DELETE')
-                      <a
-                        type="submit"
-                        class=""
-                        :disabled="loading"
-                        @click.prevent="
-            loading = true;
-            setTimeout(() => {
-                $el.closest('form').submit();
-            }, 300);
-        "> <span x-show="!loading">
-                          <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
-                          </x-mary-button>
-                        </span>
-                        <span x-show="loading">
-                          <x-mary-button type="submit" class="btn-sm btn-circle relative text-red-500 dark:text-red-400 inline-flex ">
-                            <x-mary-loading class="dark:text-gray-500 text-gray-400" />
-                          </x-mary-button>
-                        </span>
-                        
-                      </a>
+            @if($cartItems->isEmpty())
+              <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+                <x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
+                <p class="text-center text-gray-900 dark:text-white">Your cart is empty.</p>
+              </div>
+            @else
+              @foreach($cartItems as $item)
+              @php
+              $productImages = is_array($item->product->image) ? $item->product->image : [];
+              $firstImage = !empty($productImages) ? $productImages[0] : 'default-image.png'; // Provide a fallback image
+              @endphp
+              <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+                <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                  <a href="#" class="shrink-0 md:order-1">
+                    <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
+                  </a>
+                  <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
+                  <div class="flex items-center justify-between md:order-3 md:justify-end">
+                    <div class="flex items-center">
+                      <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                        @csrf
+                        @method('POST')
+                        <a
+                          type="submit"
+                          class=""
+                          :disabled="loading"
+                          @click.prevent="
+              loading = true;
+              setTimeout(() => {
+                  $el.closest('form').submit();
+              }, 500);
+          ">
+                          <span x-show="!loading">
+                            <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
+                          </span>
+                          <span x-show="loading">
+                            <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
+                          </span>
+                        </a>
+                      </form>
+                      <x-mary-input style="width: 50px!important;" readonly type="text" id="counter-input-{{ $item->id }}" data-input-counter class=" btn-sm shrink-0 border-0 bg-transparent mx-2 text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" />
+                      <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                        @csrf
+                        @method('POST')
+                        <a
+                          type="submit"
+                          class=""
+                          :disabled="loading"
+                          @click.prevent="
+              loading = true;
+              setTimeout(() => {
+                  $el.closest('form').submit();
+              }, 300);
+          ">
+                          <span x-show="!loading">
+                            <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
+                          </span>
+                          <span x-show="loading">
+                            <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-400" /> </x-mary-button>
+                          </span>
+                        </a>
+                      </form>
                       
-                    </form>
-                    <form x-data="{ loading: false }"
-                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
-                    action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
-                    method="POST" 
-                    class="w-full">
-                  @csrf
-                  @method('PUT')   
-                  <input type="hidden" name="product_id" value="{{ $item->product_id }}">
-                  <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                          <div class="flex items-center ps-3">
-                              <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'P' ? 'checked' : '' }}>
-                              <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P</label>
-                          </div>
-                      </li>
-                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                          <div class="flex items-center ps-3">
-                              <input id="size-m-{{ $item->id }}" type="radio" value="M" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'M' ? 'checked' : '' }}>
-                              <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
-                          </div>
-                      </li>
-                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                          <div class="flex items-center ps-3">
-                              <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'G' ? 'checked' : '' }}>
-                              <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
-                          </div>
-                      </li>
-                      <li class="w-full dark:border-gray-600">
-                          <div class="flex items-center ps-3">
-                              <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'GG' ? 'checked' : '' }}>
-                              <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
-                          </div>
-                        
-                      </li>
-                      <li class="w-28 border-b  sm:border-b-0">
-                        <div >
-                          <x-mary-button type="submit" 
-                          class="btn btn-warning btn-outline relative w-full text-sm" 
-                          x-bind:disabled="loading">
-            
-                      <span x-show="!loading">Salvar</span>
-                      <span x-show="loading"><x-mary-loading class="dark:text-gray-500 text-gray-400 absolute top-[11px] left-[5px]"/></span>
-                   
-                    </x-mary-button>
-                        </div>
-                    </li>
-                     
-                    
-                  </ul>
-              
-                  
-                       
+                    </div>
+                    <div class="text-end md:order-4 md:w-32">
+                      <p class="text-base font-bold text-gray-900 dark:text-white">${{ number_format($item->product->price * $item->quantity, 2) }}</p>
+                    </div>
+                  </div>
 
+                  <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                    <a href="#" class="text-base font-medium text-gray-900 hover:underline dark:text-white">{{ $item->product->name }}</a>
+
+                    <div class="flex items-center gap-4">
+                      <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
+                        @csrf
+                        @method('DELETE')
+                        <a
+                          type="submit"
+                          class=""
+                          :disabled="loading"
+                          @click.prevent="
+              loading = true;
+              setTimeout(() => {
+                  $el.closest('form').submit();
+              }, 300);
+          "> <span x-show="!loading">
+                            <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
+                            </x-mary-button>
+                          </span>
+                          <span x-show="loading">
+                            <x-mary-button type="submit" class="btn-sm btn-circle relative text-red-500 dark:text-red-400 inline-flex ">
+                              <x-mary-loading class="dark:text-gray-500 text-gray-400" />
+                            </x-mary-button>
+                          </span>
+                          
+                        </a>
+                        
+                      </form>
+                      <form x-data="{ loading: false }"
+                      x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
+                      action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
+                      method="POST" 
+                      class="w-full">
+                    @csrf
+                    @method('PUT')   
+                    <input type="hidden" name="product_id" value="{{ $item->product_id }}">
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                            <div class="flex items-center ps-3">
+                                <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'P' ? 'checked' : '' }}>
+                                <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P</label>
+                            </div>
+                        </li>
+                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                            <div class="flex items-center ps-3">
+                                <input id="size-m-{{ $item->id }}" type="radio" value="M" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'M' ? 'checked' : '' }}>
+                                <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
+                            </div>
+                        </li>
+                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                            <div class="flex items-center ps-3">
+                                <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'G' ? 'checked' : '' }}>
+                                <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
+                            </div>
+                        </li>
+                        <li class="w-full dark:border-gray-600">
+                            <div class="flex items-center ps-3">
+                                <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'GG' ? 'checked' : '' }}>
+                                <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
+                            </div>
+                        </li>
+                        <li class="w-28 border-b  sm:border-b-0">
+                          <div >
+                            <x-mary-button type="submit" 
+                            class="btn btn-warning btn-outline relative w-full text-sm" 
+                            x-bind:disabled="loading">
               
-              </form>
+                        <span x-show="!loading">Salvar</span>
+                        <span x-show="loading"><x-mary-loading class="dark:text-gray-500 text-gray-400 absolute top-[11px] left-[5px]"/></span>
+                     
+                      </x-mary-button>
+                          </div>
+                      </li>
+                    </ul>
+                </form>
+                  </div>
+                </div>
                 </div>
               </div>
-              </div>
-            </div>
-
-            @empty
-            <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
-
-<x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
-              <p class="text-center text-gray-900 dark:text-white">Your cart is empty.</p>
-
-              
-            
-            @endforelse
+              @endforeach
+            @endif
           </div>
           <h2 class="text-xl font-semibold mt-6 mb-6 text-gray-900 dark:text-white sm:text-2xl">Informações de entrega</h2>
           @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
@@ -341,8 +328,3 @@
   <x-mary-toast />
   @livewireScripts
 </body>
-
-
-
-
-</html>

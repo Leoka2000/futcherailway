@@ -174,7 +174,6 @@ new class extends Component {
 
                         <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
                             <img 
-                    
                           src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
                             class="w-full h-auto rounded-md transition-opacity duration-300"
                             x-data="{ loaded: false }"
