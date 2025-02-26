@@ -43,11 +43,7 @@
               <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                 <a href="#" class="shrink-0 md:order-1">
                   <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
-
                 </a>
-
-
-
                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                 <div class="flex items-center justify-between md:order-3 md:justify-end">
                   <div class="flex items-center">
@@ -94,6 +90,7 @@
                         </span>
                       </a>
                     </form>
+                    
                   </div>
                   <div class="text-end md:order-4 md:w-32">
                     <p class="text-base font-bold text-gray-900 dark:text-white">${{ number_format($item->product->price * $item->quantity, 2) }}</p>
@@ -107,7 +104,7 @@
                     
 
 
-                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
+                    <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
                       @csrf
                       @method('DELETE')
                       <a
@@ -128,9 +125,54 @@
                             <x-mary-loading class="dark:text-gray-500 text-gray-400" />
                           </x-mary-button>
                         </span>
+                        
                       </a>
+                      
                     </form>
-                  </div>
+                    <form x-data="{ loading: false }"
+                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 1000)"
+                    action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
+                    method="POST" 
+                    class="w-full">
+                  @csrf
+                  @method('PUT')
+              
+                  <input type="hidden" name="product_id" value="{{ $item->product_id }}">
+                  
+                  <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                          <div class="flex items-center ps-3">
+                              <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'P' ? 'checked' : '' }}>
+                              <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P</label>
+                          </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                          <div class="flex items-center ps-3">
+                              <input id="size-m-{{ $item->id }}" type="radio" value="M" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'M' ? 'checked' : '' }}>
+                              <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
+                          </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                          <div class="flex items-center ps-3">
+                              <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'G' ? 'checked' : '' }}>
+                              <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
+                          </div>
+                      </li>
+                      <li class="w-full dark:border-gray-600">
+                          <div class="flex items-center ps-3">
+                              <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'GG' ? 'checked' : '' }}>
+                              <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
+                          </div>
+                      </li>
+                  </ul>
+              
+                  <button type="submit" 
+                          class="mt-2 text-sm font-medium text-primary-700 hover:underline dark:text-primary-500"
+                          x-bind:disabled="loading">
+                      <span x-show="!loading">Update Size</span>
+                      <span x-show="loading">Updating...</span>
+                  </button>
+              </form>
                 </div>
               </div>
             </div>

@@ -14,12 +14,14 @@ Route::get('/cart/debug/{id}', [ShoppingCartController::class, 'debugImage'])->n
 Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'removeItemFromCart'])->name('cart.remove');
 Route::post('/cart/increase/{productId}', [ShoppingCartController::class, 'increaseCartQuantity'])->name('cart.increase');
 Route::post('/cart/decrease/{productId}', [ShoppingCartController::class, 'decreaseCartQuantity'])->name('cart.decrease');
+Route::put('/cart/update-size/{productId}', [ShoppingCartController::class, 'updateSize'])->name('cart.updateSize');
 Route::post('/mark-as-paid', [ShoppingCartController::class, 'markAsPaid'])->name('markAsPaid');
 //checkout method h ere(checkoutfunction)
 Route::get('/checkout', [ShoppingCartController::class, 'checkout'])->name('checkout');
 Route::get('/success', [ShoppingCartController::class, 'success'])->name('payment.checkout-success');
 Route::get('/cancel', [ShoppingCartController::class, 'cancel'])->name('payment.checkout-cancel');
 Route::post('/webhook', [ShoppingCartController::class, 'webhook'])->name('checkout.webhook');
+
 
 Route::view('catalogo', 'livewire.components.shopping_cart_component_index')
     ->name('components.shopping_cart_component_index');

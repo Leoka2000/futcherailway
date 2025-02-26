@@ -13,6 +13,39 @@ use Stripe\Checkout\Session;
 class ShoppingCartController extends Controller
 {
 
+    public function updateSize(Request $request, $cartId)
+    {
+        // Validate the request
+        $validated = $request->validate([
+            'size' => 'required|string|in:P,M,G,GG',
+        ]);
+
+        // Find the cart item
+        $cartItem = ShoppingCart::where('id', $cartId)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if (!$cartItem) {
+            return redirect()->back()->with('error', [
+                'title' => 'Item Not Found',
+                'message' => 'This item is not in your cart.',
+                'position' => 'top-end',
+                'timeout' => 3000,
+            ]);
+        }
+
+        // Update the size
+        $cartItem->size = $validated['size'];
+        $cartItem->save();
+
+        return redirect()->back()->with('cart_message', [
+            'title' => 'Size Updated',
+            'message' => 'The size has been updated to ' . $validated['size'],
+            'position' => 'top-end',
+            'timeout' => 3000,
+        ]);
+    }
+
     public function markAsPaid(Request $request)
     {
         if (!Auth::check()) {
