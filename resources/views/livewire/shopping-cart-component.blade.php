@@ -144,8 +144,8 @@ new class extends Component {
         {{-- PRODUCTS LIST --}}
         <div x-data  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"  >
         @forelse($products as $product)
+        
         <x-mary-card wire:key="product-{{ $product->id }}" title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
-           
             <span class="inline-flex items-start gap-1 top-2 left-2 absolute rounded-md bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-400 dark:ring-yellow-600 ring-inset"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mt-[2px]">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                 </svg> 21%</span>
@@ -164,13 +164,18 @@ new class extends Component {
                             </svg>
                         </div>
                         </div>
-                
-                    
-           
+
+                        @php
+                    $imageArray = is_string($product->image) ? json_decode($product->image, true) : $product->image;
+
+                    // Ensure $imageArray is an array before accessing index 0
+                    $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
+                    @endphp
+
                         <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
                             <img 
-                            src="{{ asset($product->image[0] ?? 'sample_img.jpg') }}" 
-                            alt="Product Image" 
+                    
+                          src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
                             class="w-full h-auto rounded-md transition-opacity duration-300"
                             x-data="{ loaded: false }"
                             x-on:load="loaded = true"
@@ -209,7 +214,7 @@ new class extends Component {
                     <span x-show="!loading">Ver mais</span>
                     <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
                 </button>
-                {{$product->category}}
+               
                 
             </div>
            

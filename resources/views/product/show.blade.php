@@ -132,53 +132,11 @@
                                                     </div>
                                                     <x-mary-menu-separator />
                                                   
-<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Size</h3>
-<ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P </label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="horizontal-list-radio-military" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
-        </div>
-    </li>
-    <li class="w-full dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="horizontal-list-radio-passport" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
-        </div>
-    </li>
-</ul>
+
 
                                                 </fieldset>
-                                                <fieldset aria-label="Choose a color">
-                                                    <legend class="text-sm font-medium text-gray-900">Color</legend>
-                                                    <div class="mt-4 flex items-center gap-x-3">
-                                                        <label aria-label="White" class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-hidden">
-                                                            <input type="radio" name="color-choice" value="White" class="sr-only">
-                                                            <span aria-hidden="true" class="size-8 rounded-full border border-black/10 bg-white"></span>
-                                                        </label>
-                                                        <label aria-label="Gray" class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-hidden">
-                                                            <input type="radio" name="color-choice" value="Gray" class="sr-only">
-                                                            <span aria-hidden="true" class="size-8 rounded-full border border-black/10 bg-gray-200"></span>
-                                                        </label>
-                                                        <label aria-label="Black" class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-900 focus:outline-hidden">
-                                                            <input type="radio" name="color-choice" value="Black" class="sr-only">
-                                                            <span aria-hidden="true" class="size-8 rounded-full border border-black/10 bg-gray-900"></span>
-                                                        </label>
-                                                    </div>
-                                                </fieldset>
-                                                <div class="my-2">
+                                              
+                                                <div class="">
                                                     <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
                                                         <div class="text-sm text-gray-700 mb-2">
                                                             <span class="font-bold text-green-600">Frete Grátis</span> para <span class="font-bold">Budapest, BU, Hungary e Região</span>

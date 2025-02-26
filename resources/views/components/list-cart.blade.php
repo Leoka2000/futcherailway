@@ -130,7 +130,7 @@
                       
                     </form>
                     <form x-data="{ loading: false }"
-                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 200)"
+                    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
                     action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
                     method="POST" 
                     class="w-full">
@@ -161,15 +161,28 @@
                               <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size" class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'GG' ? 'checked' : '' }}>
                               <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
                           </div>
+                        
                       </li>
+                      <li class="w-28 border-b  sm:border-b-0">
+                        <div >
+                          <x-mary-button type="submit" 
+                          class="btn btn-warning btn-outline relative w-full text-sm" 
+                          x-bind:disabled="loading">
+            
+                      <span x-show="!loading">Salvar</span>
+                      <span x-show="loading"><x-mary-loading class="dark:text-gray-500 text-gray-400 absolute top-[11px] left-[5px]"/></span>
+                   
+                    </x-mary-button>
+                        </div>
+                    </li>
+                     
+                    
                   </ul>
               
-                  <button type="submit" 
-                          class="mt-2 text-sm font-medium text-primary-700 hover:underline dark:text-primary-500"
-                          x-bind:disabled="loading">
-                      <span x-show="!loading">Update Size</span>
-                      <span x-show="loading">Updating...</span>
-                  </button>
+                  
+                       
+
+              
               </form>
                 </div>
               </div>
