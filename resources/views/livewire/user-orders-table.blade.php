@@ -9,6 +9,14 @@
 
     @if(auth()->check() && $orders->isNotEmpty())
         <x-mary-table :headers="$headers" :rows="$orders">
+            @scope('cell_name', $order)
+                <span>{{ $order->name }}</span>
+            @endscope
+
+            @scope('cell_size', $order)
+                <span>{{ $order->size }}</span>
+            @endscope
+
             @scope('cell_quantity', $order)
                 <span>{{ $order->quantity }}</span>
             @endscope
@@ -22,6 +30,10 @@
                     <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
                         Processando pagamento...
                     </span>
+                @elseif ($order->status === 'paid')
+                <span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-200 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">
+                Pago com sucesso! 
+                </span>
                 @else
                     <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
                         {{ $order->status }}

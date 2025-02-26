@@ -71,12 +71,14 @@ class UserOrdersTable extends Component
 
         if (!$user) {
             $orders = collect([
-                (object) ['id' => '-', 'quantity' => '-', 'unit_price' => '-', 'status' => '-']
+                (object) ['id' => '-', 'quantity' => '-', 'unit_price' => '-', 'status' => '-', 'name' => '-', 'size' => '-']
             ]);
         }
 
         $headers = [
             ['key' => 'id', 'label' => 'Código da compra'],
+            ['key' => 'name', 'label' => 'Name'], // Add this line
+            ['key' => 'size', 'label' => 'Size'], // Add this line
             ['key' => 'quantity', 'label' => 'Quantity'],
             ['key' => 'unit_price', 'label' => 'Unit Price'],
             ['key' => 'status', 'label' => 'Status'],
