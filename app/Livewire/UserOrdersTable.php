@@ -50,7 +50,7 @@ class UserOrdersTable extends Component
         session()->flash('message', 'Refund request submitted successfully.');
         $this->reset(['order_hashed_id', 'email', 'refund_reason', 'refund_pix_key']);
         $this->showModal = false;
-        $this->success('Obrigado pela mensagem!', 'Entraremos em contato em breve!', 'toast-top toast-end', 10000);
+        $this->success('Obrigado pela mensagem!', 'Entraremos em contato em breve!', position: 'toast-top toast-end');
     }
 
 
