@@ -170,7 +170,7 @@
                             x-bind:disabled="loading">
               
                         <span x-show="!loading">Salvar</span>
-                        <span x-show="loading"><x-mary-loading class="dark:text-gray-500 text-gray-400 absolute top-[11px] left-[5px]"/></span>
+                        <span class="w-full"  x-show="loading"><x-mary-loading class="absolute  top-[11px] left-[5px]"/></span>
                      
                       </x-mary-button>
                           </div>
@@ -292,7 +292,7 @@
                 </div>
                 <div class="flex flex-col-reverse gap-1 sm:flex-row sm:justify-end sm:space-x-2">
                   @if($cartItems->isEmpty())
-                  <x-mary-alert title="Your cart is empty! Fill up you cart and then the payment buttons will appear" icon="o-exclamation-triangle" shadow />
+                  <x-mary-alert title="Your cart is empty! Fill up you cart and then the payment buttons will appear" class="alert-error" icon="o-exclamation-triangle" shadow />
                   @else
                     <x-mary-button @click="modalOpen=false" type="button" class="">Voltar</x-mary-button>
                     <form action="{{ route('markAsPaid') }}" method="POST">
