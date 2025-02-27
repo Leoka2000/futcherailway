@@ -54,10 +54,14 @@
             <x-mary-button label="Minhas compras" icon="o-list-bullet" link="" class="btn-ghost btn" responsive />
             </a>
             @endunless
-          
+            <a href="mailto:Futche.sports@gmail.com" >
+                <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"  class="btn-ghost btn-sm lg:btn" responsive />
+              </a>
        <a href="{{ route('components.shopping_cart_component_index')}}" >
             <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn lg:w-64 btn-outline shadow-lg btn-warning" responsive />
        </a>
+      
+  
         </x-slot:actions>
     </x-mary-nav>
     @endunless

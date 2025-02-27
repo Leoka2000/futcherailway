@@ -32,8 +32,8 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
-            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn" responsive />
+            <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="lg:btn btn-sm relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
+            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn-sm lg:btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
     </x-mary-nav>
@@ -41,14 +41,16 @@
         {{-- Right side actions --}}
         <x-slot:actions>
          
-            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn" responsive />
-            @unless (request()->is('dashboard', 'minhas-compras', 'user/profile'))
-            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn" responsive />
-         @endunless
+            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm lg:btn" responsive />
+          <a href="mailto:Futche.sports@gmail.com" >
+            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"  class="btn-ghost btn-sm lg:btn" responsive />
+          </a>
       
          <a href="{{ route('components.shopping_cart_component_index')}}">
             <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn btn-outline lg:w-64 shadow-lg btn-warning" responsive />
-         </ad>
+         </a>
+         <a href></a>
+   
        
         </x-slot:actions>
     </x-mary-nav>
