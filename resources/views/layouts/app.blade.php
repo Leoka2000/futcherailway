@@ -41,15 +41,16 @@
         {{-- Right side actions --}}
         <x-slot:actions>
          
-            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm lg:btn" responsive />
+            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="lg:btn-ghost  btn-sm lg:btn" responsive />
           <a href="mailto:Futche.sports@gmail.com" >
             <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"  class="btn-ghost btn-sm lg:btn" responsive />
           </a>
       
-         <a href="{{ route('components.shopping_cart_component_index')}}">
-            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn btn-outline lg:w-64 shadow-lg btn-warning" responsive />
-         </a>
-         <a href></a>
+          <a href="{{ route('components.shopping_cart_component_index')}}" >
+            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="lg:w-64  lg:btn-outline shadow-lg btn-warning" responsive />
+       </a>
+      
+      
    
        
         </x-slot:actions>

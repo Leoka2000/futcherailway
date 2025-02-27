@@ -1,4 +1,4 @@
 <x-app-layout>
-    
-@livewire('shopping-cart')
+
+    @livewire('shopping-cart')
 </x-app-layout>

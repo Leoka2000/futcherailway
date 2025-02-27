@@ -36,8 +36,8 @@
         
         <x-slot:actions>
            
-            <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
-            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn" responsive />
+            <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="btn-sm lg:btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
+            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn-sm lg:btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
 
         </x-slot:actions>
@@ -58,7 +58,7 @@
                 <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"  class="btn-ghost btn-sm lg:btn" responsive />
               </a>
        <a href="{{ route('components.shopping_cart_component_index')}}" >
-            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn lg:w-64 btn-outline shadow-lg btn-warning" responsive />
+            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="lg:w-64  lg:btn-outline shadow-lg btn-warning" responsive />
        </a>
       
   

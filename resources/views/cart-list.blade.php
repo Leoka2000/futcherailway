@@ -57,7 +57,9 @@
 
 {{-- The `$slot` goes here --}}
 <x-slot:content>
+ 
    <x-list-cart />
+
 </x-slot:content>
 
 </x-mary-main>
