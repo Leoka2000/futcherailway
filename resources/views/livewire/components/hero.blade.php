@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="px-2 py-20 container relative isolate   bg-white dark:bg-inherit md:px-0" x-data="{ loading: false }">
+    <section class="py-20 container relative isolate overflow-x-hidden  bg-white dark:bg-inherit md:px-0" x-data="{ loading: false }">
         <div class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-[5rem] xl:-top-6 opacity-70 animate-blur-move" aria-hidden="true">
             <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#facc15] to-[#4ade80]"
                 style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
@@ -8,6 +8,9 @@
 
 
         <style>
+            .drawer-content {
+                padding:0!important;
+            }
             @keyframes blurMove {
                 0% {
                     transform: translateX(-50%) translateY(0) scale(1);
@@ -57,8 +60,8 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <div class="w-full overflow-hidden flex justify-center rounded-md shadow-sm sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
-                        <img class="object-cover w-60" src="{{asset('logobig.png')}}">
-                        <img class="object-cover w-60" src="{{asset('cristiano.png')}}">
+                        <img class="object-cover w-44 lg:w-60" src="{{asset('logobig.png')}}">
+                        <img class="object-cover lg:block hidden w-60" src="{{asset('cristiano.png')}}">
                     </div>
                 </div>
             </div>

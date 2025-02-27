@@ -32,8 +32,52 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="lg:btn btn-sm relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
-            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn-sm lg:btn" responsive />
+            <a href="{{ route('components/list-cart') }}"
+            class="relative"
+            x-data="{ loading: false }"
+            @click.prevent="
+                loading = true;
+                setTimeout(() => {
+                    window.location.href = $el.getAttribute('href');
+                }, 800); // Artificial delay of 800ms
+            ">
+             <span x-show="!loading">
+                 <x-mary-button label="" icon="o-shopping-cart"
+                                class="btn-sm lg:btn relative"
+                                tooltip-left="Meu carrinho"
+                                responsive>
+                     <livewire:shopping-cart-icon />
+                 </x-mary-button>
+             </span>
+             <span x-show="loading">
+                 <x-mary-button class="btn-sm lg:btn relative">
+                     <x-mary-loading class="dark:text-gray-500 text-gray-500" />
+                 </x-mary-button>
+             </span>
+         </a>
+         
+         <!-- Button: Minha Conta -->
+         <a href="{{ route('profile.show') }}"
+            class="relative"
+            x-data="{ loading: false }"
+            @click.prevent="
+                loading = true;
+                setTimeout(() => {
+                    window.location.href = $el.getAttribute('href');
+                }, 800); // Artificial delay of 800ms
+            ">
+             <span x-show="!loading">
+                 <x-mary-button label="" icon="o-user"
+                                class="btn-ghost btn-md"
+                                tooltip-left="Minha conta"
+                                responsive />
+             </span>
+             <span x-show="loading">
+                 <x-mary-button class="btn-ghost btn-md relative">
+                     <x-mary-loading class="dark:text-gray-500 text-gray-500" />
+                 </x-mary-button>
+             </span>
+         </a>
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
     </x-mary-nav>
@@ -46,10 +90,26 @@
             <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"  class="btn-ghost btn-sm lg:btn" responsive />
           </a>
       
-          <a href="{{ route('components.shopping_cart_component_index')}}" >
-            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="lg:w-64  lg:btn-outline shadow-lg btn-warning" responsive />
+          <a href="{{ route('components.shopping_cart_component_index') }}"
+          class="relative"
+          x-data="{ loading: false }"
+          @click.prevent="
+           loading = true;
+           setTimeout(() => {
+               window.location.href = $el.getAttribute('href');
+           }, 800); // Artificial delay of 800ms
+       ">
+           <span x-show="!loading">
+               <x-mary-button label="Camisas" icon="o-shopping-bag"
+                              class="lg:w-64 lg:btn-outline shadow-lg btn-warning"
+                              responsive />
+           </span>
+           <span x-show="loading">
+               <x-mary-button class="lg:w-64 lg:btn-outline shadow-lg btn-warning relative">
+                   <x-mary-loading class="dark:text-gray-500 text-gray-500" />
+               </x-mary-button>
+           </span>
        </a>
-      
       
    
        

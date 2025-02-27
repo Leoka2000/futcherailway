@@ -1,11 +1,12 @@
-<section class="relative isolate py-16 bg-white dark:bg-inherit min-w-screen animation-fade animation-delay">
+<section class="relative isolate overflow-x-hidden  py-16 bg-white dark:bg-inherit min-w-screen animation-fade animation-delay">
 <div class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-[5rem] xl:-top-6 opacity-70 animate-blur-move" aria-hidden="true">
             <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#facc15] to-[#4ade80]"
                 style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
             </div>
         </div>
 
-    <div class="container px-0 px-8 mx-auto sm:px-12 xl:px-5">
+        
+    <div class="container px-4 mx-auto sm:px-12 xl:px-5">
         <p class="text-xs font-bold text-left text-red-500 dark:text-red-400 uppercase sm:mx-6 sm:text-center sm:text-normal sm:font-bold" data-primary="red-500">
             Há perguntas? Temos as respostas 😉
         </p>
