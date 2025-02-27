@@ -51,7 +51,7 @@ new class extends Component {
 };
 ?>
 
-<div  x-data="{ searchTerm: @entangle('searchTerm') }">
+<div x-data="{ searchTerm: @entangle('searchTerm') }">
     <style>
         .pb-5>div>div>div {
             font-size: 1rem;
@@ -93,29 +93,27 @@ new class extends Component {
     <a href="{{ route('components.shopping_cart_component_index') }}" 
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 ">Voltar </x-mary-button >
+    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn w-full md:w-96 mb-10">Voltar </x-mary-button >
     </a>
 
-
-                             
     <x-mary-header size="text-inherit" progress-indicator>
         {{-- SEARCH --}}
-       
         <x-slot:title>
             <x-mary-choices
-                label="Procure camisas"
-                placeholder="Digite para procurar..."
-                search-function="searchMulti"
-                no-result-text="Ops! Nothing found..."
-                searchable
-                class="md:w-96 w-full border-warning text-warning" 
-                x-model="searchTerm"
-                wire:model="clear" />
+            label="Procure camisas"
+            placeholder="Digite para procurar..."
+            search-function="searchMulti"
+            no-result-text="Ops! Nothing found..."
+            searchable
+            class="w-full lg:w-96 ml-4 border-warning text-warning" 
+            x-model="searchTerm"
+            wire:model="clear"
+        />
         </x-slot:title>
 
         {{-- SORT --}}
-        <x-slot:actions class="mt-7">
-            <x-mary-dropdown label="Times Europeus" class="lg:btn btn-sm">
+        <x-slot:actions class="mt-7 flex flex-wrap gap-2">
+            <x-mary-dropdown label="Times Europeus" class="btn-sm w-full md:w-auto">
                 <x-mary-menu-item  @click.stop  value="liga_alema" title="Liga Alemã" wire:click="setFilter('liga_alema')" wire:click.stop="setFilter('liga_alema')" spinner="setFilter('liga_alema')" />
                 <x-mary-menu-item  @click.stop  value="liga_espanhola" title="Liga Espanhola" wire:click="setFilter('liga_espanhola')" spinner="setFilter('liga_espanhola')" />
                 <x-mary-menu-item   @click.stop value="liga_francesa" title="Liga Francesa" wire:click="setFilter('liga_francesa')" spinner="setFilter('liga_francesa')" />
@@ -124,7 +122,7 @@ new class extends Component {
             </x-mary-dropdown>
         
             {{-- National Teams --}}
-            <x-mary-dropdown label="Seleções" class="btn-sm lg:btn ">
+            <x-mary-dropdown label="Seleções" class="btn-sm w-full md:w-auto">
                 <x-mary-menu-item @click.stop value="america" title="América" wire:click="setFilter('america')" spinner="setFilter('america')" />
                 <x-mary-menu-item  @click.stop  value="europa" title="Europa" wire:click="setFilter('europa')" spinner="setFilter('europa')" />
                 <x-mary-menu-item  @click.stop  value="asia" title="Ásia" wire:click="setFilter('asia')" spinner="setFilter('asia')" />
@@ -133,7 +131,7 @@ new class extends Component {
             </x-mary-dropdown>
         
             {{-- Brazilian Teams --}}
-            <x-mary-dropdown label="Times Brasileiros" class="btn-sm lg:btn ">
+            <x-mary-dropdown label="Times Brasileiros" class="btn-sm w-full md:w-auto">
                 <x-mary-menu-item  @click.stop  value="cariocas" title="Cariocas" wire:click="setFilter('cariocas')" spinner="setFilter('cariocas')" />
                 <x-mary-menu-item  @click.stop  value="paulistas" title="Paulistas" wire:click="setFilter('paulistas')" spinner="setFilter('paulistas')" />
                 <x-mary-menu-item  @click.stop  value="sulistas" title="Sulistas" wire:click="setFilter('sulistas')" spinner="setFilter('sulistas')" />
@@ -146,7 +144,7 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div x-data  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"  >
+        <div x-data class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @forelse($products as $product)
         
         <x-mary-card wire:key="product-{{ $product->id }}" title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
@@ -235,5 +233,3 @@ new class extends Component {
    
   
 </div>
-
-
