@@ -126,12 +126,7 @@
                                                                 <span class="text-sm text-gray-500 line-through ml-2">R$ {{ number_format($originalPrice, 2, ',', '.') }}</span>
                                                                 <span class="text-sm text-green-600 ml-2">{{ $discountPercentage }}% off</span>
                                                                 </div>
-                                                                <div class="mt-4">
-                                                                    <div class="flex items-center">
-                                                                        <span class="text-sm text-gray-700">em até <strong>12x<strong> de <span class="text-red-500">R$ 19,24</span>
-                                                                    </div>
-                                                                  
-                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
