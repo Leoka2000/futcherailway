@@ -30,10 +30,10 @@
       <a href="{{ route('components.shopping_cart_component_index') }}" 
       x-data="{ loading: false }"
       @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-      <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Back </x-mary-button >
+      <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10 "> Voltar </x-mary-button >
       </a>
   
-    <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Shopping Cart</h2>
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Meu carrinho</h2>
 
       <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
         <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
@@ -42,7 +42,7 @@
             @if($cartItems->isEmpty())
               <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
                 <x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
-                <p class="text-center text-gray-900 dark:text-white">Your cart is empty.</p>
+                <p class="text-center text-gray-900 dark:text-white">Seu carrinho está vazio</p>
               </div>
             @else
               @foreach($cartItems as $item)
@@ -196,14 +196,14 @@
 
         <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
           <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-            <p class="text-xl font-semibold text-gray-900 dark:text-white">Order summary</p>
+            <p class="text-xl font-semibold text-gray-900 dark:text-white">Preço original</p>
             @php
             $totalPrice = $cartItems->sum(fn($item) => $item->product->price * $item->quantity);
             @endphp
             <div class="space-y-4">
               <div class="space-y-2">
                 <dl class="flex items-center justify-between gap-4">
-                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Original price</dt>
+                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Preço original</dt>
                   <dd class="text-base font-medium text-gray-900 dark:text-white">${{number_format($totalPrice, 2) }}</dd>
                 </dl>
 
@@ -225,7 +225,7 @@
               <img src="{{asset('visa.png')}}" alt="Visa" class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
             </div>
             @if($cartItems->isEmpty())
-            <a><x-mary-button icon="o-credit-card" tooltip="Your cart is empty!" class="w-full mt-3"> Checkout with card </x-mary-button></a>
+            <a><x-mary-button icon="o-credit-card" tooltip="Your cart is empty!" class="w-full mt-3">Pagar com cartão </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
@@ -233,7 +233,7 @@
                 <img src="{{asset('pix.png')}}" alt="Pix" class="h-7 border border-gray-200 dark:border-gray-600  shadow-sm rounded-md -p-36">
               </a>
               @else
-              <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" type="submit" spinner="checkout"  class="w-full mt-3"> Checkout with card </x-mary-button></a>
+              <a href="{{route('checkout')}}"><x-mary-button icon="o-credit-card" type="submit" spinner="checkout"  class="w-full mt-3"> Pagar com cartão </x-mary-button></a>
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700  hover:no-underline dark:text-primary-500">
@@ -248,7 +248,7 @@
     :class="{ 'z-40': modalOpen }" class="relative w-auto h-auto">
      
     <x-mary-button @click="modalOpen=true" class="btn w-full">
-      <img src="{{ asset('pix.png') }}"  alt="Pix" class="h-12 shadow-sm rounded-md p-1"> Checkout with Pix
+      <img src="{{ asset('pix.png') }}"  alt="Pix" class="h-12 shadow-sm rounded-md p-1"> Pagar com Pix
     </x-mary-button>
     @else
     <x-mary-button href="{{ route('login') }}" class="btn w-full">
@@ -276,7 +276,7 @@
                 x-transition:leave-end="opacity-0 -translate-y-2 sm:scale-95"
                 class="relative w-full py-6 bg-white dark:bg-gray-800 border shadow-lg px-7 border-neutral-200 dark:border-gray-700 sm:max-w-lg sm:rounded-lg">
                 <div class="flex items-center justify-between pb-3">
-                    <h3 class="text-lg text-gray-800 dark:text-gray-200 font-semibold">Valor a ser pago: {{number_format($totalPrice, 2) }} BRL</h3>
+                    <h3 class="text-lg text-gray-800 dark:text-gray-200 font-semibold">Valor a ser pago: R$ {{number_format($totalPrice, 2) }} </h3>
                     <button @click="modalOpen=false" class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 dark:text-gray-400 rounded-full hover:text-gray-800 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>  
                     </button>
@@ -308,7 +308,7 @@
             <div class="flex items-center justify-center gap-2">
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
               <a href="{{route('components.shopping_cart_component_index')}}" title="" class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">
-                Continue Shopping
+                Continue Compando
                 <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
                 </svg>
@@ -316,15 +316,7 @@
             </div>
           </div>
 
-          <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-            <form class="space-y-4">
-              <div>
-                <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Do you have a voucher or gift card? </label>
-                <input type="text" id="voucher" class="block w-full rounded-lg border border-gray-200 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
-              </div>
-              <button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply Code</button>
-            </form>
-          </div>
+         
         </div>
       </div>
     </div>

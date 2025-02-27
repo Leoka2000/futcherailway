@@ -41,13 +41,13 @@
         {{-- Right side actions --}}
         <x-slot:actions>
          
-            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}" class="btn-ghost btn" responsive />
             @unless (request()->is('dashboard', 'minhas-compras', 'user/profile'))
-            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn" responsive />
          @endunless
       
          <a href="{{ route('components.shopping_cart_component_index')}}">
-            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn-sm btn-outline lg:w-64 shadow-lg btn-warning" responsive />
+            <x-mary-button label="Camisas" icon="o-shopping-cart"  class="btn btn-outline lg:w-64 shadow-lg btn-warning" responsive />
          </ad>
        
         </x-slot:actions>
