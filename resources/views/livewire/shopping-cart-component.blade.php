@@ -115,7 +115,7 @@ new class extends Component {
 
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
-            <x-mary-dropdown label="Times Europeus" class="btn-sm">
+            <x-mary-dropdown label="Times Europeus" class="lg:btn btn-sm">
                 <x-mary-menu-item  @click.stop  value="liga_alema" title="Liga Alemã" wire:click="setFilter('liga_alema')" wire:click.stop="setFilter('liga_alema')" spinner="setFilter('liga_alema')" />
                 <x-mary-menu-item  @click.stop  value="liga_espanhola" title="Liga Espanhola" wire:click="setFilter('liga_espanhola')" spinner="setFilter('liga_espanhola')" />
                 <x-mary-menu-item   @click.stop value="liga_francesa" title="Liga Francesa" wire:click="setFilter('liga_francesa')" spinner="setFilter('liga_francesa')" />
@@ -124,7 +124,7 @@ new class extends Component {
             </x-mary-dropdown>
         
             {{-- National Teams --}}
-            <x-mary-dropdown label="Seleções" class="btn-sm">
+            <x-mary-dropdown label="Seleções" class="btn-sm lg:btn ">
                 <x-mary-menu-item @click.stop value="america" title="América" wire:click="setFilter('america')" spinner="setFilter('america')" />
                 <x-mary-menu-item  @click.stop  value="europa" title="Europa" wire:click="setFilter('europa')" spinner="setFilter('europa')" />
                 <x-mary-menu-item  @click.stop  value="asia" title="Ásia" wire:click="setFilter('asia')" spinner="setFilter('asia')" />
@@ -133,7 +133,7 @@ new class extends Component {
             </x-mary-dropdown>
         
             {{-- Brazilian Teams --}}
-            <x-mary-dropdown label="Times Brasileiros" class="btn-sm">
+            <x-mary-dropdown label="Times Brasileiros" class="btn-sm lg:btn ">
                 <x-mary-menu-item  @click.stop  value="cariocas" title="Cariocas" wire:click="setFilter('cariocas')" spinner="setFilter('cariocas')" />
                 <x-mary-menu-item  @click.stop  value="paulistas" title="Paulistas" wire:click="setFilter('paulistas')" spinner="setFilter('paulistas')" />
                 <x-mary-menu-item  @click.stop  value="sulistas" title="Sulistas" wire:click="setFilter('sulistas')" spinner="setFilter('sulistas')" />

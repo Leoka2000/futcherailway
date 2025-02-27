@@ -23,10 +23,10 @@
             <p class="text-2xl font-semibold text-gray-900 dark:text-white">"Comprei um conjunto para um evento especial e fiquei impressionada! O tecido é maravilhoso, veste super bem e todo mundo elogiou. Já virei cliente fiel!"</p>
         </blockquote>
         <figcaption class="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
-            <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture">
+
             <div class="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
-                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Bonnie Green</cite>
-                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Gabriel Oliveira</cite>
+                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">Farmacêutico</cite>
             </div>
         </figcaption>
     </figure>
@@ -52,13 +52,14 @@
         <blockquote>
             <p class="text-2xl font-semibold text-gray-900 dark:text-white">"Preço justo, qualidade excelente e atendimento impecável. Não tem erro! A cada nova coleção fico ainda mais fã da marca."</p>
         </blockquote>
-        <figcaption class="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
-            <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture">
+        <div class="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
+
+            <x-mary-avatar :image="{{asset('gabriel.jpg')}}" class="!w-10" />
             <div class="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
-                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Bonnie Green</cite>
-                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Daniel Prates</cite>
+                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">Farmacêutico</cite>
             </div>
-        </figcaption>
+        </div>
     </figure>
     <figure class="max-w-screen-md">
         <div class="flex items-center mb-4 text-yellow-300">
@@ -82,10 +83,10 @@
             <p class="text-2xl font-semibold text-gray-900 dark:text-white">"Finalmente encontrei um site com roupas estilosas e confortáveis ao mesmo tempo! O atendimento foi impecável e a entrega super rápida. Recomendo de olhos fechados!"</p>
         </blockquote>
         <figcaption class="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
-            <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture">
+
             <div class="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
-                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Bonnie Green</cite>
-                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                <cite class="pe-3 font-medium text-gray-900 dark:text-white">Enzo Albani</cite>
+                <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">Fisioterapeuta</cite>
             </div>
         </figcaption>
     </figure>
