@@ -78,7 +78,8 @@ class ShoppingCartController extends Controller
 
     public function index(Request $request)
     {
-        $cartItems = ShoppingCart::with(['user', 'product'])->get();
+        // Only retrieve cart items for the authenticated user
+        $cartItems = ShoppingCart::where('user_id', Auth::id())->with(['user', 'product'])->get();
 
         // TA DANDO ERRO NA BASE DE DADOS, ESTA PASSANDO NUMEROS AO INVES DO REAL NOME DO ESTADO, DESBUGAR DPS
         $brazilStates = [
@@ -129,7 +130,7 @@ class ShoppingCartController extends Controller
     public function increaseCartQuantity($productId)
     {
         $cartItem = ShoppingCart::where('product_id', $productId)
-            ->where('user_id', auth()->id())
+            ->where('user_id', auth()->id()) // Ensure this is scoped to the authenticated user
             ->first();
 
         if ($cartItem) {
@@ -140,10 +141,11 @@ class ShoppingCartController extends Controller
         return redirect()->back();
     }
 
+
     public function decreaseCartQuantity($productId)
     {
         $cartItem = ShoppingCart::where('product_id', $productId)
-            ->where('user_id', auth()->id())
+            ->where('user_id', auth()->id()) // Ensure this is scoped to the authenticated user
             ->first();
 
         if ($cartItem) {
@@ -165,7 +167,7 @@ class ShoppingCartController extends Controller
             return redirect()->route('login');
         }
 
-        $cartItem = ShoppingCart::where('user_id', Auth::id())
+        $cartItem = ShoppingCart::where('user_id', Auth::id()) // Ensure this is scoped to the authenticated user
             ->where('product_id', $productId)
             ->first();
 
@@ -187,6 +189,7 @@ class ShoppingCartController extends Controller
             'timeout' => 3000,
         ]);
     }
+
 
     public function checkout()
     {

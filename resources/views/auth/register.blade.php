@@ -16,6 +16,8 @@
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
+        <h1 class="font-black mb-3 text-xl dark:text-gray-300 text-gray-700">Registro</h1>
+        <span class="text-sm inline-block mb-3 dark:text-gray-300 text-gray-900">Se já tens conta <a href="{{route('register')}}" class="underline cursor-pointer text-yellow-600 dark:text-yellow-400">faca login aqui</a></span>
 
         <x-validation-errors class="mb-4" />
 
@@ -59,10 +61,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
+               
                 <button id="registerButton" type="submit" class="ms-4 text-white bg-yellow-600 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 inline-flex items-center">
                     {{ __('Register') }}
                 </button>

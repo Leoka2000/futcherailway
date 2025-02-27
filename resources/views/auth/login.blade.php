@@ -14,6 +14,7 @@
     </style>
 
     <x-authentication-card>
+        
         <h1 class="font-black mb-3 text-xl dark:text-gray-300 text-gray-700">Login</h1>
         <span class="text-sm inline-block mb-3 dark:text-gray-300 text-gray-900">Se você ainda não tem uma conta, <a href="{{route('register')}}" class="underline cursor-pointer text-yellow-600 dark:text-yellow-400">registre-se aqui</a></span>
         <x-slot name="logo">
