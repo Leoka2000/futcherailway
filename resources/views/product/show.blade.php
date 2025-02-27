@@ -107,7 +107,7 @@
                                         <section aria-labelledby="options-heading" class="mt-10">
                                             <h3 id="options-heading" class="sr-only">Product options</h3>
                                             <form>
-                                                <fieldset class="my-10" aria-label="Choose a size">
+                                                <fieldset class="my-2" aria-label="Choose a size">
                                                     <x-mary-menu-separator />
                                                     <div>
                                                         <div class="bg-white rounded-lg overflow-hidden max-w-sm w-full">
@@ -116,9 +116,15 @@
                                                                 <span class=" rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
                                                                 <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Futchê®</span></div>
                                                                 <div class="mt-4">
-                                                                    <span class="text-2xl font-bold text-gray-900">R$ {{$product->price}}</span>
-                                                                    <span class="text-sm text-gray-500 line-through ml-2">R$ 299,90</span>
-                                                                    <span class="text-sm text-green-600 ml-2">37% off</span>
+                                                                    @php
+                                                                    $realPrice = $product->price;
+                                                                    $discountPercentage = 21; // Fixed 21% discount
+                                                                    $originalPrice = round($realPrice / (1 - ($discountPercentage / 100)), 2); // Calculate the original price before discount
+                                                                @endphp
+                                                            
+                                                                <span class="text-2xl font-bold text-gray-900">R$ {{ number_format($realPrice, 2, ',', '.') }}</span>
+                                                                <span class="text-sm text-gray-500 line-through ml-2">R$ {{ number_format($originalPrice, 2, ',', '.') }}</span>
+                                                                <span class="text-sm text-green-600 ml-2">{{ $discountPercentage }}% off</span>
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <div class="flex items-center">
@@ -130,17 +136,13 @@
                                                         </div>
                                                     </div>
                                                     <x-mary-menu-separator />
-                                                  
-
-
+                                                
                                                 </fieldset>
                                               
                                                 <div class="">
                                                     <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
-                                                        <div class="text-sm text-gray-700 mb-2">
-                                                            <span class="font-bold text-green-600">Frete Grátis</span> para <span class="font-bold">Budapest, BU, Hungary e Região</span>
-                                                        </div>
-                                                        <p class="text-gray-600 text-sm">Entrega estimada entre <span class="font-bold">01 e 16 de março</span>.</p>
+                                                     
+                                                        <p class="text-gray-600 text-sm">Entrega estimada entre <span class="font-bold">Entrega estimada de 1 a 16 dias</span>.</p>
                                                         <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-6 my-4">
                                                             <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
                                                             <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
@@ -151,38 +153,31 @@
                                                         </div>
                                                         <div>
                                                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Parcelas:</h2>
-                                                            <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
-                                                                <li class="flex items-center">
-                                                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                                                    </svg>
-                                                                    1x de R$ 189,90 à vista
-                                                                </li>
-                                                                <li class="flex items-center">
-                                                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                                                    </svg>
-                                                                    2x de R$ 94,95 sem juros
-                                                                </li>
-                                                                <li class="flex items-center">
-                                                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                                                    </svg>
-                                                                    3x de R$ 63,30 sem juros
-                                                                </li>
-                                                                <li class="flex items-center">
-                                                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                                                    </svg>
-                                                                    4x de R$ 52,64*
-                                                                </li>
-                                                                <li class="flex items-center">
-                                                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                                                    </svg>
-                                                                    *Com juros
-                                                                </li>
-                                                            </ul>
+                                                           <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
+    @php
+        $maxParcelas = 6;
+        $precoTotal = $product->price;
+        $valorParcela = $precoTotal;
+        
+        echo '<li class="flex items-center">';
+        echo '<svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">';
+        echo '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />';
+        echo '</svg>';
+        echo "1x de R$ " . number_format($precoTotal, 2, ',', '.') . " à vista";
+        echo '</li>';
+        
+        for ($i = 2; $i <= $maxParcelas; $i++) {
+            $valorParcela = $precoTotal / $i;
+            echo '<li class="flex items-center">';
+            echo '<svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">';
+            echo '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />';
+            echo '</svg>';
+            echo "$i x de R$ " . number_format($valorParcela, 2, ',', '.') . " sem juros";
+            echo '</li>';
+        }
+    @endphp
+</ul>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="mt-4 p-4 bg-gray-50 rounded-lg text-xs text-gray-700">
