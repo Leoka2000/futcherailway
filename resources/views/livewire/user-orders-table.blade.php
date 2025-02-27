@@ -2,7 +2,7 @@
     <a href="{{ route('components.shopping_cart_component_index') }}" 
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-        <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10"> Back </x-mary-button>
+        <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10"> Voltar </x-mary-button>
     </a>
 
     <h1 class="md:text-2xl mb-10 text-xl"><strong>Minhas compras</strong></h1>
@@ -28,11 +28,11 @@
             @scope('cell_status', $order)
                 @if ($order->status === 'under_process')
                     <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
-                        Processando pagamento...
+                        Processando pagamento... ⏰
                     </span>
                 @elseif ($order->status === 'paid')
                 <span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-200 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">
-                Pago com sucesso! 
+                Pago com sucesso ✅
                 </span>
                 @else
                     <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset dark:bg-yellow-900 dark:text-yellow-300">
@@ -47,13 +47,8 @@
         </x-mary-table>
     @else
     <div class="rounded-lg border items-center flex flex-col gap-1 border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
-
         <x-mary-icon name="o-x-mark" class="w-12 h-12 bg-gray-200 text-gray-400 dark:bg-gray-700 darktext-gray-500 p-2 rounded-full" />
                       <p class="text-center text-gray-900 dark:text-white">Não há compras </p>
-        
-                      
-                    
-         
                   </div>
     @endif
 

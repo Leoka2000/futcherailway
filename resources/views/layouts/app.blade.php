@@ -33,7 +33,7 @@
         {{-- Right side actions --}}
         <x-slot:actions>
             <x-mary-button label="" icon="o-shopping-cart" tooltip-left="Meu carrinho" link="{{route('components/list-cart')}}" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
-            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="" tooltip-left="Minha conta" icon="o-user" link="{{ route('profile.show')}}" class="btn-ghost btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
     </x-mary-nav>

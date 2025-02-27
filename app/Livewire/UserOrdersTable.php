@@ -77,11 +77,11 @@ class UserOrdersTable extends Component
 
         $headers = [
             ['key' => 'id', 'label' => 'Código da compra'],
-            ['key' => 'name', 'label' => 'Name'], // Add this line
-            ['key' => 'size', 'label' => 'Size'], // Add this line
-            ['key' => 'quantity', 'label' => 'Quantity'],
-            ['key' => 'unit_price', 'label' => 'Unit Price'],
-            ['key' => 'status', 'label' => 'Status'],
+            ['key' => 'name', 'label' => 'Nome'], // Add this line
+            ['key' => 'size', 'label' => 'Tamanho'], // Add this line
+            ['key' => 'quantity', 'label' => 'Quantidade'],
+            ['key' => 'unit_price', 'label' => 'Preço'],
+            ['key' => 'status', 'label' => 'Pagamento'],
         ];
 
         return view('livewire.user-orders-table', [
