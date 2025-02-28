@@ -64,9 +64,12 @@
             </div>
         </div>
     </section>
-    <section>
+    <div>
         @livewire('latest-releases')
-    </section>
+    </diuv>
+    <div>
+        @livewire('brasileirao-release')
+    </div>
     <x-testimonials />
     <x-faq />
     <x-team />
