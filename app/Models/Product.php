@@ -32,7 +32,7 @@ class Product extends Model
 
     public function getImageAttribute($value)
     {
-        // Decode the JSON string back to an array when accessing the attribute
+        // Decodar o json para html
         return json_decode($value, true);
     }
 
