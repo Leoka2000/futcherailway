@@ -37,9 +37,25 @@
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}</p>
-               <a href="{{ route('components.shopping_cart_component_index') }}">
-                   <x-mary-button icon="o-shopping-bag" Label="Ver mais" class="btn-sm w-full lg:btn" />
-               </a>
+                <a href="{{ route('components.shopping_cart_component_index') }}"
+                class="relative"
+                x-data="{ loading: false }"
+                @click.prevent="
+                     loading = true;
+                     setTimeout(() => {
+                         window.location.href = $el.getAttribute('href');
+                     }, 800); // Artificial delay of 800ms
+                ">
+                 <span x-show="!loading">
+                     <x-mary-button icon="o-shopping-bag" label="Ver mais" class="btn-sm w-full lg:btn" />
+                 </span>
+                 <span x-show="loading">
+                     <x-mary-button class="btn-ghost btn-md relative">
+                         <x-mary-loading class="dark:text-gray-500 text-gray-500" />
+                     </x-mary-button>
+                 </span>
+             </a>
+             
             </div>
         </div>
       </swiper-slide>
