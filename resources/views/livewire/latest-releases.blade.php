@@ -37,6 +37,14 @@
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $product->description }}</p>
+
+                <div class="mb-1 gap-1">
+                  <p class="xl:text-xl font-semibold dark:text-red-600 text-red-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
+              </div>
+              <div class="flex items-center mb-2 gap-1">
+                  <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-red-600 text-red-500 font-semibold">R$ 15,24</span></p>
+              </div>
+              
                 <a href="{{ route('components.shopping_cart_component_index') }}"
                 class="relative"
                 x-data="{ loading: false }"

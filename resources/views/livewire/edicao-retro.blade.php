@@ -4,12 +4,14 @@
             style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
         </div>
     </div>
+  
     <h3 class="text-2xl mb-10 font-bold text-left text-gray-700 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center sm:mx-0 flex items-center gap-2">
-      Lançamentos  brasileirão 
+        Edição Retrô
       <span class="inline-flex items-center mt-2 justify-center rounded-md bg-green-50 dark:bg-green-200 px-3 py-2 text-xs font-medium text-green-700 ring-1 ring-green-600/20 dark:ring-green-500 ring-inset">
         Frete grátis em todo Brasil
       </span>
     </h3>
+  
     <div class="px-4 mx-auto sm:px-12 xl:px-5">
       <swiper-container
         pagination="true"
@@ -42,7 +44,7 @@
                 <div class="flex items-center mb-2 gap-1">
                     <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-red-600 text-red-500 font-semibold">R$ 15,24</span></p>
                 </div>
-  
+                
                   <a href="{{ route('components.shopping_cart_component_index') }}"
                   class="relative"
                   x-data="{ loading: false }"
@@ -87,6 +89,5 @@
       }
     </style>
   
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+   
   </section>
-  
