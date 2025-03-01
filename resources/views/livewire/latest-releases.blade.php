@@ -29,9 +29,9 @@
       }'
     >
       @foreach($products as $product)
-      <swiper-slide>
+      <swiper-slide class="mb-10">
         <!-- Card Container -->
-        <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm mb-10 dark:bg-gray-800 dark:border-gray-700">
+        <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm  dark:bg-gray-800 dark:border-gray-700">
             <!-- Image -->
             <a>
                 <img class="rounded-t-lg w-full h-48 object-cover" src="{{ asset($product->image[0]) }}" alt="{{ $product->name }}">
@@ -63,7 +63,7 @@
     
                 <!-- Installment -->
                 <div class="flex items-center mb-2 gap-1">
-                    <p class="xl:text-base">
+                    <p class="text-sm">
                         Ou <strong>12x</strong> de 
                         <span class="dark:text-green-600 text-green-500 font-semibold">R$ 15,24</span>
                     </p>
