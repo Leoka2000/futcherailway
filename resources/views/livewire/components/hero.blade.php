@@ -58,20 +58,18 @@
                         </div> --}}
                     </div>
                 </div>
-                <div class="w-full md:w-1/2">
-                  
-                </div>
+              
             </div>
         </div>
     </section>
-    <div>
+    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('latest-releases')
     </diuv>
-    <div>
+    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('brasileirao-release')
     </div>
 
-    <div>
+    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('edicao-retro')
     </div>
 
