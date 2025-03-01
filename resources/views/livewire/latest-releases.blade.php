@@ -45,7 +45,7 @@
                 </a>
 
                 <!-- Product Description -->
-       {{ Str::words($product->description, 2, '...') }}
+                {{ Str::words($product->description, 2, '...') }}
 
                 <!-- Price -->
                 <div class="mb-1 gap-1">
