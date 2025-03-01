@@ -1,5 +1,5 @@
 <section class="flex flex-wrap items-center justify-center py-16 bg-inherit dark:bg-inherit min-w-screen px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
         <figure class="max-w-md mx-auto">
             <div class="flex items-center mb-4 text-yellow-300">
                 <svg class="w-5 h-5" fill="#FFD700" viewBox="0 0 22 20">
@@ -20,7 +20,8 @@
 
             </div>
             <blockquote>
-                <p class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                <!-- mr-3 aqui importante -->
+                <p class="text-lg md:text-xl font-semibold mr-3 text-gray-900 dark:text-white">
                     "Comprei um conjunto para um evento especial e fiquei impressionada! O tecido é maravilhoso, veste super bem e todo mundo elogiou. Já virei cliente fiel!"
                 </p>
             </blockquote>
