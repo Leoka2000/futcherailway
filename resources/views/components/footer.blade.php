@@ -3,7 +3,7 @@
     <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
         <a href="#_" class="text-xl font-black leading-none text-gray-900 dark:text-gray-100 select-none logo"> &copy; Fuchê<span class="text-indigo-600 dark:text-indigo-400">.</span></a>
         <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 dark:sm:border-gray-700 sm:mt-0">
-            Desenvolvido com ❤ por <a href="https://www.linkedin.com/in/leoreus/" target="_blank" class="underline cursor-pointer text-yellow-600 dark:text-yellow-500">Leo Reus Oliveira</a>
+            Desenvolvido com  ❤  por <a href="https://www.linkedin.com/in/leoreus/" target="_blank" class="underline cursor-pointer text-yellow-600 dark:text-yellow-500">Leo Reus Oliveira</a>
         </p>
         <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
            

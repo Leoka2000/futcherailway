@@ -38,7 +38,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiasedx">
+<body class="font-sans antialiased">
     <x-mary-main with-nav full-width class rounded>
         <x-slot:content>
             <div class="relative z-10" role="dialog" aria-modal="true">
@@ -61,7 +61,7 @@
                                         </svg>
                                     </button>
                                 </a>
-                                <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
+                                <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 mt-5 sm:grid-cols-12 lg:gap-x-8">
                                     @php
                                         $images = $product->image;
                                         $slides = [];
@@ -138,14 +138,15 @@
                                                     <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
                                                      
                                                         <p class="text-gray-600 text-sm">Entrega estimada entre <span class="font-bold">Entrega estimada de 1 a 16 dias</span>.</p>
-                                                        <div class="flex-inline  items-center flex space-x-1 xl:gap-2 gap-6 my-4">
-                                                            <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
-                                                            <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
-                                                            <img src="{{asset('pix.png')}}" alt="Pix" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2">
-                                                            <img src="{{asset('caixa.svg')}}" alt="Caixa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3">
-                                                            <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 px-2">
-                                                            <img src="{{asset('mercadopago.svg')}}" alt="Mercado Pago" class="h-10 border border-gray-200 shadow-sm rounded-md ">
-                                                        </div>
+                                                       
+Copy
+<div class="flex items-center space-x-1 xl:gap-2 gap-6 my-4 max-sm:flex-wrap max-sm:justify-center max-sm:gap-2">
+    <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
+    <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
+    <img src="{{asset('pix.png')}}" alt="Pix" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
+    <img src="{{asset('caixa.svg')}}" alt="Caixa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 max-sm:h-8 max-sm:p-2">
+    <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 px-2 max-sm:h-8 max-sm:p-2">
+</div>
                                                         <div>
                                                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Parcelas:</h2>
                                                            <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">

@@ -144,15 +144,16 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div x-data class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div x-data class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
         @forelse($products as $product)
         
-        <x-mary-card wire:key="product-{{ $product->id }}" title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
+        <x-mary-card wire:key="product-{{ $product->id }}" title="{{ Str::words($product->name,20, '...') }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
             <span class="inline-flex items-start gap-1 top-2 left-2 absolute rounded-md bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-400 dark:ring-yellow-600 ring-inset"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mt-[2px]">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                 </svg> 21%</span>
 
                 <x-slot:figure class="relative">
+                    
                     <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
                         <!-- Loading Placeholder -->
                         <div 
@@ -188,18 +189,17 @@ new class extends Component {
                         <!-- Badge -->
                         <span 
                             class="inline-flex bottom-2 right-2 absolute items-start rounded-md text-start bg-green-100 px-2 py-1 text-xs gap-1 font-medium dark:text-green-500 text-green-600 ring-1 ring-green-600/20 ring-inset"
-                            x-bind:class="loaded ? 'block' : 'hidden'"
                         >  
-                            <x-mary-icon name="o-truck" /> 
-                            <span class="mt-[3px]"> FRETE GRÁTIS</span>
+                            <x-mary-icon name="o-truck" class="w-4 h-4" /> 
+                            <span >Frete grátis</span>
                         </span>
                     </div>
                 </x-slot:figure>
             <div class="mb-1 gap-1">
-                <p class="xl:text-xl font-semibold dark:text-green-600 text-green-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
+                <p class="text-sm font-semibold dark:text-green-600 text-green-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
             </div>
             <div class="flex items-center gap-1">
-                <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-green-600 text-green-500 font-semibold">R$ 15,24</span></p>
+                <p class="text-sm">Ou <strong>12x</strong> de <span class="dark:text-green-600 text-green-500 font-semibold">R$ 15,24</span></p>
             </div>
             <x-slot:menu>
       
@@ -209,10 +209,11 @@ new class extends Component {
                     x-data="{ loading: false }" 
                     x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
                     x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                    class="btn w-full mt-5 outline-warning"
+                    class="btn w-full mt-5 "
                     :disabled="loading"
                 >
-                    <span x-show="!loading">Ver mais</span>
+                <x-mary-icon x-show="!loading" name="o-shopping-bag" />
+                    <span x-show="!loading">Comprar</span>
                     <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" />
                 </button>
                
@@ -222,9 +223,9 @@ new class extends Component {
         </x-mary-card>
         @empty
         {{-- NO RESULTS--}}
-        <x-mary-alert title="Nothing here!" description="Try to remove some filters." icon="o-exclamation-triangle" class="bg-base-100 border-none">
+        <x-mary-alert title="Nada aqui!" description="Tente remover alguns filtros." icon="o-exclamation-triangle" class="bg-base-100  border-none">
             <x-slot:actions>
-                <x-mary-button label="Clear filters" wire:click="clear" icon="o-x-mark" spinner />
+                <x-mary-button label="Limpar filtros" wire:click="clear" icon="o-x-mark" spinner />
             </x-slot:actions>
         </x-mary-alert>
         @endforelse
