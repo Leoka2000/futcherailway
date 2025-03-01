@@ -1,4 +1,4 @@
-<div>
+<div class="items-center max-w-7xl px-2 mx-auto xl:px-5">
     <a href="{{ route('components.shopping_cart_component_index') }}" 
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">

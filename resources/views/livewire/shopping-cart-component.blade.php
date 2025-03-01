@@ -144,7 +144,7 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
-        <div x-data class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div x-data class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         @forelse($products as $product)
         
         <x-mary-card wire:key="product-{{ $product->id }}" title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
@@ -196,15 +196,15 @@ new class extends Component {
                     </div>
                 </x-slot:figure>
             <div class="mb-1 gap-1">
-                <p class="xl:text-xl font-semibold dark:text-red-600 text-red-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
+                <p class="xl:text-xl font-semibold dark:text-green-600 text-green-500">R$ {{$product->price}} <span class="text-xs mt-1 dark:text-gray-600 text-gray-400  ">  <del>R$ 159.99 <del></span></p>
             </div>
             <div class="flex items-center gap-1">
-                <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-red-600 text-red-500 font-semibold">R$ 15,24</span></p>
+                <p class="xl:text-lg">Ou <strong>12x</strong> de <span class="dark:text-green-600 text-green-500 font-semibold">R$ 15,24</span></p>
             </div>
             <x-slot:menu>
-                <x-mary-button icon="o-heart" class="btn-circle btn-sm shadow-md" />
+      
             </x-slot:menu>
-            <div   >
+            <div>
                 <button 
                     x-data="{ loading: false }" 
                     x-bind:class="{'cursor-not-allowed opacity-50': loading}" 
