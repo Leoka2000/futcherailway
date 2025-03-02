@@ -16,4 +16,16 @@ class LatestReleases extends Component
             'products' => $products
         ]);
     }
+
+
+    public function placeholderForImage()
+    {
+        return <<<'HTML'
+
+           <span class="loader">
+           <x-mary-loading class="loading-ring" />
+           </span>
+
+        HTML;
+    }
 }

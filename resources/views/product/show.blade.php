@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $product->name }} - {{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $product->name }} - {{ config('app.name', 'Futchê') }}</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -81,7 +81,7 @@
                                             <div class="pswp-gallery grid grid-cols-2 gap-3" id="gallery">
                                                 @foreach($slides as $index => $slide)
                                                     <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="block ">
-                                                        <img src="{{ $slide['image'] }}" alt="{{ $slide['description'] }}" class="w-full h-56 object-cover customcss2 bg-gray-100">
+                                                        <img src="{{ $slide['image'] }}" alt="camisa" class="w-full h-56 object-cover customcss2 bg-gray-100">
                                                     </a>
                                                 @endforeach
                                             </div>
@@ -147,7 +147,7 @@
                                                      
                                                         <p class="text-gray-600 text-sm">Entrega estimada entre <span class="font-bold">Entrega estimada de 1 a 16 dias</span>.</p>
                                                        
-Copy
+
 <div class="flex items-center space-x-1 xl:gap-2 gap-6 my-4 max-sm:flex-wrap max-sm:justify-center max-sm:gap-2">
     <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
     <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">

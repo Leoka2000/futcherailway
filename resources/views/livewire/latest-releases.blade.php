@@ -31,21 +31,38 @@
         <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm  dark:bg-gray-800 dark:border-gray-700">
           @php
           $imageArray = is_string($product->image) ? json_decode($product->image, true) : $product->image;
+
           // Ensure $imageArray is an array before accessing index 0
           $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
           @endphp
 
-            <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
+              <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
                 <img 
-            src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
-                class="w-full h-auto rounded-md transition-opacity duration-300"
-                x-data="{ loaded: false }"
-                x-on:load="loaded = true"
-                x-bind:class="loaded ? 'opacity-100' : 'opacity-0'"
-                loading="lazy"
-            />
-            </div>
-    
+                  src="{{ asset('storage/' . ($firstImage ?? 'default.jpg')) }}" 
+                  alt="{{ $product->name }}" 
+                  class="h-72 w-full rounded-md transition-opacity duration-300"
+                  loading="lazy"
+                  x-ref="lazyImage"
+                  @load="loaded = true"
+                />
+                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center rounded-t-md bg-white dark:bg-gray-800" 
+                    x-show="!loaded" 
+                    x-cloak>
+                  <span class="loader">
+                    <div role="status" class="flex items-center flex-col h-72 w-56 justify-center bg-gray-300 rounded-t-lg animate-pulse dark:bg-gray-700">
+                      <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                      <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                      <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z"/>
+                    </svg>
+                    Imagem carregando...
+                      <span class="sr-only">Loading...</span>
+
+                  </div>
+                  
+                  </span>
+                </div>
+              </div>
+              
             <!-- Card Content -->
             
             <div class="flex flex-col flex-grow p-5">
@@ -105,6 +122,10 @@
       @endforeach
     </swiper-container>
   </div>
-
+  <script>
+    document.addEventListener('livewire:load', function () {
+        Alpine.start();
+    });
+</script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 </section>

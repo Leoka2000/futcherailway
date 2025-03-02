@@ -48,7 +48,17 @@ new class extends Component {
             'searchTerm' => $this->searchTerm
         ];
     }
+    public function placeholderForImage()
+    {
+        return <<<'HTML'
+
+           <span class="loader"></span>
+
+        HTML;
+    }
 };
+
+
 ?>
 
 <div x-data="{ searchTerm: @entangle('searchTerm') }">
@@ -179,11 +189,12 @@ new class extends Component {
                             <img 
                           src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
                             class="w-full h-auto rounded-md transition-opacity duration-300"
-                            x-data="{ loaded: false }"
-                            x-on:load="loaded = true"
-                            x-bind:class="loaded ? 'opacity-100' : 'opacity-0'"
-                            loading="lazy"
+                           x-ref="lazyImage"
+                           loading="lazy" @load="loaded = true" 
                         />
+                        <div class='absolute top-0 right-0 w-full h-full' x-show="!loaded" x-cloak>
+                                {!! $this->placeholderForImage() !!}
+                            </div>
                         </div>
                 
                         <!-- Badge -->

@@ -59,6 +59,9 @@ class ProductResource extends Resource
                         'M' => 'M',
                         'G' => 'G',
                         'GG' => 'GG',
+                        '2GG' => '2GG',
+                        '3GG' => '3GG',
+                        '4GG' => '4GG',
                     ])
                     ->required(),
                 Forms\Components\RichEditor::make('description')
