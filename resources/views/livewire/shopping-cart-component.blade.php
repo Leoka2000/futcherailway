@@ -100,10 +100,10 @@ new class extends Component {
         }
     </style>
     <x-mary-header title="Camisas" />
-    <a href="{{ route('components.shopping_cart_component_index') }}" 
+    <a href="{{ route('livewire.components.hero') }}" 
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-    <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn w-full md:w-96 mb-10">Voltar </x-mary-button >
+    <x-mary-button icon="o-arrow-uturn-left" class="btn w-full md:w-96 mb-10">Voltar </x-mary-button >
     </a>
 
     <x-mary-header size="text-inherit" progress-indicator>

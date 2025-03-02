@@ -1,8 +1,8 @@
 <div class="items-center max-w-7xl px-2 mx-auto xl:px-5">
-    <a href="{{ route('components.shopping_cart_component_index') }}" 
+    <a href="{{ route('livewire.components.hero') }}"   
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 200)">
-        <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10"> Voltar </x-mary-button>
+        <x-mary-button icon="o-arrow-uturn-left" class="btn md:w-96 w-full mb-10"> Voltar </x-mary-button>
     </a>
 
     <h1 class="md:text-2xl mb-10 text-xl"><strong>Minhas compras</strong></h1>

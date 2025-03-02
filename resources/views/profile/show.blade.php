@@ -8,10 +8,10 @@
 
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-    <a href="{{ route('components.shopping_cart_component_index') }}" 
+    <a href="{{ route('livewire.components.hero') }}" 
     x-data="{ loading: false }"
     @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 100)">
-     <x-mary-button icon="o-arrow-uturn-left" link="/" class="btn md:w-96 w-full mb-10"> Voltar </x-mary-button>
+     <x-mary-button icon="o-arrow-uturn-left"  class="btn md:w-96 w-full mb-10"> Voltar </x-mary-button>
  </a>
         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
             @livewire('profile.update-profile-information-form')

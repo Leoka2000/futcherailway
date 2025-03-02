@@ -9,6 +9,10 @@ Route::get('/', function () {
 });
 
 
+Route::view('/', 'livewire.components.hero')
+    ->name('livewire.components.hero');
+
+
 Route::get('/cart/debug/{id}', [ShoppingCartController::class, 'debugImage'])->name('cart.debug');
 
 Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'removeItemFromCart'])->name('cart.remove');
