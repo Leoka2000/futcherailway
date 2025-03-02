@@ -36,32 +36,32 @@
           $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
           @endphp
 
-              <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
-                <img 
+            <div class="w-full h-auto rounded-md relative">
+              <img 
                   src="{{ asset('storage/' . ($firstImage ?? 'default.jpg')) }}" 
                   alt="{{ $product->name }}" 
                   class="h-72 w-full rounded-md transition-opacity duration-300"
                   loading="lazy"
-                  x-ref="lazyImage"
-                  @load="loaded = true"
-                />
-                <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center rounded-t-md bg-white dark:bg-gray-800" 
-                    x-show="!loaded" 
-                    x-cloak>
-                  <span class="loader">
-                    <div role="status" class="flex items-center flex-col h-72 w-56 justify-center bg-gray-300 rounded-t-lg animate-pulse dark:bg-gray-700">
-                      <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                      <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
-                      <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z"/>
-                    </svg>
-                    Imagem carregando...
-                      <span class="sr-only">Loading...</span>
+                  id="lazyImage"
+              />
 
-                  </div>
-                  
+              <!-- Placeholder -->
+              <div 
+                  class="absolute top-0 left-0 w-full h-full flex justify-center items-center rounded-t-md bg-white dark:bg-gray-800 transition-opacity duration-300"
+                  id="placeholder"
+              >
+                  <span class="loader">
+                      <div role="status" class="flex items-center flex-col h-56  w-56 sm:h-72 md:w-56 sm:w-72 justify-center bg-gray-300 rounded-lg sm:rounded-t-lg animate-pulse dark:bg-gray-700">
+                          <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                              <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                              <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z"/>
+                          </svg>
+                          <small class="text-gray-500 dark:text-gray-600">Imagem carregando...</small>
+                          <span class="sr-only">Loading...</span>
+                      </div>    
                   </span>
-                </div>
               </div>
+            </div>
               
             <!-- Card Content -->
             
@@ -123,8 +123,28 @@
     </swiper-container>
   </div>
   <script>
-    document.addEventListener('livewire:load', function () {
-        Alpine.start();
+    document.addEventListener("DOMContentLoaded", function () {
+        const img = document.getElementById("lazyImage");
+        const placeholder = document.getElementById("placeholder");
+
+        // Artificial 2-second delay before the image starts loading
+        setTimeout(function() {
+            img.src = img.getAttribute('src'); // Start loading the image after the delay
+        }, 2000);
+
+        img.addEventListener("load", function () {
+            placeholder.style.opacity = "0"; // Smooth fade-out effect
+            setTimeout(() => {
+                placeholder.style.display = "none"; // Remove the placeholder after fade-out
+            }, 300); // Matches the transition duration
+        });
+
+        // If the image is already cached, trigger the load event manually after delay
+        if (img.complete) {
+            setTimeout(() => {
+                img.dispatchEvent(new Event("load"));
+            }, 2000); // Trigger load after the same delay
+        }
     });
 </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
