@@ -4,7 +4,7 @@
   <h3 class="text-2xl mb-10 mx-4 font-bold text-left text-gray-700 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center flex items-center gap-2">
     Últimos Lançamentos   
     <span class="inline-flex items-center mx-1 justify-center rounded-md bg-green-50 dark:bg-green-200 px-3 py-2 text-xs font-medium text-green-700 ring-1 ring-green-600/20 dark:ring-green-500 ring-inset">
-      Frete grátis em todo Brasil.
+      Frete grátis em todo Brasil
     </span>
   </h3>
 
@@ -25,27 +25,42 @@
       }'
     >
       @foreach($products as $product)
+      
       <swiper-slide class="mb-10">
         <!-- Card Container -->
         <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm  dark:bg-gray-800 dark:border-gray-700">
-            <!-- Image -->
-            <a>
-                <img class="rounded-t-lg w-full h-48 object-cover" src="{{ asset($product->image[0]) }}" alt="{{ $product->name }}">
-            </a>
+          @php
+          $imageArray = is_string($product->image) ? json_decode($product->image, true) : $product->image;
+          // Ensure $imageArray is an array before accessing index 0
+          $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
+          @endphp
+
+            <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
+                <img 
+            src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
+                class="w-full h-auto rounded-md transition-opacity duration-300"
+                x-data="{ loaded: false }"
+                x-on:load="loaded = true"
+                x-bind:class="loaded ? 'opacity-100' : 'opacity-0'"
+                loading="lazy"
+            />
+            </div>
     
             <!-- Card Content -->
+            
             <div class="flex flex-col flex-grow p-5">
                 <!-- Product Name -->
+                
                 <a>
                     <h5 class="mb-2 xl:text-base text-sm font-bold tracking-tight text-gray-900 dark:text-white truncate"> 
                         {{ Str::words($product->name, 20, '...') }}
                     </h5>
                 </a>
     
-                <!-- Product Description -->
-                {{-- <p class="text-sm text-gray-700 dark:text-gray-400 line-clamp-2">
+                 <!-- Product Description -->
+                 <p class="text-sm text-gray-700 mb-3 dark:text-gray-400 line-clamp-2">
                     {{ Str::words(strip_tags($product->description), 2, '...') }}
-                </p> --}}
+                </p>
     
                 <!-- Price -->
                 <div class="mb-1 gap-1">

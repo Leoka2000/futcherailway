@@ -28,7 +28,7 @@ class ProductResource extends Resource
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('tracking_code')
-                    ->required()
+
                     ->maxLength(255),
 
                 Forms\Components\Select::make('category')
@@ -45,8 +45,9 @@ class ProductResource extends Resource
                         'paulistas' => 'paulistas',
                         'mineiros' => 'mineiros',
                         'nordestinos' => 'nordestinos',
-
-
+                        'ultimos_lancamentos' => 'ultimos_lancamentos',
+                        'edicao_retro' => 'edicao_retro',
+                        'brasileirao_lancamentos' => 'brasileirao_lancamentos',
                     ])
                     ->required(),
 

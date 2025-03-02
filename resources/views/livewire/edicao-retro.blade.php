@@ -30,11 +30,22 @@
         <swiper-slide class="mb-10">
           <!-- Card Container -->
           <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200  rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-              <!-- Image -->
-              <a href="#">
-                  <img class="rounded-t-lg w-full h-48 object-cover" src="{{ asset($product->image[0]) }}" alt="{{ $product->name }}">
-              </a>
-  
+            @php
+            $imageArray = is_string($product->image) ? json_decode($product->image, true) : $product->image;
+            // Ensure $imageArray is an array before accessing index 0
+            $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
+            @endphp
+
+              <div x-data="{ loaded: false }" class="w-full h-auto rounded-md relative">
+                  <img 
+              src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" 
+                  class="w-full h-auto rounded-md transition-opacity duration-300"
+                  x-data="{ loaded: false }"
+                  x-on:load="loaded = true"
+                  x-bind:class="loaded ? 'opacity-100' : 'opacity-0'"
+                  loading="lazy"
+              />
+              </div>
               <!-- Card Content -->
               <div class="flex flex-col flex-grow p-5">
                   <!-- Product Name -->
@@ -43,7 +54,7 @@
                   </a>
   
                   <!-- Product Description -->
-                  <p class="text-sm text-gray-700 dark:text-gray-400 line-clamp-2">
+                  <p class="text-sm text-gray-700 dark:text-gray-400 mb-3 line-clamp-2">
                     {{ Str::words(strip_tags($product->description), 2, '...') }}
                 </p>
                   <!-- Price -->

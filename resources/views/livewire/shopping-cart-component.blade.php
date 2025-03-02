@@ -103,7 +103,7 @@ new class extends Component {
             label="Procure camisas"
             placeholder="Digite para procurar..."
             search-function="searchMulti"
-            no-result-text="Ops! Nothing found..."
+            no-result-text="Ops! Nada aqui..."
             searchable
             class="w-full lg:w-96 ml-4 border-warning text-warning" 
             x-model="searchTerm"
@@ -223,11 +223,13 @@ new class extends Component {
         </x-mary-card>
         @empty
         {{-- NO RESULTS--}}
-        <x-mary-alert title="Nada aqui!" description="Tente remover alguns filtros." icon="o-exclamation-triangle" class="bg-base-100  border-none">
+        <div class="lg:w-screen lg:max-w-2xl">
+        <x-mary-alert title="Nada aqui!"  description="Tente remover alguns filtros." icon="o-exclamation-triangle" class="bg-base-100   border-none">
             <x-slot:actions>
                 <x-mary-button label="Limpar filtros" wire:click="clear" icon="o-x-mark" spinner />
             </x-slot:actions>
         </x-mary-alert>
+    </div>
         @endforelse
     </div>
     </div>

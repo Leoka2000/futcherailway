@@ -77,11 +77,11 @@
         
                                     @if(!empty($slides))
                                         <!-- PhotoSwipe Gallery -->
-                                        <div class="w-full h-screen sm:col-span-4 lg:col-span-5">
+                                        <div class="w-full sm:h-screen sm:col-span-4 lg:col-span-5">
                                             <div class="pswp-gallery grid grid-cols-2 gap-3" id="gallery">
                                                 @foreach($slides as $index => $slide)
                                                     <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="block ">
-                                                        <img src="{{ $slide['image'] }}" alt="{{ $slide['description'] }}" class="w-full h-56  object-cover customcss2  bg-gray-100">
+                                                        <img src="{{ $slide['image'] }}" alt="{{ $slide['description'] }}" class="w-full h-56 object-cover customcss2 bg-gray-100">
                                                     </a>
                                                 @endforeach
                                             </div>
@@ -93,12 +93,20 @@
                                     <!-- Rest of your product details -->
                                     <div class="sm:col-span-8 lg:col-span-7">
                                         <div class="gap-5 flex items-center sm:pr-12">
-                                            <h2 class="text-2xl font-bold text-gray-900 ">{{$product->name}}</h2> <img class="h-10 w-10 rounded-full opacity-90" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;" src="{{asset('logo.png')}}" />
+                                            <h2 class="text-2xl font-bold text-gray-900 ">{{$product->name}}</h2> 
+                                            <div x-data="{ loaded: false }">
+                                                <img 
+                                                    x-data="{ loaded: false }"
+                                                    x-on:load="loaded = true"
+                                                    x-bind:class="loaded ? 'opacity-100' : 'opacity-0'"
+                                                    loading="lazy"
+                                                    class="h-10 w-10 rounded-full opacity-90" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;" src="{{asset('logo.png')}}" />
+                                            </div>
                                         </div>
         
                                         <section aria-labelledby="information-heading" class="mt-2">
                                             <h3 id="information-heading" class="sr-only">Product information</h3>
-                                            <p class="text-xl  text-green-500">R$ {{$product->price}}</p>
+                                            <p class="text-xl text-green-500">R$ {{$product->price}}</p>
         
                                             <!-- Reviews -->
                                            
@@ -113,7 +121,7 @@
                                                         <div class="bg-white rounded-lg overflow-hidden max-w-sm w-full">
                                                             <div class="p-6">
                                                                 
-                                                                <span class=" rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
+                                                                <span class="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Disponível em estoque </span>
                                                                 <div class="mt-2 text-gray-500 text-sm">Vendido e garantido por <span class="font-semibold">Futchê®</span></div>
                                                                 <div class="mt-4">
                                                                     @php
@@ -179,8 +187,8 @@ Copy
                                                     <div class="mt-4 p-4 bg-gray-50 rounded-lg text-xs text-gray-700">
                                                         <p class="flex items-center"><img src="{{asset('boleto.png')}}" class="h-5 mr-2">O prazo de pagamento via boleto bancário é de 2 dias corridos.</p>
                                                     </div>
-                                                    <div class="mt-2 p-4  bg-green-50 rounded-lg gap-2 text-xs text-green-500">
-                                                        <div class="flex gap-2  items-center justify-start "><img src="{{asset('pix.png')}}" class="h-14" />
+                                                    <div class="mt-2 p-4 bg-green-50 rounded-lg gap-2 text-xs text-green-500">
+                                                        <div class="flex gap-2 items-center justify-start "><img src="{{asset('pix.png')}}" class="h-14" />
                                                             <p> com o PIX e priorizamos o despacho o mais breve possível!
                                                             <p>
                                                         </div>

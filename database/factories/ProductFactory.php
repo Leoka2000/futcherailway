@@ -35,6 +35,8 @@ class ProductFactory extends Factory
             'paulistas',
             'mineiros',
             'ultimos_lancamentos',
+            'edicao_retro',
+            'brasileirao_lancamentos',
             'nordestinos'
         ];
 
