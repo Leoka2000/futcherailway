@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for futche on 2025-02-07T22:42:02+01:00
+# fly.toml app configuration file generated for futche on 2025-03-02T21:04:03+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -19,6 +19,10 @@ console_command = 'php /var/www/html/artisan tinker'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
   SESSION_DRIVER = 'cookie'
   SESSION_SECURE_COOKIE = 'true'
+
+[[mounts]]
+  source = "storagevolume"
+  destination = "/var/www/html/storage/app/public/"
 
 [http_service]
   internal_port = 8080

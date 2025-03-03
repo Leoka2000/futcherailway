@@ -13,7 +13,6 @@ class Product extends Model
     protected $fillable = ['name', 'description', 'price', 'category', 'size', 'image'];
 
 
-
     public function shoppingCarts()
     {
         return $this->hasMany(ShoppingCart::class);
@@ -21,24 +20,21 @@ class Product extends Model
 
     public function setImageAttribute($value)
     {
-        // If $value is already a JSON string, decode it to an array
+
         if (is_string($value)) {
             $value = json_decode($value, true);
         }
 
-        // Ensure $value is an array and encode it as a JSON string
         $this->attributes['image'] = json_encode(array_values($value), JSON_UNESCAPED_SLASHES);
     }
 
+
     public function getImageAttribute($value)
     {
-        // Decodar o json para html
         return json_decode($value, true);
     }
 
-    protected $casts = [
-        'image' => 'array',
-    ];
+
 
 
     // Casting thhe image field to a array 

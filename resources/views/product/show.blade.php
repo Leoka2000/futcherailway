@@ -63,32 +63,32 @@
                                 </a>
                                 <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 mt-5 sm:grid-cols-12 lg:gap-x-8">
                                     @php
-                                        $images = $product->image;
-                                        $slides = [];
-                                        if (!empty($images) && is_array($images)) {
-                                            foreach ($images as $image) {
-                                                $slides[] = [
-                                                    'image' => asset('storage/' . $image),
-                                                    'description' => $product->description,
-                                                ];
-                                            }
+                                    $images = $product->image;
+                                    $slides = [];
+                                    if (!empty($images) && is_array($images)) {
+                                        foreach ($images as $image) {
+                                            $slides[] = [
+                                                'image' => asset('storage/' . $image),
+                                                'description' => $product->description,
+                                            ];
                                         }
-                                    @endphp
-        
-                                    @if(!empty($slides))
-                                        <!-- PhotoSwipe Gallery -->
-                                        <div class="w-full sm:h-screen sm:col-span-4 lg:col-span-5">
-                                            <div class="pswp-gallery grid grid-cols-2 gap-3" id="gallery">
-                                                @foreach($slides as $index => $slide)
-                                                    <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="block ">
-                                                        <img src="{{ $slide['image'] }}" alt="camisa" class="w-full h-56 object-cover customcss2 bg-gray-100">
-                                                    </a>
-                                                @endforeach
-                                            </div>
+                                    }
+                                @endphp
+                                
+                                @if(!empty($slides))
+                                    <div class="w-full sm:h-screen sm:col-span-4 lg:col-span-5">
+                                        <div class="pswp-gallery grid grid-cols-2 gap-3" id="gallery">
+                                            @foreach($slides as $index => $slide)
+                                                <a href="{{ $slide['image'] }}" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="block ">
+                                                    <img src="{{ $slide['image'] }}" alt="camisa" class="w-full h-56 object-cover customcss2 bg-gray-100">
+                                                </a>
+                                            @endforeach
                                         </div>
-                                    @else
-                                        <p>No images available</p>
-                                    @endif
+                                    </div>
+                                @else
+                                    <p>No images available</p>
+                                @endif
+                                
         
                                     <!-- Rest of your product details -->
                                     <div class="sm:col-span-8 lg:col-span-7">

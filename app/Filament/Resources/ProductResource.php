@@ -78,7 +78,7 @@ class ProductResource extends Resource
                     ->label('Product Images')
                     ->multiple()
                     ->image()
-                    ->directory('products')
+                    ->directory('public')
                     ->preserveFilenames()
                     ->columnSpanFull(),
             ]);
