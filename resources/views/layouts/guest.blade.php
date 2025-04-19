@@ -45,7 +45,7 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 300); // Artificial delay of 800ms
+                }, 200);
             ">
                 <span x-show="!loading">
                     <x-mary-button label="" icon="o-shopping-cart" class="relative btn-sm lg:btn"
@@ -53,7 +53,7 @@
                         <livewire:shopping-cart-icon />
                     </x-mary-button>
                 </span>
-                <span x-show="loading">
+                <span x-show="loading" x-cloak>
                     <x-mary-button class="relative btn-sm lg:btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
@@ -65,13 +65,13 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 300); // Artificial delay of 800ms
+                }, 200); // Artificial delay of 800ms
             ">
                 <span x-show="!loading">
                     <x-mary-button label="" icon="o-user" class="btn-ghost btn-md" tooltip-left="Minha conta"
                         responsive />
                 </span>
-                <span x-show="loading">
+                <span x-show="loading" x-cloak>
                     <x-mary-button class="relative btn-ghost btn-md">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
@@ -94,12 +94,12 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 300); // Artificial delay of 800ms
+                }, 200); // Artificial delay of 800ms
             ">
                 <span x-show="!loading">
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
                 </span>
-                <span x-show="loading">
+                <span x-show="loading" x-cloak>
                     <x-mary-button class="relative btn-ghost btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
@@ -107,23 +107,22 @@
             </a>
             @endunless
             <a href="mailto:Futche.sports@gmail.com">
-                <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" class="btn-ghost btn-sm lg:btn"
-                    responsive />
+                <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" class="btn-ghost" responsive />
             </a>
-            <a href="{{ route('components.shopping_cart_component_index') }}" class="relative"
+            <a href=" {{ route('components.shopping_cart_component_index') }}" class="relative"
                 x-data="{ loading: false }" @click.prevent="
-               loading = true;
-               setTimeout(() => {
-                   window.location.href = $el.getAttribute('href');
-               }, 300); // Artificial delay of 800ms
-           ">
+           loading = true;
+           setTimeout(() => {
+               window.location.href = $el.getAttribute('href');
+           }, 250);
+       ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="shadow-sm lg:w-64 lg:btn-warning btn-warning" responsive />
+                        class="text-gray-800 shadow-lg btn lg:w-64 dark:text-gray-800 lg:btn btn-warning" responsive />
                 </span>
-                <span x-show="loading">
-                    <x-mary-button class="relative shadow-sm lg:w-64 lg:btn-outline btn-warning">
-                        <x-mary-loading class="text-gray-500 dark:text-gray-500" />
+                <span x-show="loading" x-cloak>
+                    <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-warning btn-warning">
+                        <x-mary-loading class="text-gray-700 dark:text-gray-700" />
                     </x-mary-button>
                 </span>
             </a>

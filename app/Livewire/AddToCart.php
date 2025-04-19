@@ -44,8 +44,8 @@ class AddToCart extends Component
 
         // Trigger a success toast notification on every button click
         $this->success(
-            'Product added to cart!', // Title
-            'Your product has been successfully added to your cart.', // Description
+            'Produto adicionado ao carrinho!', // Title
+            'Seu produto foi adicionado com sucesso ao seu carrinho.', // Description
             position: 'toast-top toast-end', // Position
             timeout: 3000 // Timeout in milliseconds
         );

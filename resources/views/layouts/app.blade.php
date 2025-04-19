@@ -45,7 +45,7 @@
                         <livewire:shopping-cart-icon />
                     </x-mary-button>
                 </span>
-                <span x-show="loading">
+                <span x-show="loading" x-cloak>
                     <x-mary-button class="relative btn-sm lg:btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
@@ -63,7 +63,7 @@
                     <x-mary-button label="" icon="o-user" class="btn-ghost btn-md" tooltip-left="Minha conta"
                         responsive />
                 </span>
-                <span x-show="loading">
+                <span x-show="loading" x-cloak>
                     <x-mary-button class="relative btn-ghost btn-md">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
@@ -94,9 +94,9 @@
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
                         class="shadow-lg btn lg:w-64 lg:btn btn-warning" responsive />
                 </span>
-                <span x-show="loading">
-                    <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-outline btn-warning">
-                        <x-mary-loading class="text-gray-500 dark:text-gray-500" />
+                <span x-show="loading" x-cloak>
+                    <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-warning btn-warning">
+                        <x-mary-loading class="text-gray-700 dark:text-gray-700" />
                     </x-mary-button>
                 </span>
             </a>

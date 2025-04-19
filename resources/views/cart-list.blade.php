@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,19 +20,22 @@
     <!-- Styles -->
     @livewireStyles
 </head>
+
 <body>
-<x-mary-nav sticky full-width class="shadow-sm">
+    <x-mary-nav sticky full-width class="shadow-sm">
         <x-slot:brand>
             {{-- Drawer toggle for "main-drawer" --}}
-            <label for="main-drawer" class="lg:hidden mr-3">
+            <label for="main-drawer" class="mr-3 lg:hidden">
                 <x-mary-icon name="o-bars-3" class="cursor-pointer" />
             </label>
-            <a class="cursor-pointer" href="/"><img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}"
-                alt="logo" title="logo" /></a>
+            <a class="cursor-pointer" href="/"><img class='object-cover w-12 h-12 rounded-md'
+                    src="{{ asset('logo.png') }}" alt="logo" title="logo" /></a>
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="" icon="o-shopping-cart" link="#" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
+            <x-mary-button label="" icon="o-shopping-cart" link="#" class="relative btn" responsive>
+                <livewire:shopping-cart-icon />
+            </x-mary-button>
             <x-mary-button label="" icon="o-user" link="{{route('profile.show')}}" class="btn-ghost btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
@@ -46,26 +50,29 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="Termos e Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Rastrear pedido" icon="o-map-pin" link="{{route('profile.show')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Termos e Serviço" icon="o-information-circle" link="{{ route('policy')}}"
+                class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right"
+                href="mailto:Futche.sports@gmail.com" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Rastrear pedido" icon="o-map-pin" link="{{route('profile.show')}}"
+                class="btn-ghost btn-sm" responsive />
         </x-slot:actions>
     </x-mary-nav>
     <x-mary-main with-nav full-width>
 
 
 
-{{-- The `$slot` goes here --}}
-<x-slot:content>
- 
-   <x-list-cart />
+        {{-- The `$slot` goes here --}}
+        <x-slot:content>
 
-</x-slot:content>
+            <x-list-cart />
 
-</x-mary-main>
+        </x-slot:content>
 
-{{-- TOAST area --}}
-<x-mary-toast />
+    </x-mary-main>
+
+    {{-- TOAST area --}}
+    <x-mary-toast />
 
 </body>
 

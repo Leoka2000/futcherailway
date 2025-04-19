@@ -94,16 +94,16 @@
                         <!-- Button -->
                         <a href="{{ route('components.shopping_cart_component_index') }}" class="relative"
                             x-data="{ loading: false }" @click.prevent="
-                                   loading = true;
-                                   setTimeout(() => {
-                                       window.location.href = $el.getAttribute('href');
-                                   }, 800);
-                               ">
+                               loading = true;
+                               setTimeout(() => {
+                                   window.location.href = $el.getAttribute('href');
+                               }, 250);
+                           ">
                             <span x-show="!loading">
                                 <x-mary-button icon="o-shopping-bag" label="Ver mais" class="w-full btn" />
                             </span>
-                            <span x-show="loading">
-                                <x-mary-button class="relative btn-ghost btn-md">
+                            <span x-show="loading" x-cloak>
+                                <x-mary-button class="relative w-full btn">
                                     <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                                 </x-mary-button>
                             </span>

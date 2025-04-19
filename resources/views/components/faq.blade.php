@@ -13,7 +13,7 @@
             Há perguntas? Temos as respostas 😉
         </p>
         <h3
-            class="mt-1 text-2xl font-bold text-left text-gray-800 dark:text-gray-100 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center sm:mx-0">
+            class="mt-1 text-2xl font-bold text-left text-gray-600 dark:text-gray-100 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center sm:mx-0">
             Perguntas Frequentes (FAQ)
         </h3>
 
