@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 new class extends Component {
-    
+
     public $cartCount = 0;
 
     protected $listeners = [
@@ -26,5 +26,5 @@ new class extends Component {
 }; ?>
 
 <div>
-<x-mary-badge value="{{ $cartCount }}" class="badge-warning indicator-item absolute -right-2 -top-2" />
+    <x-mary-badge value="{{ $cartCount }}" class="absolute badge-warning indicator-item -right-2 -top-2" />
 </div>
