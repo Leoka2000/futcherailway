@@ -1,8 +1,11 @@
 <?php
 use App\Models\Product;
 use Livewire\Volt\Component;
+use Livewire\WithPagination;
 
 new class extends Component {
+
+    use WithPagination;
     public string $selectedCategory = 'todos';
     public string $searchTerm = ''; // Search input
 
@@ -20,7 +23,7 @@ new class extends Component {
             $query->where('name', 'like', '%' . $this->searchTerm . '%');
         }
 
-        return $query->get();
+        return $query->paginate(10);
     }
 
     public function setFilter($category)
@@ -31,13 +34,13 @@ new class extends Component {
 
     public function searchMulti($search)
     {
-        $this->searchTerm = $search; // Update search term dynamically
+        $this->searchTerm = $search;
     }
 
     public function clear()
     {
-        $this->selectedCategory = 'todos'; // Reset category filter
-        $this->searchTerm = ''; // Reset search term
+        $this->selectedCategory = 'todos';
+        $this->searchTerm = '';
     }
 
     public function with(): array
@@ -163,6 +166,18 @@ new class extends Component {
 
     <div class="mt-10 !p-0 sm:!p-2">
         {{-- PRODUCTS LIST --}}
+        @if($products->hasPages())
+        <div class="flex justify-start w-full col-span-2 mt-8 mb-5 md:col-span-4 xl:col-span-6">
+            <div class="join">
+                @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                <input class="join-item btn btn-square" type="radio" name="options" aria-label="{{ $page }}"
+                    wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page)
+                checked="checked"
+                @endif />
+                @endforeach
+            </div>
+        </div>
+        @endif
         <div x-data class="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6">
             @forelse($products as $product)
 
@@ -241,6 +256,8 @@ new class extends Component {
                 </div>
 
             </x-mary-card>
+
+
             @empty
             {{-- NO RESULTS--}}
             <div class="lg:w-screen lg:max-w-2xl">
@@ -252,6 +269,7 @@ new class extends Component {
                 </x-mary-alert>
             </div>
             @endforelse
+
         </div>
     </div>
 

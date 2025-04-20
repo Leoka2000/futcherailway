@@ -76,23 +76,36 @@
         {{-- Right side actions --}}
         <x-slot:actions>
 
-            <x-mary-button label="Minhas compras" icon="o-list-bullet" link="{{route('components.order-list-index')}}"
-                class="lg:btn-ghost btn-sm lg:btn" responsive />
+            <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
+                @click.prevent="
+        loading = true;
+        setTimeout(() => {
+            window.location.href = $el.getAttribute('href');
+        }, 200); // Artificial delay of 800ms
+    ">
+                <span x-show="!loading">
+                    <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
+                </span>
+                <span x-show="loading" x-cloak>
+                    <x-mary-button class="relative btn-ghost btn">
+                        <x-mary-loading class="text-gray-500 dark:text-gray-500" />
+                    </x-mary-button>
+                </span>
+            </a>
             <a href="mailto:Futche.sports@gmail.com">
-                <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" class="btn-ghost btn-sm lg:btn"
-                    responsive />
+                <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" class="btn-ghost" responsive />
             </a>
 
-            <a href="{{ route('components.shopping_cart_component_index') }}" class="relative"
+            <a href=" {{ route('components.shopping_cart_component_index') }}" class="relative"
                 x-data="{ loading: false }" @click.prevent="
-           loading = true;
-           setTimeout(() => {
-               window.location.href = $el.getAttribute('href');
-           }, 800);
-       ">
+       loading = true;
+       setTimeout(() => {
+           window.location.href = $el.getAttribute('href');
+       }, 250);
+   ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="shadow-lg btn lg:w-64 lg:btn btn-warning" responsive />
+                        class="text-gray-800 shadow-lg btn lg:w-64 dark:text-gray-800 lg:btn btn-warning" responsive />
                 </span>
                 <span x-show="loading" x-cloak>
                     <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-warning btn-warning">
@@ -100,7 +113,6 @@
                     </x-mary-button>
                 </span>
             </a>
-
 
 
         </x-slot:actions>

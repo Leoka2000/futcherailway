@@ -68,7 +68,7 @@
                                         </x-mary-button>
                                     </template>
 
-                                </a>
+
                                 </a>
                                 <div
                                     class="grid items-start w-full grid-cols-1 mt-5 gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
@@ -252,7 +252,7 @@
                                                 </template>
                                                 <template x-if="loading">
                                                     <x-mary-button class="w-full mt-2 btn-warning">
-                                                        <x-mary-loading class="w-6 text-gray-800" x />
+                                                        <x-mary-loading class="w-6 text-gray-800" />
                                                     </x-mary-button>
                                                 </template>
                                             </a>
