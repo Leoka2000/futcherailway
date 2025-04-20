@@ -387,7 +387,7 @@
                                 </x-mary-button>
                                 @endif
                                 <template x-teleport="body">
-                                    <div x-show="modalOpen"
+                                    <div x-show="modalOpen" 0
                                         class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
                                         x-cloak>
                                         <div x-show="modalOpen" x-transition:enter="ease-out duration-300"

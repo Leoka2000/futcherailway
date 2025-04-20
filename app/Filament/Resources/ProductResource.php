@@ -28,6 +28,7 @@ class ProductResource extends Resource
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('tracking_code')
+
                     ->maxLength(255),
 
                 Forms\Components\Select::make('category')
@@ -74,12 +75,10 @@ class ProductResource extends Resource
                     ->minValue(0),
 
                 Forms\Components\FileUpload::make('image')
+                    ->label('Product Images')
                     ->multiple()
-                    ->label('Images')
-                    ->acceptedFileTypes(['image/*'])
-                    ->panelLayout('grid')
-                    ->directory('words')
-                    ->reorderable(),
+                    ->image()
+                    ->columnSpanFull(),
             ]);
     }
 

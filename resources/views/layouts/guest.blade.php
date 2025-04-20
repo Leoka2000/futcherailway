@@ -94,7 +94,7 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 200); // Artificial delay of 800ms
+                }, 200);
             ">
                 <span x-show="!loading">
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
@@ -114,7 +114,7 @@
            loading = true;
            setTimeout(() => {
                window.location.href = $el.getAttribute('href');
-           }, 250);
+           }, 250); //delay q colokey
        ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
@@ -128,6 +128,7 @@
             </a>
 
         </x-slot:actions>
+
     </x-mary-nav>
     @endunless
     @endunless
@@ -148,5 +149,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <x-footer />
 </body>
+
 
 </html>

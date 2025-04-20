@@ -22,53 +22,53 @@ class UserResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-        ->schema([
-            Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
+            ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
 
-            Forms\Components\TextInput::make('email')
-                ->email()
-                ->required()
-                ->maxLength(255),
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
 
-            Forms\Components\TextInput::make('password')
-                ->password()
-                ->required(fn (string $operation): bool => $operation === 'create')
-                ->minLength(8)
-                ->confirmed(),
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->required(fn(string $operation): bool => $operation === 'create')
+                    ->minLength(8)
+                    ->confirmed(),
 
-            Forms\Components\TextInput::make('password_confirmation')
-                ->password()
-                ->required(fn (string $operation): bool => $operation === 'create')
-                ->minLength(8)
-                ->dehydrated(false),
+                Forms\Components\TextInput::make('password_confirmation')
+                    ->password()
+                    ->required(fn(string $operation): bool => $operation === 'create')
+                    ->minLength(8)
+                    ->dehydrated(false),
 
-          
-            
-        ]);
+
+
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            Tables\Columns\TextColumn::make('name')
-                ->searchable()
-                ->sortable(),
+            ->columns([
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
 
-            Tables\Columns\TextColumn::make('email')
-                ->searchable()
-                ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->sortable(),
 
-            Tables\Columns\TextColumn::make('created_at')
-                ->dateTime()
-                ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable(),
 
-            Tables\Columns\TextColumn::make('updated_at')
-                ->dateTime()
-                ->sortable(),
-        ])
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable(),
+            ])
             ->filters([
                 //
             ])
